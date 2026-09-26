@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {lookup} from './lookup.js'; import {provider} from './provider.js'; test('context lookup falls back', () => assert.equal(lookup([provider('x', 1)], 'y', 2), 2));

@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {metricCardStory} from './MetricCard.story.js'; test('metric story returns a view', () => assert.equal(metricCardStory().tag, 'article'));

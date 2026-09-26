@@ -1,0 +1,1 @@
+export const same = (left, right) => Object.is(left, right); export const shallowEqual = (left, right) => Object.keys(left || {}).length === Object.keys(right || {}).length && Object.keys(left || {}).every(key => Object.is(left[key], right[key]));

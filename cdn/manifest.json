@@ -1,0 +1,13 @@
+{
+  "version": "0.0.1",
+  "files": {
+    "index.js": {
+      "bytes": 21927,
+      "sha256": "9e8deba132dd494688300a5c04e791ad9b355e48e882ad79d653d43bc7443a95"
+    },
+    "index.global.js": {
+      "bytes": 22485,
+      "sha256": "be74d8230fb872fbb6153887550376e5f76e648970960f0b87c8eeba6625839d"
+    }
+  }
+}

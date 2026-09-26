@@ -1,0 +1,1 @@
+export function createStorage(storage = globalThis.localStorage) { return {get: key => storage?.getItem(key), set: (key, value) => storage?.setItem(key, value), remove: key => storage?.removeItem(key)}; }

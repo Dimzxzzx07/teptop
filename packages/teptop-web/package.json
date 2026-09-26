@@ -1,0 +1,30 @@
+{
+    "name":  "@teptop/web",
+    "version":  "0.0.1",
+    "description":  "HTML, PHP, WebAssembly, and utility CSS integration for Teptop.js.",
+    "type":  "module",
+    "main":  "src/index.js",
+    "exports":  {
+                    ".":  {
+                              "types":  "./src/index.d.ts",
+                              "import":  "./src/index.js",
+                              "default":  "./src/index.js"
+                          },
+                    "./browser":  {
+                                      "types":  "./src/browser.d.ts",
+                                      "import":  "./src/browser.js",
+                                      "default":  "./src/browser.js"
+                                  }
+                },
+    "types":  "src/index.d.ts",
+    "scripts":  {
+                    "test":  "node --test test/*.test.js"
+                },
+    "engines":  {
+                    "node":  "\u003e=20"
+                },
+    "license":  "MIT",
+    "publishConfig":  {
+                          "access":  "public"
+                      }
+}

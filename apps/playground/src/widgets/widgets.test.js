@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {WidgetGrid} from './WidgetGrid.js'; test('widget grid is composable', () => assert.equal(typeof WidgetGrid, 'function'));

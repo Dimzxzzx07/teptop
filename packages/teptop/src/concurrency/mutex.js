@@ -1,0 +1,1 @@
+export function createMutex() { let locked = false; const waiters = []; return {async lock() { if (locked) await new Promise(resolve => waiters.push(resolve)); locked = true; return () => { locked = false; waiters.shift()?.(); }; }, get locked() { return locked; }}; }

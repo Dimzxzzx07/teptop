@@ -1,0 +1,2 @@
+export function flattenTree(nodes, children = node => node.children || []) { return nodes.flatMap(node => [node, ...flattenTree(children(node), children)]); }
+export function findTree(nodes, predicate, children = node => node.children || []) { for (const node of nodes) { if (predicate(node)) return node; const found = findTree(children(node), predicate, children); if (found) return found; } return undefined; }

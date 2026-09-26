@@ -1,0 +1,1 @@
+export function createCatalog(messages = {}, fallback = {}) { return {get(key, values = {}) { const template = messages[key] ?? fallback[key] ?? key; return template.replace(/\{(\w+)\}/g, (_, name) => values[name] ?? `{${name}}`); }, keys: () => Object.keys({...fallback, ...messages})}; }

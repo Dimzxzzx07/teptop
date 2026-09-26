@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {composeSync} from './compose.js'; test('middleware composes synchronously', () => assert.equal(composeSync([value => value + 1])(1), 2));

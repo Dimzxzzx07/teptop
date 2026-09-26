@@ -1,0 +1,18 @@
+{
+    "name":  "@teptop/collections-browser",
+    "version":  "0.0.1",
+    "private":  true,
+    "description":  "Teptop collections browser package.",
+    "type":  "module",
+    "main":  "src/index.js",
+    "exports":  {
+                    ".":  "./src/index.js"
+                },
+    "scripts":  {
+                    "test":  "node --test test/*.test.js"
+                },
+    "dependencies":  {
+                         "teptop.js":  "0.0.1"
+                     },
+    "license":  "MIT"
+}

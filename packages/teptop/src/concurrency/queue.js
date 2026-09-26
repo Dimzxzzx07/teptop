@@ -1,0 +1,1 @@
+export function createAsyncQueue() { const items = []; const waiters = []; return {push(item) { const resolve = waiters.shift(); if (resolve) resolve(item); else items.push(item); }, async take() { return items.length ? items.shift() : new Promise(resolve => waiters.push(resolve)); }, get size() { return items.length; }}; }

@@ -1,0 +1,1 @@
+export function createLifecycleRegistry() { const hooks = new Set(); return {add: hook => (hooks.add(hook), () => hooks.delete(hook)), run: value => [...hooks].forEach(hook => hook(value)), clear: () => hooks.clear()}; }

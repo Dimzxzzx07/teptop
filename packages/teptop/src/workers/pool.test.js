@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {createWorkerPool} from './pool.js'; test('worker pool tracks pending jobs', () => { const pool = createWorkerPool(2); pool.add(() => {}); assert.equal(pool.pending(), 1); });

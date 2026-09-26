@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {decodeBase64, encodeBase64} from './base64.js'; test('codec round trips text', () => assert.equal(decodeBase64(encodeBase64('ok')), 'ok'));

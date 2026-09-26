@@ -1,0 +1,1 @@
+.status { color: var(--accent); } .empty-state, .loading-state, .error-state { padding: 1rem; color: var(--muted); } .progress { height: 4px; background: #202b3c; } .progress span { display: block; height: 100%; background: var(--accent); } .data-row { display: flex; justify-content: space-between; padding: .7rem 0; border-top: 1px solid #202b3c; }

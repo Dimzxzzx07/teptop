@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {createMetrics} from './metrics.js'; test('metrics increment counters', () => { const metrics = createMetrics(); metrics.increment('render'); assert.equal(metrics.read('render'), 1); });

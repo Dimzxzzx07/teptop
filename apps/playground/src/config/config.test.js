@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {navigation} from './navigation.js'; test('navigation config includes overview', () => assert.equal(navigation[0].path, '/'));

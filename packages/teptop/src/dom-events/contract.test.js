@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {isKeyboardEvent} from './keyboard.js'; test('keyboard event guard recognizes keys', () => assert.equal(isKeyboardEvent({key: 'Enter'}), true));

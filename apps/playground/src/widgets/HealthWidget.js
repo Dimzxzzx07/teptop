@@ -1,0 +1,1 @@
+import {h} from '/teptop.js'; import {StatusBadge} from '../components/StatusBadge.js'; export const HealthWidget = () => h('div', {className: 'widget'}, h('span', null, 'Health'), h(StatusBadge, {status: 'healthy'}));

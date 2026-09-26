@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {sanitizeText} from './sanitize.js'; test('security sanitizer removes tags', () => assert.equal(sanitizeText('<x>'), 'x'));

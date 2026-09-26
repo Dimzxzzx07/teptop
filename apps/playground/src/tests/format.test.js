@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {formatNumber} from '../utils/format.js'; test('format utility formats values', () => assert.equal(formatNumber(1000), '1,000'));

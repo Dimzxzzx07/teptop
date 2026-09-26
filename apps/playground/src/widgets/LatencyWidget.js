@@ -1,0 +1,1 @@
+import {h} from '/teptop.js'; import {ProgressBar} from '../components/ProgressBar.js'; export const LatencyWidget = () => h('div', {className: 'widget'}, h('span', null, 'Latency'), h(ProgressBar, {value: 42}));

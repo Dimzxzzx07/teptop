@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {benchmarkRender} from './render.js'; test('render benchmark returns work', () => assert.equal(benchmarkRender(['a']), 1));

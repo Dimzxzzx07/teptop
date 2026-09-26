@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {visits} from '../state/dashboard.js'; test('dashboard state starts with sessions', () => assert.equal(visits() > 0, true));

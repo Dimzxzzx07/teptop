@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {validateConfig} from './validate.js'; test('config validator checks mode', () => assert.equal(validateConfig({mode: 'dev'}), true));

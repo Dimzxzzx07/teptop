@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {pointerPosition} from './pointer.js'; test('pointer helper normalizes coordinates', () => assert.deepEqual(pointerPosition({clientX: 1, clientY: 2}), {x: 1, y: 2}));

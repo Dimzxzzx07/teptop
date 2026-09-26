@@ -1,0 +1,2129 @@
+# Teptop.js Workspace Guide
+
+Teptop.js is a signal-first JavaScript UI runtime and application toolkit.
+
+This root README combines setup guidance with a generated, path-by-path catalog of the workspace.
+
+The catalog names and describes every file and directory found beneath the repository root.
+
+Installed `node_modules` directories and Git metadata in `.git` are excluded from the project catalog.
+
+Hidden files and folders are included when the filesystem makes them visible to this generator.
+
+Generated build output, fixtures, package internals, tests, manifests, and scripts are included.
+
+The inventory is a snapshot; rerun the generator after adding, removing, or renaming workspace paths.
+
+Some package families use a shared generated layout; each path still has its own catalog entry.
+
+Descriptions are derived from the path, extension, and containing module to make the full tree scannable.
+
+Read the referenced source or test when implementation details are needed.
+
+## Quick start
+
+Requirements: Node.js 20 or newer and npm.
+
+Install workspace dependencies from the repository root with `npm install`.
+
+Run the primary runtime test with `npm test`.
+
+Run the wider test command with `npm run test:all`.
+
+Run TypeScript declaration checks with `npm run typecheck`.
+
+Run the browser playground with `npm run demo`.
+
+Use the project generator with `npm run cli -- create my-app`.
+
+Run the release metadata check with `npm run check:release`.
+
+Build CDN output with `npm run build:cdn`.
+
+## Core runtime
+
+The public npm package lives in `packages/teptop` and is named `teptop.js`.
+
+It provides signals, computed values, effects, batching, plain-object views, and a small DOM renderer.
+
+Higher-level modules add stores, forms, routing, HTTP, query caching, validation, middleware, and collections.
+
+The root `package.json` is a private workspace manifest; publish runtime packages from their package directories.
+
+Use the package README at `packages/teptop/README.md` for the detailed public API guide.
+
+## Top-level map
+
+- `apps/` — Runnable applications and interactive examples built on the Teptop runtime.
+- `benchmarks/` — Performance-oriented fixtures and scripts for measuring runtime operations.
+- `cdn/` — Browser-ready distribution entry points and metadata for CDN consumption.
+- `compiler/` — The standalone compiler implementation, transformations, plugins, and compiler tests.
+- `configs/` — Shared configuration modules used by project tooling and verification scripts.
+- `docs/` — Guides and reference material for framework users and contributors.
+- `fixtures/` — Reusable test fixtures, fixture factories, and representative data inputs.
+- `flow-typed/` — Flow declaration files for runtime and companion package surfaces.
+- `packages/` — The npm workspace packages, including the core runtime and supporting modules.
+- `scripts/` — Maintenance, release, generation, validation, and distribution automation.
+- `security/` — Security-focused checks and test cases for repository behavior.
+- `.gitignore` — Git ignore rules that keep installed node_modules directories out of commits.
+- `package-lock.json` — Resolved npm dependency lockfile for repository root.
+- `package.json` — npm manifest for repository root: package identity, exports, scripts, and dependency metadata.
+- `README.md` — Primary orientation and usage guide for repository root.
+- `tsconfig.json` — TypeScript compiler configuration for the workspace.
+
+## Complete file and folder inventory
+
+Inventory totals: 703 directories and 1270 files; 1973 paths in all.
+
+Every catalog line below represents one filesystem path.
+
+### Repository root files
+
+Configuration and documentation files located directly at the workspace root.
+
+- `.gitignore` — Git ignore rules that keep installed node_modules directories out of commits.
+- `apps/` — Runnable applications and interactive examples built on the Teptop runtime.
+- `benchmarks/` — Performance-oriented fixtures and scripts for measuring runtime operations.
+- `cdn/` — Browser-ready distribution entry points and metadata for CDN consumption.
+- `compiler/` — The standalone compiler implementation, transformations, plugins, and compiler tests.
+- `configs/` — Shared configuration modules used by project tooling and verification scripts.
+- `docs/` — Guides and reference material for framework users and contributors.
+- `fixtures/` — Reusable test fixtures, fixture factories, and representative data inputs.
+- `flow-typed/` — Flow declaration files for runtime and companion package surfaces.
+- `package-lock.json` — Resolved npm dependency lockfile for repository root.
+- `package.json` — npm manifest for repository root: package identity, exports, scripts, and dependency metadata.
+- `packages/` — The npm workspace packages, including the core runtime and supporting modules.
+- `README.md` — Primary orientation and usage guide for repository root.
+- `scripts/` — Maintenance, release, generation, validation, and distribution automation.
+- `security/` — Security-focused checks and test cases for repository behavior.
+- `tsconfig.json` — TypeScript compiler configuration for the workspace.
+
+### Repository area: apps
+
+Runnable applications and interactive examples built on the Teptop runtime.
+
+- `apps/playground/` — Groups playground resources belonging to apps.
+- `apps/playground/app.js` — Implementation or automation module for app in apps/playground.
+- `apps/playground/index.html` — HTML page, template, or markup fixture for index in apps/playground.
+- `apps/playground/server.js` — Implementation or automation module for server in apps/playground.
+- `apps/playground/src/` — Implementation source files for apps/playground.
+- `apps/playground/src/app.js` — Implementation or automation module for app in apps/playground/src.
+- `apps/playground/src/components/` — Groups components resources belonging to apps/playground/src.
+- `apps/playground/src/components/ActivityPanel.js` — Implementation or automation module for Activity Panel in apps/playground/src/components.
+- `apps/playground/src/components/CommandButton.js` — Implementation or automation module for Command Button in apps/playground/src/components.
+- `apps/playground/src/components/DataTable.js` — Implementation or automation module for Data Table in apps/playground/src/components.
+- `apps/playground/src/components/Drawer.js` — Implementation or automation module for Drawer in apps/playground/src/components.
+- `apps/playground/src/components/EmptyState.js` — Implementation or automation module for Empty State in apps/playground/src/components.
+- `apps/playground/src/components/ErrorState.js` — Implementation or automation module for Error State in apps/playground/src/components.
+- `apps/playground/src/components/FilterBar.js` — Implementation or automation module for Filter Bar in apps/playground/src/components.
+- `apps/playground/src/components/LoadingState.js` — Implementation or automation module for Loading State in apps/playground/src/components.
+- `apps/playground/src/components/MetricCard.js` — Implementation or automation module for Metric Card in apps/playground/src/components.
+- `apps/playground/src/components/Modal.js` — Implementation or automation module for Modal in apps/playground/src/components.
+- `apps/playground/src/components/Navigation.js` — Implementation or automation module for Navigation in apps/playground/src/components.
+- `apps/playground/src/components/ProgressBar.js` — Implementation or automation module for Progress Bar in apps/playground/src/components.
+- `apps/playground/src/components/SectionTitle.js` — Implementation or automation module for Section Title in apps/playground/src/components.
+- `apps/playground/src/components/ShellHeader.js` — Implementation or automation module for Shell Header in apps/playground/src/components.
+- `apps/playground/src/components/SignalControls.js` — Implementation or automation module for Signal Controls in apps/playground/src/components.
+- `apps/playground/src/components/Sparkline.js` — Implementation or automation module for Sparkline in apps/playground/src/components.
+- `apps/playground/src/components/StatusBadge.js` — Implementation or automation module for Status Badge in apps/playground/src/components.
+- `apps/playground/src/components/Toast.js` — Implementation or automation module for Toast in apps/playground/src/components.
+- `apps/playground/src/config/` — Groups config resources belonging to apps/playground/src.
+- `apps/playground/src/config/config.test.js` — Automated behavior tests for config in apps/playground/src/config.
+- `apps/playground/src/config/navigation.js` — Implementation or automation module for navigation in apps/playground/src/config.
+- `apps/playground/src/config/theme.js` — Implementation or automation module for theme in apps/playground/src/config.
+- `apps/playground/src/data/` — Data fixtures or data-layer implementation for apps/playground/src.
+- `apps/playground/src/data/activity.js` — Implementation or automation module for activity in apps/playground/src/data.
+- `apps/playground/src/data/charts.js` — Implementation or automation module for charts in apps/playground/src/data.
+- `apps/playground/src/data/deployments.js` — Implementation or automation module for deployments in apps/playground/src/data.
+- `apps/playground/src/data/modules.js` — Implementation or automation module for modules in apps/playground/src/data.
+- `apps/playground/src/fixtures/` — Groups fixtures resources belonging to apps/playground/src.
+- `apps/playground/src/fixtures/events.js` — Implementation or automation module for events in apps/playground/src/fixtures.
+- `apps/playground/src/fixtures/fixtures.test.js` — Automated behavior tests for fixtures in apps/playground/src/fixtures.
+- `apps/playground/src/fixtures/index.js` — Entry point for the apps/playground/src/fixtures module or package.
+- `apps/playground/src/fixtures/metrics.js` — Implementation or automation module for metrics in apps/playground/src/fixtures.
+- `apps/playground/src/fixtures/README.md` — Primary orientation and usage guide for apps/playground/src/fixtures.
+- `apps/playground/src/fixtures/users.js` — Implementation or automation module for users in apps/playground/src/fixtures.
+- `apps/playground/src/hooks/` — Groups hooks resources belonging to apps/playground/src.
+- `apps/playground/src/hooks/useAsyncStatus.js` — Implementation or automation module for use Async Status in apps/playground/src/hooks.
+- `apps/playground/src/hooks/useInterval.js` — Implementation or automation module for use Interval in apps/playground/src/hooks.
+- `apps/playground/src/hooks/useKeyboard.js` — Implementation or automation module for use Keyboard in apps/playground/src/hooks.
+- `apps/playground/src/hooks/useLocalState.js` — Implementation or automation module for use Local State in apps/playground/src/hooks.
+- `apps/playground/src/hooks/useToggle.js` — Implementation or automation module for use Toggle in apps/playground/src/hooks.
+- `apps/playground/src/icons/` — Groups icons resources belonging to apps/playground/src.
+- `apps/playground/src/icons/icons.test.js` — Automated behavior tests for icons in apps/playground/src/icons.
+- `apps/playground/src/icons/index.js` — Entry point for the apps/playground/src/icons module or package.
+- `apps/playground/src/icons/README.md` — Primary orientation and usage guide for apps/playground/src/icons.
+- `apps/playground/src/layouts/` — Groups layouts resources belonging to apps/playground/src.
+- `apps/playground/src/layouts/DashboardLayout.js` — Implementation or automation module for Dashboard Layout in apps/playground/src/layouts.
+- `apps/playground/src/layouts/index.js` — Entry point for the apps/playground/src/layouts module or package.
+- `apps/playground/src/layouts/layout.test.js` — Automated behavior tests for layout in apps/playground/src/layouts.
+- `apps/playground/src/layouts/MobileLayout.js` — Implementation or automation module for Mobile Layout in apps/playground/src/layouts.
+- `apps/playground/src/layouts/PanelLayout.js` — Implementation or automation module for Panel Layout in apps/playground/src/layouts.
+- `apps/playground/src/layouts/README.md` — Primary orientation and usage guide for apps/playground/src/layouts.
+- `apps/playground/src/locales/` — Groups locales resources belonging to apps/playground/src.
+- `apps/playground/src/locales/en.js` — Implementation or automation module for en in apps/playground/src/locales.
+- `apps/playground/src/locales/id.js` — Implementation or automation module for id in apps/playground/src/locales.
+- `apps/playground/src/locales/index.js` — Entry point for the apps/playground/src/locales module or package.
+- `apps/playground/src/locales/locale.test.js` — Automated behavior tests for locale in apps/playground/src/locales.
+- `apps/playground/src/locales/README.md` — Primary orientation and usage guide for apps/playground/src/locales.
+- `apps/playground/src/mocks/` — Groups mocks resources belonging to apps/playground/src.
+- `apps/playground/src/mocks/browser.js` — Implementation or automation module for browser in apps/playground/src/mocks.
+- `apps/playground/src/mocks/responses.js` — Implementation or automation module for responses in apps/playground/src/mocks.
+- `apps/playground/src/pages/` — Groups pages resources belonging to apps/playground/src.
+- `apps/playground/src/pages/ActivityPage.js` — Implementation or automation module for Activity Page in apps/playground/src/pages.
+- `apps/playground/src/pages/index.js` — Entry point for the apps/playground/src/pages module or package.
+- `apps/playground/src/pages/ModulesPage.js` — Implementation or automation module for Modules Page in apps/playground/src/pages.
+- `apps/playground/src/pages/NotFoundPage.js` — Implementation or automation module for Not Found Page in apps/playground/src/pages.
+- `apps/playground/src/pages/OverviewPage.js` — Implementation or automation module for Overview Page in apps/playground/src/pages.
+- `apps/playground/src/pages/SettingsPage.js` — Implementation or automation module for Settings Page in apps/playground/src/pages.
+- `apps/playground/src/services/` — Groups services resources belonging to apps/playground/src.
+- `apps/playground/src/services/analytics.js` — Implementation or automation module for analytics in apps/playground/src/services.
+- `apps/playground/src/services/api.js` — Implementation or automation module for api in apps/playground/src/services.
+- `apps/playground/src/services/health.js` — Implementation or automation module for health in apps/playground/src/services.
+- `apps/playground/src/services/notifications.js` — Implementation or automation module for notifications in apps/playground/src/services.
+- `apps/playground/src/state/` — Groups state resources belonging to apps/playground/src.
+- `apps/playground/src/state/dashboard.js` — Implementation or automation module for dashboard in apps/playground/src/state.
+- `apps/playground/src/stories/` — Groups stories resources belonging to apps/playground/src.
+- `apps/playground/src/stories/ActivityPanel.story.js` — Implementation or automation module for Activity Panel story in apps/playground/src/stories.
+- `apps/playground/src/stories/MetricCard.story.js` — Implementation or automation module for Metric Card story in apps/playground/src/stories.
+- `apps/playground/src/stories/Navigation.story.js` — Implementation or automation module for Navigation story in apps/playground/src/stories.
+- `apps/playground/src/stories/README.md` — Primary orientation and usage guide for apps/playground/src/stories.
+- `apps/playground/src/stories/stories.test.js` — Automated behavior tests for stories in apps/playground/src/stories.
+- `apps/playground/src/styles/` — Groups styles resources belonging to apps/playground/src.
+- `apps/playground/src/styles.css` — Stylesheet for styles in apps/playground/src.
+- `apps/playground/src/styles/components.css` — Stylesheet for components in apps/playground/src/styles.
+- `apps/playground/src/styles/responsive.css` — Stylesheet for responsive in apps/playground/src/styles.
+- `apps/playground/src/styles/tokens.css` — Stylesheet for tokens in apps/playground/src/styles.
+- `apps/playground/src/tests/` — Automated tests and test support for apps/playground/src.
+- `apps/playground/src/tests/data.test.js` — Automated behavior tests for data in apps/playground/src/tests.
+- `apps/playground/src/tests/format.test.js` — Automated behavior tests for format in apps/playground/src/tests.
+- `apps/playground/src/tests/guards.test.js` — Automated behavior tests for guards in apps/playground/src/tests.
+- `apps/playground/src/tests/README.md` — Primary orientation and usage guide for apps/playground/src/tests.
+- `apps/playground/src/tests/state.test.js` — Automated behavior tests for state in apps/playground/src/tests.
+- `apps/playground/src/themes/` — Groups themes resources belonging to apps/playground/src.
+- `apps/playground/src/themes/contrast.js` — Implementation or automation module for contrast in apps/playground/src/themes.
+- `apps/playground/src/themes/dark.js` — Implementation or automation module for dark in apps/playground/src/themes.
+- `apps/playground/src/themes/index.js` — Entry point for the apps/playground/src/themes module or package.
+- `apps/playground/src/themes/README.md` — Primary orientation and usage guide for apps/playground/src/themes.
+- `apps/playground/src/themes/themes.test.js` — Automated behavior tests for themes in apps/playground/src/themes.
+- `apps/playground/src/themes/tokens.js` — Implementation or automation module for tokens in apps/playground/src/themes.
+- `apps/playground/src/utils/` — Groups utils resources belonging to apps/playground/src.
+- `apps/playground/src/utils/format.js` — Implementation or automation module for format in apps/playground/src/utils.
+- `apps/playground/src/utils/guards.js` — Implementation or automation module for guards in apps/playground/src/utils.
+- `apps/playground/src/views/` — Groups views resources belonging to apps/playground/src.
+- `apps/playground/src/views/Activity.js` — Implementation or automation module for Activity in apps/playground/src/views.
+- `apps/playground/src/views/Modules.js` — Implementation or automation module for Modules in apps/playground/src/views.
+- `apps/playground/src/views/NotFound.js` — Implementation or automation module for Not Found in apps/playground/src/views.
+- `apps/playground/src/views/Overview.js` — Implementation or automation module for Overview in apps/playground/src/views.
+- `apps/playground/src/views/Settings.js` — Implementation or automation module for Settings in apps/playground/src/views.
+- `apps/playground/src/widgets/` — Groups widgets resources belonging to apps/playground/src.
+- `apps/playground/src/widgets/HealthWidget.js` — Implementation or automation module for Health Widget in apps/playground/src/widgets.
+- `apps/playground/src/widgets/LatencyWidget.js` — Implementation or automation module for Latency Widget in apps/playground/src/widgets.
+- `apps/playground/src/widgets/README.md` — Primary orientation and usage guide for apps/playground/src/widgets.
+- `apps/playground/src/widgets/TrafficWidget.js` — Implementation or automation module for Traffic Widget in apps/playground/src/widgets.
+- `apps/playground/src/widgets/WidgetGrid.js` — Implementation or automation module for Widget Grid in apps/playground/src/widgets.
+- `apps/playground/src/widgets/widgets.test.js` — Automated behavior tests for widgets in apps/playground/src/widgets.
+
+### Repository area: benchmarks
+
+Performance-oriented fixtures and scripts for measuring runtime operations.
+
+- `benchmarks/benchmark.test.js` — Automated behavior tests for benchmark in benchmarks.
+- `benchmarks/README.md` — Primary orientation and usage guide for benchmarks.
+- `benchmarks/render.js` — Implementation or automation module for render in benchmarks.
+- `benchmarks/signal.js` — Implementation or automation module for signal in benchmarks.
+
+### Repository area: cdn
+
+Browser-ready distribution entry points and metadata for CDN consumption.
+
+- `cdn/index.global.js` — Implementation or automation module for index global in cdn.
+- `cdn/index.global.js.map` — Repository asset named index.global.js.map, associated with cdn.
+- `cdn/index.js` — Entry point for the cdn module or package.
+- `cdn/index.js.map` — Repository asset named index.js.map, associated with cdn.
+- `cdn/manifest.json` — Structured configuration or data for manifest in cdn.
+
+### Repository area: compiler
+
+The standalone compiler implementation, transformations, plugins, and compiler tests.
+
+- `compiler/compiler.config.js` — Tool configuration module for compiler.
+- `compiler/index.js` — Entry point for the compiler module or package.
+- `compiler/parser.js` — Implementation or automation module for parser in compiler.
+- `compiler/plugins/` — Compiler or runtime plugins for compiler.
+- `compiler/plugins/index.js` — Entry point for the compiler/plugins module or package.
+- `compiler/plugins/uppercase.js` — Implementation or automation module for uppercase in compiler/plugins.
+- `compiler/README.md` — Primary orientation and usage guide for compiler.
+- `compiler/runtime.js` — Implementation or automation module for runtime in compiler.
+- `compiler/tests/` — Automated tests and test support for compiler.
+- `compiler/tests/parser.test.js` — Automated behavior tests for parser in compiler/tests.
+- `compiler/tests/transforms.test.js` — Automated behavior tests for transforms in compiler/tests.
+- `compiler/transforms/` — Compiler transformations for compiler.
+- `compiler/transforms/comments.js` — Implementation or automation module for comments in compiler/transforms.
+- `compiler/transforms/index.js` — Entry point for the compiler/transforms module or package.
+- `compiler/transforms/whitespace.js` — Implementation or automation module for whitespace in compiler/transforms.
+
+### Repository area: configs
+
+Shared configuration modules used by project tooling and verification scripts.
+
+- `configs/coverage.js` — Implementation or automation module for coverage in configs.
+- `configs/README.md` — Primary orientation and usage guide for configs.
+- `configs/test.js` — Implementation or automation module for test in configs.
+- `configs/workspace.js` — Implementation or automation module for workspace in configs.
+
+### Repository area: docs
+
+Guides and reference material for framework users and contributors.
+
+- `docs/getting-started/` — Groups getting started resources belonging to docs.
+- `docs/getting-started/first-app.md` — Documentation for first app in docs/getting started.
+- `docs/getting-started/installation.md` — Documentation for installation in docs/getting started.
+- `docs/guides/` — Groups guides resources belonging to docs.
+- `docs/guides/plugins.md` — Documentation for plugins in docs/guides.
+- `docs/guides/server-rendering.md` — Documentation for server rendering in docs/guides.
+- `docs/guides/testing.md` — Documentation for testing in docs/guides.
+- `docs/README.md` — Primary orientation and usage guide for docs.
+- `docs/reference/` — Groups reference resources belonging to docs.
+- `docs/reference/commands.md` — Documentation for commands in docs/reference.
+- `docs/reference/exports.md` — Documentation for exports in docs/reference.
+- `docs/runtime/` — Groups runtime resources belonging to docs.
+- `docs/runtime/lifecycle.md` — Documentation for lifecycle in docs/runtime.
+- `docs/runtime/rendering.md` — Documentation for rendering in docs/runtime.
+- `docs/runtime/signals.md` — Documentation for signals in docs/runtime.
+
+### Repository area: fixtures
+
+Reusable test fixtures, fixture factories, and representative data inputs.
+
+- `fixtures/data/` — Data fixtures or data-layer implementation for fixtures.
+- `fixtures/data/events.js` — Implementation or automation module for events in fixtures/data.
+- `fixtures/data/metrics.js` — Implementation or automation module for metrics in fixtures/data.
+- `fixtures/data/projects.js` — Implementation or automation module for projects in fixtures/data.
+- `fixtures/data/users.js` — Implementation or automation module for users in fixtures/data.
+- `fixtures/factories/` — Fixture and test-data factories for fixtures.
+- `fixtures/factories/store.js` — Implementation or automation module for store in fixtures/factories.
+- `fixtures/factories/user.js` — Implementation or automation module for user in fixtures/factories.
+- `fixtures/factories/view.js` — Implementation or automation module for view in fixtures/factories.
+- `fixtures/fixtures.test.js` — Automated behavior tests for fixtures in fixtures.
+- `fixtures/http/` — Groups http resources belonging to fixtures.
+- `fixtures/http/fetch.js` — Implementation or automation module for fetch in fixtures/http.
+- `fixtures/http/responses.js` — Implementation or automation module for responses in fixtures/http.
+- `fixtures/index.js` — Entry point for the fixtures module or package.
+- `fixtures/README.md` — Primary orientation and usage guide for fixtures.
+- `fixtures/router/` — Groups router resources belonging to fixtures.
+- `fixtures/router/paths.js` — Implementation or automation module for paths in fixtures/router.
+- `fixtures/router/routes.js` — Implementation or automation module for routes in fixtures/router.
+- `fixtures/schemas/` — Groups schemas resources belonging to fixtures.
+- `fixtures/schemas/project.js` — Implementation or automation module for project in fixtures/schemas.
+- `fixtures/schemas/user.js` — Implementation or automation module for user in fixtures/schemas.
+
+### Repository area: flow typed
+
+Flow declaration files for runtime and companion package surfaces.
+
+- `flow-typed/README.md` — Primary orientation and usage guide for flow typed.
+- `flow-typed/teptop-devtools.js` — Implementation or automation module for teptop devtools in flow typed.
+- `flow-typed/teptop-dom.js` — Implementation or automation module for teptop dom in flow typed.
+- `flow-typed/teptop-server.js` — Implementation or automation module for teptop server in flow typed.
+- `flow-typed/teptop.js` — Implementation or automation module for teptop in flow typed.
+
+### Repository area: packages
+
+The npm workspace packages, including the core runtime and supporting modules.
+
+- `packages/teptop/` — Core teptop.js npm package: public runtime source, declarations, documentation, and tests.
+- `packages/teptop-accessibility-adapter/` — Workspace package directory for @teptop/accessibility adapter; its child entries document the files actually present.
+- `packages/teptop-accessibility-adapter/package.json` — npm manifest for packages/teptop accessibility adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-accessibility-adapter/README.md` — Primary orientation and usage guide for packages/teptop accessibility adapter.
+- `packages/teptop-accessibility-adapter/src/` — Implementation source files for packages/teptop accessibility adapter.
+- `packages/teptop-accessibility-adapter/src/index.js` — Entry point for the packages/teptop accessibility adapter/src module or package.
+- `packages/teptop-accessibility-adapter/test/` — Automated tests and test support for packages/teptop accessibility adapter.
+- `packages/teptop-accessibility-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop accessibility adapter/test.
+- `packages/teptop-accessibility-browser/` — Workspace package directory for @teptop/accessibility browser; its child entries document the files actually present.
+- `packages/teptop-accessibility-browser/package.json` — npm manifest for packages/teptop accessibility browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-accessibility-browser/README.md` — Primary orientation and usage guide for packages/teptop accessibility browser.
+- `packages/teptop-accessibility-browser/src/` — Implementation source files for packages/teptop accessibility browser.
+- `packages/teptop-accessibility-browser/src/index.js` — Entry point for the packages/teptop accessibility browser/src module or package.
+- `packages/teptop-accessibility-browser/test/` — Automated tests and test support for packages/teptop accessibility browser.
+- `packages/teptop-accessibility-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop accessibility browser/test.
+- `packages/teptop-accessibility-core/` — Workspace package directory for @teptop/accessibility core; its child entries document the files actually present.
+- `packages/teptop-accessibility-core/package.json` — npm manifest for packages/teptop accessibility core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-accessibility-core/README.md` — Primary orientation and usage guide for packages/teptop accessibility core.
+- `packages/teptop-accessibility-core/src/` — Implementation source files for packages/teptop accessibility core.
+- `packages/teptop-accessibility-core/src/index.js` — Entry point for the packages/teptop accessibility core/src module or package.
+- `packages/teptop-accessibility-core/test/` — Automated tests and test support for packages/teptop accessibility core.
+- `packages/teptop-accessibility-core/test/index.test.js` — Automated behavior tests for index in packages/teptop accessibility core/test.
+- `packages/teptop-accessibility-server/` — Workspace package directory for @teptop/accessibility server; its child entries document the files actually present.
+- `packages/teptop-accessibility-server/package.json` — npm manifest for packages/teptop accessibility server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-accessibility-server/README.md` — Primary orientation and usage guide for packages/teptop accessibility server.
+- `packages/teptop-accessibility-server/src/` — Implementation source files for packages/teptop accessibility server.
+- `packages/teptop-accessibility-server/src/index.js` — Entry point for the packages/teptop accessibility server/src module or package.
+- `packages/teptop-accessibility-server/test/` — Automated tests and test support for packages/teptop accessibility server.
+- `packages/teptop-accessibility-server/test/index.test.js` — Automated behavior tests for index in packages/teptop accessibility server/test.
+- `packages/teptop-animation-adapter/` — Workspace package directory for @teptop/animation adapter; its child entries document the files actually present.
+- `packages/teptop-animation-adapter/package.json` — npm manifest for packages/teptop animation adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-animation-adapter/README.md` — Primary orientation and usage guide for packages/teptop animation adapter.
+- `packages/teptop-animation-adapter/src/` — Implementation source files for packages/teptop animation adapter.
+- `packages/teptop-animation-adapter/src/index.js` — Entry point for the packages/teptop animation adapter/src module or package.
+- `packages/teptop-animation-adapter/test/` — Automated tests and test support for packages/teptop animation adapter.
+- `packages/teptop-animation-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop animation adapter/test.
+- `packages/teptop-animation-browser/` — Workspace package directory for @teptop/animation browser; its child entries document the files actually present.
+- `packages/teptop-animation-browser/package.json` — npm manifest for packages/teptop animation browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-animation-browser/README.md` — Primary orientation and usage guide for packages/teptop animation browser.
+- `packages/teptop-animation-browser/src/` — Implementation source files for packages/teptop animation browser.
+- `packages/teptop-animation-browser/src/index.js` — Entry point for the packages/teptop animation browser/src module or package.
+- `packages/teptop-animation-browser/test/` — Automated tests and test support for packages/teptop animation browser.
+- `packages/teptop-animation-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop animation browser/test.
+- `packages/teptop-animation-core/` — Workspace package directory for @teptop/animation core; its child entries document the files actually present.
+- `packages/teptop-animation-core/package.json` — npm manifest for packages/teptop animation core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-animation-core/README.md` — Primary orientation and usage guide for packages/teptop animation core.
+- `packages/teptop-animation-core/src/` — Implementation source files for packages/teptop animation core.
+- `packages/teptop-animation-core/src/index.js` — Entry point for the packages/teptop animation core/src module or package.
+- `packages/teptop-animation-core/test/` — Automated tests and test support for packages/teptop animation core.
+- `packages/teptop-animation-core/test/index.test.js` — Automated behavior tests for index in packages/teptop animation core/test.
+- `packages/teptop-animation-server/` — Workspace package directory for @teptop/animation server; its child entries document the files actually present.
+- `packages/teptop-animation-server/package.json` — npm manifest for packages/teptop animation server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-animation-server/README.md` — Primary orientation and usage guide for packages/teptop animation server.
+- `packages/teptop-animation-server/src/` — Implementation source files for packages/teptop animation server.
+- `packages/teptop-animation-server/src/index.js` — Entry point for the packages/teptop animation server/src module or package.
+- `packages/teptop-animation-server/test/` — Automated tests and test support for packages/teptop animation server.
+- `packages/teptop-animation-server/test/index.test.js` — Automated behavior tests for index in packages/teptop animation server/test.
+- `packages/teptop-async-adapter/` — Workspace package directory for @teptop/async adapter; its child entries document the files actually present.
+- `packages/teptop-async-adapter/package.json` — npm manifest for packages/teptop async adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-async-adapter/README.md` — Primary orientation and usage guide for packages/teptop async adapter.
+- `packages/teptop-async-adapter/src/` — Implementation source files for packages/teptop async adapter.
+- `packages/teptop-async-adapter/src/index.js` — Entry point for the packages/teptop async adapter/src module or package.
+- `packages/teptop-async-adapter/test/` — Automated tests and test support for packages/teptop async adapter.
+- `packages/teptop-async-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop async adapter/test.
+- `packages/teptop-async-browser/` — Workspace package directory for @teptop/async browser; its child entries document the files actually present.
+- `packages/teptop-async-browser/package.json` — npm manifest for packages/teptop async browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-async-browser/README.md` — Primary orientation and usage guide for packages/teptop async browser.
+- `packages/teptop-async-browser/src/` — Implementation source files for packages/teptop async browser.
+- `packages/teptop-async-browser/src/index.js` — Entry point for the packages/teptop async browser/src module or package.
+- `packages/teptop-async-browser/test/` — Automated tests and test support for packages/teptop async browser.
+- `packages/teptop-async-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop async browser/test.
+- `packages/teptop-async-core/` — Workspace package directory for @teptop/async core; its child entries document the files actually present.
+- `packages/teptop-async-core/package.json` — npm manifest for packages/teptop async core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-async-core/README.md` — Primary orientation and usage guide for packages/teptop async core.
+- `packages/teptop-async-core/src/` — Implementation source files for packages/teptop async core.
+- `packages/teptop-async-core/src/index.js` — Entry point for the packages/teptop async core/src module or package.
+- `packages/teptop-async-core/test/` — Automated tests and test support for packages/teptop async core.
+- `packages/teptop-async-core/test/index.test.js` — Automated behavior tests for index in packages/teptop async core/test.
+- `packages/teptop-async-server/` — Workspace package directory for @teptop/async server; its child entries document the files actually present.
+- `packages/teptop-async-server/package.json` — npm manifest for packages/teptop async server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-async-server/README.md` — Primary orientation and usage guide for packages/teptop async server.
+- `packages/teptop-async-server/src/` — Implementation source files for packages/teptop async server.
+- `packages/teptop-async-server/src/index.js` — Entry point for the packages/teptop async server/src module or package.
+- `packages/teptop-async-server/test/` — Automated tests and test support for packages/teptop async server.
+- `packages/teptop-async-server/test/index.test.js` — Automated behavior tests for index in packages/teptop async server/test.
+- `packages/teptop-audio-adapter/` — Workspace package directory for @teptop/audio adapter; its child entries document the files actually present.
+- `packages/teptop-audio-adapter/package.json` — npm manifest for packages/teptop audio adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-audio-adapter/README.md` — Primary orientation and usage guide for packages/teptop audio adapter.
+- `packages/teptop-audio-adapter/src/` — Implementation source files for packages/teptop audio adapter.
+- `packages/teptop-audio-adapter/src/index.js` — Entry point for the packages/teptop audio adapter/src module or package.
+- `packages/teptop-audio-adapter/test/` — Automated tests and test support for packages/teptop audio adapter.
+- `packages/teptop-audio-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop audio adapter/test.
+- `packages/teptop-audio-browser/` — Workspace package directory for @teptop/audio browser; its child entries document the files actually present.
+- `packages/teptop-audio-browser/package.json` — npm manifest for packages/teptop audio browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-audio-browser/README.md` — Primary orientation and usage guide for packages/teptop audio browser.
+- `packages/teptop-audio-browser/src/` — Implementation source files for packages/teptop audio browser.
+- `packages/teptop-audio-browser/src/index.js` — Entry point for the packages/teptop audio browser/src module or package.
+- `packages/teptop-audio-browser/test/` — Automated tests and test support for packages/teptop audio browser.
+- `packages/teptop-audio-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop audio browser/test.
+- `packages/teptop-audio-core/` — Workspace package directory for @teptop/audio core; its child entries document the files actually present.
+- `packages/teptop-audio-core/package.json` — npm manifest for packages/teptop audio core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-audio-core/README.md` — Primary orientation and usage guide for packages/teptop audio core.
+- `packages/teptop-audio-core/src/` — Implementation source files for packages/teptop audio core.
+- `packages/teptop-audio-core/src/index.js` — Entry point for the packages/teptop audio core/src module or package.
+- `packages/teptop-audio-core/test/` — Automated tests and test support for packages/teptop audio core.
+- `packages/teptop-audio-core/test/index.test.js` — Automated behavior tests for index in packages/teptop audio core/test.
+- `packages/teptop-audio-server/` — Workspace package directory for @teptop/audio server; its child entries document the files actually present.
+- `packages/teptop-audio-server/package.json` — npm manifest for packages/teptop audio server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-audio-server/README.md` — Primary orientation and usage guide for packages/teptop audio server.
+- `packages/teptop-audio-server/src/` — Implementation source files for packages/teptop audio server.
+- `packages/teptop-audio-server/src/index.js` — Entry point for the packages/teptop audio server/src module or package.
+- `packages/teptop-audio-server/test/` — Automated tests and test support for packages/teptop audio server.
+- `packages/teptop-audio-server/test/index.test.js` — Automated behavior tests for index in packages/teptop audio server/test.
+- `packages/teptop-auth-adapter/` — Workspace package directory for @teptop/auth adapter; its child entries document the files actually present.
+- `packages/teptop-auth-adapter/package.json` — npm manifest for packages/teptop auth adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-auth-adapter/README.md` — Primary orientation and usage guide for packages/teptop auth adapter.
+- `packages/teptop-auth-adapter/src/` — Implementation source files for packages/teptop auth adapter.
+- `packages/teptop-auth-adapter/src/index.js` — Entry point for the packages/teptop auth adapter/src module or package.
+- `packages/teptop-auth-adapter/test/` — Automated tests and test support for packages/teptop auth adapter.
+- `packages/teptop-auth-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop auth adapter/test.
+- `packages/teptop-auth-browser/` — Workspace package directory for @teptop/auth browser; its child entries document the files actually present.
+- `packages/teptop-auth-browser/package.json` — npm manifest for packages/teptop auth browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-auth-browser/README.md` — Primary orientation and usage guide for packages/teptop auth browser.
+- `packages/teptop-auth-browser/src/` — Implementation source files for packages/teptop auth browser.
+- `packages/teptop-auth-browser/src/index.js` — Entry point for the packages/teptop auth browser/src module or package.
+- `packages/teptop-auth-browser/test/` — Automated tests and test support for packages/teptop auth browser.
+- `packages/teptop-auth-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop auth browser/test.
+- `packages/teptop-auth-core/` — Workspace package directory for @teptop/auth core; its child entries document the files actually present.
+- `packages/teptop-auth-core/package.json` — npm manifest for packages/teptop auth core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-auth-core/README.md` — Primary orientation and usage guide for packages/teptop auth core.
+- `packages/teptop-auth-core/src/` — Implementation source files for packages/teptop auth core.
+- `packages/teptop-auth-core/src/index.js` — Entry point for the packages/teptop auth core/src module or package.
+- `packages/teptop-auth-core/test/` — Automated tests and test support for packages/teptop auth core.
+- `packages/teptop-auth-core/test/index.test.js` — Automated behavior tests for index in packages/teptop auth core/test.
+- `packages/teptop-auth-server/` — Workspace package directory for @teptop/auth server; its child entries document the files actually present.
+- `packages/teptop-auth-server/package.json` — npm manifest for packages/teptop auth server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-auth-server/README.md` — Primary orientation and usage guide for packages/teptop auth server.
+- `packages/teptop-auth-server/src/` — Implementation source files for packages/teptop auth server.
+- `packages/teptop-auth-server/src/index.js` — Entry point for the packages/teptop auth server/src module or package.
+- `packages/teptop-auth-server/test/` — Automated tests and test support for packages/teptop auth server.
+- `packages/teptop-auth-server/test/index.test.js` — Automated behavior tests for index in packages/teptop auth server/test.
+- `packages/teptop-cache-adapter/` — Workspace package directory for @teptop/cache adapter; its child entries document the files actually present.
+- `packages/teptop-cache-adapter/package.json` — npm manifest for packages/teptop cache adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cache-adapter/README.md` — Primary orientation and usage guide for packages/teptop cache adapter.
+- `packages/teptop-cache-adapter/src/` — Implementation source files for packages/teptop cache adapter.
+- `packages/teptop-cache-adapter/src/index.js` — Entry point for the packages/teptop cache adapter/src module or package.
+- `packages/teptop-cache-adapter/test/` — Automated tests and test support for packages/teptop cache adapter.
+- `packages/teptop-cache-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop cache adapter/test.
+- `packages/teptop-cache-browser/` — Workspace package directory for @teptop/cache browser; its child entries document the files actually present.
+- `packages/teptop-cache-browser/package.json` — npm manifest for packages/teptop cache browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cache-browser/README.md` — Primary orientation and usage guide for packages/teptop cache browser.
+- `packages/teptop-cache-browser/src/` — Implementation source files for packages/teptop cache browser.
+- `packages/teptop-cache-browser/src/index.js` — Entry point for the packages/teptop cache browser/src module or package.
+- `packages/teptop-cache-browser/test/` — Automated tests and test support for packages/teptop cache browser.
+- `packages/teptop-cache-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop cache browser/test.
+- `packages/teptop-cache-core/` — Workspace package directory for @teptop/cache core; its child entries document the files actually present.
+- `packages/teptop-cache-core/package.json` — npm manifest for packages/teptop cache core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cache-core/README.md` — Primary orientation and usage guide for packages/teptop cache core.
+- `packages/teptop-cache-core/src/` — Implementation source files for packages/teptop cache core.
+- `packages/teptop-cache-core/src/index.js` — Entry point for the packages/teptop cache core/src module or package.
+- `packages/teptop-cache-core/test/` — Automated tests and test support for packages/teptop cache core.
+- `packages/teptop-cache-core/test/index.test.js` — Automated behavior tests for index in packages/teptop cache core/test.
+- `packages/teptop-cache-server/` — Workspace package directory for @teptop/cache server; its child entries document the files actually present.
+- `packages/teptop-cache-server/package.json` — npm manifest for packages/teptop cache server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cache-server/README.md` — Primary orientation and usage guide for packages/teptop cache server.
+- `packages/teptop-cache-server/src/` — Implementation source files for packages/teptop cache server.
+- `packages/teptop-cache-server/src/index.js` — Entry point for the packages/teptop cache server/src module or package.
+- `packages/teptop-cache-server/test/` — Automated tests and test support for packages/teptop cache server.
+- `packages/teptop-cache-server/test/index.test.js` — Automated behavior tests for index in packages/teptop cache server/test.
+- `packages/teptop-charts-adapter/` — Workspace package directory for @teptop/charts adapter; its child entries document the files actually present.
+- `packages/teptop-charts-adapter/package.json` — npm manifest for packages/teptop charts adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-charts-adapter/README.md` — Primary orientation and usage guide for packages/teptop charts adapter.
+- `packages/teptop-charts-adapter/src/` — Implementation source files for packages/teptop charts adapter.
+- `packages/teptop-charts-adapter/src/index.js` — Entry point for the packages/teptop charts adapter/src module or package.
+- `packages/teptop-charts-adapter/test/` — Automated tests and test support for packages/teptop charts adapter.
+- `packages/teptop-charts-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop charts adapter/test.
+- `packages/teptop-charts-browser/` — Workspace package directory for @teptop/charts browser; its child entries document the files actually present.
+- `packages/teptop-charts-browser/package.json` — npm manifest for packages/teptop charts browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-charts-browser/README.md` — Primary orientation and usage guide for packages/teptop charts browser.
+- `packages/teptop-charts-browser/src/` — Implementation source files for packages/teptop charts browser.
+- `packages/teptop-charts-browser/src/index.js` — Entry point for the packages/teptop charts browser/src module or package.
+- `packages/teptop-charts-browser/test/` — Automated tests and test support for packages/teptop charts browser.
+- `packages/teptop-charts-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop charts browser/test.
+- `packages/teptop-charts-core/` — Workspace package directory for @teptop/charts core; its child entries document the files actually present.
+- `packages/teptop-charts-core/package.json` — npm manifest for packages/teptop charts core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-charts-core/README.md` — Primary orientation and usage guide for packages/teptop charts core.
+- `packages/teptop-charts-core/src/` — Implementation source files for packages/teptop charts core.
+- `packages/teptop-charts-core/src/index.js` — Entry point for the packages/teptop charts core/src module or package.
+- `packages/teptop-charts-core/test/` — Automated tests and test support for packages/teptop charts core.
+- `packages/teptop-charts-core/test/index.test.js` — Automated behavior tests for index in packages/teptop charts core/test.
+- `packages/teptop-charts-server/` — Workspace package directory for @teptop/charts server; its child entries document the files actually present.
+- `packages/teptop-charts-server/package.json` — npm manifest for packages/teptop charts server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-charts-server/README.md` — Primary orientation and usage guide for packages/teptop charts server.
+- `packages/teptop-charts-server/src/` — Implementation source files for packages/teptop charts server.
+- `packages/teptop-charts-server/src/index.js` — Entry point for the packages/teptop charts server/src module or package.
+- `packages/teptop-charts-server/test/` — Automated tests and test support for packages/teptop charts server.
+- `packages/teptop-charts-server/test/index.test.js` — Automated behavior tests for index in packages/teptop charts server/test.
+- `packages/teptop-cli/` — Workspace package directory for @teptop/cli; its child entries document the files actually present.
+- `packages/teptop-cli-adapter/` — Workspace package directory for @teptop/cli adapter; its child entries document the files actually present.
+- `packages/teptop-cli-adapter/package.json` — npm manifest for packages/teptop cli adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cli-adapter/README.md` — Primary orientation and usage guide for packages/teptop cli adapter.
+- `packages/teptop-cli-adapter/src/` — Implementation source files for packages/teptop cli adapter.
+- `packages/teptop-cli-adapter/src/index.js` — Entry point for the packages/teptop cli adapter/src module or package.
+- `packages/teptop-cli-adapter/test/` — Automated tests and test support for packages/teptop cli adapter.
+- `packages/teptop-cli-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop cli adapter/test.
+- `packages/teptop-cli-browser/` — Workspace package directory for @teptop/cli browser; its child entries document the files actually present.
+- `packages/teptop-cli-browser/package.json` — npm manifest for packages/teptop cli browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cli-browser/README.md` — Primary orientation and usage guide for packages/teptop cli browser.
+- `packages/teptop-cli-browser/src/` — Implementation source files for packages/teptop cli browser.
+- `packages/teptop-cli-browser/src/index.js` — Entry point for the packages/teptop cli browser/src module or package.
+- `packages/teptop-cli-browser/test/` — Automated tests and test support for packages/teptop cli browser.
+- `packages/teptop-cli-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop cli browser/test.
+- `packages/teptop-cli-core/` — Workspace package directory for @teptop/cli core; its child entries document the files actually present.
+- `packages/teptop-cli-core/package.json` — npm manifest for packages/teptop cli core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cli-core/README.md` — Primary orientation and usage guide for packages/teptop cli core.
+- `packages/teptop-cli-core/src/` — Implementation source files for packages/teptop cli core.
+- `packages/teptop-cli-core/src/index.js` — Entry point for the packages/teptop cli core/src module or package.
+- `packages/teptop-cli-core/test/` — Automated tests and test support for packages/teptop cli core.
+- `packages/teptop-cli-core/test/index.test.js` — Automated behavior tests for index in packages/teptop cli core/test.
+- `packages/teptop-cli-server/` — Workspace package directory for @teptop/cli server; its child entries document the files actually present.
+- `packages/teptop-cli-server/package.json` — npm manifest for packages/teptop cli server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cli-server/README.md` — Primary orientation and usage guide for packages/teptop cli server.
+- `packages/teptop-cli-server/src/` — Implementation source files for packages/teptop cli server.
+- `packages/teptop-cli-server/src/index.js` — Entry point for the packages/teptop cli server/src module or package.
+- `packages/teptop-cli-server/test/` — Automated tests and test support for packages/teptop cli server.
+- `packages/teptop-cli-server/test/index.test.js` — Automated behavior tests for index in packages/teptop cli server/test.
+- `packages/teptop-cli/package.json` — npm manifest for packages/teptop cli: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cli/src/` — Implementation source files for packages/teptop cli.
+- `packages/teptop-cli/src/cli.js` — Implementation or automation module for cli in packages/teptop cli/src.
+- `packages/teptop-cli/src/commands/` — Groups commands resources belonging to packages/teptop cli/src.
+- `packages/teptop-cli/src/commands/create.js` — Implementation or automation module for create in packages/teptop cli/src/commands.
+- `packages/teptop-cli/src/commands/help.js` — Implementation or automation module for help in packages/teptop cli/src/commands.
+- `packages/teptop-cli/src/templates/` — Groups templates resources belonging to packages/teptop cli/src.
+- `packages/teptop-cli/src/templates/application.js` — Implementation or automation module for application in packages/teptop cli/src/templates.
+- `packages/teptop-cli/src/templates/index.html` — HTML page, template, or markup fixture for index in packages/teptop cli/src/templates.
+- `packages/teptop-cli/src/templates/index.php` — Repository asset named index.php, associated with packages/teptop cli/src/templates.
+- `packages/teptop-cli/src/templates/README-wasm.md` — Documentation for README wasm in packages/teptop cli/src/templates.
+- `packages/teptop-cli/src/utils/` — Groups utils resources belonging to packages/teptop cli/src.
+- `packages/teptop-cli/src/utils/files.js` — Implementation or automation module for files in packages/teptop cli/src/utils.
+- `packages/teptop-cloud-adapter/` — Workspace package directory for @teptop/cloud adapter; its child entries document the files actually present.
+- `packages/teptop-cloud-adapter/package.json` — npm manifest for packages/teptop cloud adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cloud-adapter/README.md` — Primary orientation and usage guide for packages/teptop cloud adapter.
+- `packages/teptop-cloud-adapter/src/` — Implementation source files for packages/teptop cloud adapter.
+- `packages/teptop-cloud-adapter/src/index.js` — Entry point for the packages/teptop cloud adapter/src module or package.
+- `packages/teptop-cloud-adapter/test/` — Automated tests and test support for packages/teptop cloud adapter.
+- `packages/teptop-cloud-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop cloud adapter/test.
+- `packages/teptop-cloud-browser/` — Workspace package directory for @teptop/cloud browser; its child entries document the files actually present.
+- `packages/teptop-cloud-browser/package.json` — npm manifest for packages/teptop cloud browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cloud-browser/README.md` — Primary orientation and usage guide for packages/teptop cloud browser.
+- `packages/teptop-cloud-browser/src/` — Implementation source files for packages/teptop cloud browser.
+- `packages/teptop-cloud-browser/src/index.js` — Entry point for the packages/teptop cloud browser/src module or package.
+- `packages/teptop-cloud-browser/test/` — Automated tests and test support for packages/teptop cloud browser.
+- `packages/teptop-cloud-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop cloud browser/test.
+- `packages/teptop-cloud-core/` — Workspace package directory for @teptop/cloud core; its child entries document the files actually present.
+- `packages/teptop-cloud-core/package.json` — npm manifest for packages/teptop cloud core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cloud-core/README.md` — Primary orientation and usage guide for packages/teptop cloud core.
+- `packages/teptop-cloud-core/src/` — Implementation source files for packages/teptop cloud core.
+- `packages/teptop-cloud-core/src/index.js` — Entry point for the packages/teptop cloud core/src module or package.
+- `packages/teptop-cloud-core/test/` — Automated tests and test support for packages/teptop cloud core.
+- `packages/teptop-cloud-core/test/index.test.js` — Automated behavior tests for index in packages/teptop cloud core/test.
+- `packages/teptop-cloud-server/` — Workspace package directory for @teptop/cloud server; its child entries document the files actually present.
+- `packages/teptop-cloud-server/package.json` — npm manifest for packages/teptop cloud server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-cloud-server/README.md` — Primary orientation and usage guide for packages/teptop cloud server.
+- `packages/teptop-cloud-server/src/` — Implementation source files for packages/teptop cloud server.
+- `packages/teptop-cloud-server/src/index.js` — Entry point for the packages/teptop cloud server/src module or package.
+- `packages/teptop-cloud-server/test/` — Automated tests and test support for packages/teptop cloud server.
+- `packages/teptop-cloud-server/test/index.test.js` — Automated behavior tests for index in packages/teptop cloud server/test.
+- `packages/teptop-codec-adapter/` — Workspace package directory for @teptop/codec adapter; its child entries document the files actually present.
+- `packages/teptop-codec-adapter/package.json` — npm manifest for packages/teptop codec adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-codec-adapter/README.md` — Primary orientation and usage guide for packages/teptop codec adapter.
+- `packages/teptop-codec-adapter/src/` — Implementation source files for packages/teptop codec adapter.
+- `packages/teptop-codec-adapter/src/index.js` — Entry point for the packages/teptop codec adapter/src module or package.
+- `packages/teptop-codec-adapter/test/` — Automated tests and test support for packages/teptop codec adapter.
+- `packages/teptop-codec-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop codec adapter/test.
+- `packages/teptop-codec-browser/` — Workspace package directory for @teptop/codec browser; its child entries document the files actually present.
+- `packages/teptop-codec-browser/package.json` — npm manifest for packages/teptop codec browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-codec-browser/README.md` — Primary orientation and usage guide for packages/teptop codec browser.
+- `packages/teptop-codec-browser/src/` — Implementation source files for packages/teptop codec browser.
+- `packages/teptop-codec-browser/src/index.js` — Entry point for the packages/teptop codec browser/src module or package.
+- `packages/teptop-codec-browser/test/` — Automated tests and test support for packages/teptop codec browser.
+- `packages/teptop-codec-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop codec browser/test.
+- `packages/teptop-codec-core/` — Workspace package directory for @teptop/codec core; its child entries document the files actually present.
+- `packages/teptop-codec-core/package.json` — npm manifest for packages/teptop codec core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-codec-core/README.md` — Primary orientation and usage guide for packages/teptop codec core.
+- `packages/teptop-codec-core/src/` — Implementation source files for packages/teptop codec core.
+- `packages/teptop-codec-core/src/index.js` — Entry point for the packages/teptop codec core/src module or package.
+- `packages/teptop-codec-core/test/` — Automated tests and test support for packages/teptop codec core.
+- `packages/teptop-codec-core/test/index.test.js` — Automated behavior tests for index in packages/teptop codec core/test.
+- `packages/teptop-codec-server/` — Workspace package directory for @teptop/codec server; its child entries document the files actually present.
+- `packages/teptop-codec-server/package.json` — npm manifest for packages/teptop codec server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-codec-server/README.md` — Primary orientation and usage guide for packages/teptop codec server.
+- `packages/teptop-codec-server/src/` — Implementation source files for packages/teptop codec server.
+- `packages/teptop-codec-server/src/index.js` — Entry point for the packages/teptop codec server/src module or package.
+- `packages/teptop-codec-server/test/` — Automated tests and test support for packages/teptop codec server.
+- `packages/teptop-codec-server/test/index.test.js` — Automated behavior tests for index in packages/teptop codec server/test.
+- `packages/teptop-collections-adapter/` — Workspace package directory for @teptop/collections adapter; its child entries document the files actually present.
+- `packages/teptop-collections-adapter/package.json` — npm manifest for packages/teptop collections adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-collections-adapter/README.md` — Primary orientation and usage guide for packages/teptop collections adapter.
+- `packages/teptop-collections-adapter/src/` — Implementation source files for packages/teptop collections adapter.
+- `packages/teptop-collections-adapter/src/index.js` — Entry point for the packages/teptop collections adapter/src module or package.
+- `packages/teptop-collections-adapter/test/` — Automated tests and test support for packages/teptop collections adapter.
+- `packages/teptop-collections-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop collections adapter/test.
+- `packages/teptop-collections-browser/` — Workspace package directory for @teptop/collections browser; its child entries document the files actually present.
+- `packages/teptop-collections-browser/package.json` — npm manifest for packages/teptop collections browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-collections-browser/README.md` — Primary orientation and usage guide for packages/teptop collections browser.
+- `packages/teptop-collections-browser/src/` — Implementation source files for packages/teptop collections browser.
+- `packages/teptop-collections-browser/src/index.js` — Entry point for the packages/teptop collections browser/src module or package.
+- `packages/teptop-collections-browser/test/` — Automated tests and test support for packages/teptop collections browser.
+- `packages/teptop-collections-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop collections browser/test.
+- `packages/teptop-collections-core/` — Workspace package directory for @teptop/collections core; its child entries document the files actually present.
+- `packages/teptop-collections-core/package.json` — npm manifest for packages/teptop collections core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-collections-core/README.md` — Primary orientation and usage guide for packages/teptop collections core.
+- `packages/teptop-collections-core/src/` — Implementation source files for packages/teptop collections core.
+- `packages/teptop-collections-core/src/index.js` — Entry point for the packages/teptop collections core/src module or package.
+- `packages/teptop-collections-core/test/` — Automated tests and test support for packages/teptop collections core.
+- `packages/teptop-collections-core/test/index.test.js` — Automated behavior tests for index in packages/teptop collections core/test.
+- `packages/teptop-collections-server/` — Workspace package directory for @teptop/collections server; its child entries document the files actually present.
+- `packages/teptop-collections-server/package.json` — npm manifest for packages/teptop collections server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-collections-server/README.md` — Primary orientation and usage guide for packages/teptop collections server.
+- `packages/teptop-collections-server/src/` — Implementation source files for packages/teptop collections server.
+- `packages/teptop-collections-server/src/index.js` — Entry point for the packages/teptop collections server/src module or package.
+- `packages/teptop-collections-server/test/` — Automated tests and test support for packages/teptop collections server.
+- `packages/teptop-collections-server/test/index.test.js` — Automated behavior tests for index in packages/teptop collections server/test.
+- `packages/teptop-compiler-adapter/` — Workspace package directory for @teptop/compiler adapter; its child entries document the files actually present.
+- `packages/teptop-compiler-adapter/package.json` — npm manifest for packages/teptop compiler adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-compiler-adapter/README.md` — Primary orientation and usage guide for packages/teptop compiler adapter.
+- `packages/teptop-compiler-adapter/src/` — Implementation source files for packages/teptop compiler adapter.
+- `packages/teptop-compiler-adapter/src/index.js` — Entry point for the packages/teptop compiler adapter/src module or package.
+- `packages/teptop-compiler-adapter/test/` — Automated tests and test support for packages/teptop compiler adapter.
+- `packages/teptop-compiler-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop compiler adapter/test.
+- `packages/teptop-compiler-browser/` — Workspace package directory for @teptop/compiler browser; its child entries document the files actually present.
+- `packages/teptop-compiler-browser/package.json` — npm manifest for packages/teptop compiler browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-compiler-browser/README.md` — Primary orientation and usage guide for packages/teptop compiler browser.
+- `packages/teptop-compiler-browser/src/` — Implementation source files for packages/teptop compiler browser.
+- `packages/teptop-compiler-browser/src/index.js` — Entry point for the packages/teptop compiler browser/src module or package.
+- `packages/teptop-compiler-browser/test/` — Automated tests and test support for packages/teptop compiler browser.
+- `packages/teptop-compiler-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop compiler browser/test.
+- `packages/teptop-compiler-core/` — Workspace package directory for @teptop/compiler core; its child entries document the files actually present.
+- `packages/teptop-compiler-core/package.json` — npm manifest for packages/teptop compiler core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-compiler-core/README.md` — Primary orientation and usage guide for packages/teptop compiler core.
+- `packages/teptop-compiler-core/src/` — Implementation source files for packages/teptop compiler core.
+- `packages/teptop-compiler-core/src/index.js` — Entry point for the packages/teptop compiler core/src module or package.
+- `packages/teptop-compiler-core/test/` — Automated tests and test support for packages/teptop compiler core.
+- `packages/teptop-compiler-core/test/index.test.js` — Automated behavior tests for index in packages/teptop compiler core/test.
+- `packages/teptop-compiler-server/` — Workspace package directory for @teptop/compiler server; its child entries document the files actually present.
+- `packages/teptop-compiler-server/package.json` — npm manifest for packages/teptop compiler server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-compiler-server/README.md` — Primary orientation and usage guide for packages/teptop compiler server.
+- `packages/teptop-compiler-server/src/` — Implementation source files for packages/teptop compiler server.
+- `packages/teptop-compiler-server/src/index.js` — Entry point for the packages/teptop compiler server/src module or package.
+- `packages/teptop-compiler-server/test/` — Automated tests and test support for packages/teptop compiler server.
+- `packages/teptop-compiler-server/test/index.test.js` — Automated behavior tests for index in packages/teptop compiler server/test.
+- `packages/teptop-concurrency-adapter/` — Workspace package directory for @teptop/concurrency adapter; its child entries document the files actually present.
+- `packages/teptop-concurrency-adapter/package.json` — npm manifest for packages/teptop concurrency adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-concurrency-adapter/README.md` — Primary orientation and usage guide for packages/teptop concurrency adapter.
+- `packages/teptop-concurrency-adapter/src/` — Implementation source files for packages/teptop concurrency adapter.
+- `packages/teptop-concurrency-adapter/src/index.js` — Entry point for the packages/teptop concurrency adapter/src module or package.
+- `packages/teptop-concurrency-adapter/test/` — Automated tests and test support for packages/teptop concurrency adapter.
+- `packages/teptop-concurrency-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop concurrency adapter/test.
+- `packages/teptop-concurrency-browser/` — Workspace package directory for @teptop/concurrency browser; its child entries document the files actually present.
+- `packages/teptop-concurrency-browser/package.json` — npm manifest for packages/teptop concurrency browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-concurrency-browser/README.md` — Primary orientation and usage guide for packages/teptop concurrency browser.
+- `packages/teptop-concurrency-browser/src/` — Implementation source files for packages/teptop concurrency browser.
+- `packages/teptop-concurrency-browser/src/index.js` — Entry point for the packages/teptop concurrency browser/src module or package.
+- `packages/teptop-concurrency-browser/test/` — Automated tests and test support for packages/teptop concurrency browser.
+- `packages/teptop-concurrency-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop concurrency browser/test.
+- `packages/teptop-concurrency-core/` — Workspace package directory for @teptop/concurrency core; its child entries document the files actually present.
+- `packages/teptop-concurrency-core/package.json` — npm manifest for packages/teptop concurrency core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-concurrency-core/README.md` — Primary orientation and usage guide for packages/teptop concurrency core.
+- `packages/teptop-concurrency-core/src/` — Implementation source files for packages/teptop concurrency core.
+- `packages/teptop-concurrency-core/src/index.js` — Entry point for the packages/teptop concurrency core/src module or package.
+- `packages/teptop-concurrency-core/test/` — Automated tests and test support for packages/teptop concurrency core.
+- `packages/teptop-concurrency-core/test/index.test.js` — Automated behavior tests for index in packages/teptop concurrency core/test.
+- `packages/teptop-concurrency-server/` — Workspace package directory for @teptop/concurrency server; its child entries document the files actually present.
+- `packages/teptop-concurrency-server/package.json` — npm manifest for packages/teptop concurrency server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-concurrency-server/README.md` — Primary orientation and usage guide for packages/teptop concurrency server.
+- `packages/teptop-concurrency-server/src/` — Implementation source files for packages/teptop concurrency server.
+- `packages/teptop-concurrency-server/src/index.js` — Entry point for the packages/teptop concurrency server/src module or package.
+- `packages/teptop-concurrency-server/test/` — Automated tests and test support for packages/teptop concurrency server.
+- `packages/teptop-concurrency-server/test/index.test.js` — Automated behavior tests for index in packages/teptop concurrency server/test.
+- `packages/teptop-config-adapter/` — Workspace package directory for @teptop/config adapter; its child entries document the files actually present.
+- `packages/teptop-config-adapter/package.json` — npm manifest for packages/teptop config adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-config-adapter/README.md` — Primary orientation and usage guide for packages/teptop config adapter.
+- `packages/teptop-config-adapter/src/` — Implementation source files for packages/teptop config adapter.
+- `packages/teptop-config-adapter/src/index.js` — Entry point for the packages/teptop config adapter/src module or package.
+- `packages/teptop-config-adapter/test/` — Automated tests and test support for packages/teptop config adapter.
+- `packages/teptop-config-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop config adapter/test.
+- `packages/teptop-config-browser/` — Workspace package directory for @teptop/config browser; its child entries document the files actually present.
+- `packages/teptop-config-browser/package.json` — npm manifest for packages/teptop config browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-config-browser/README.md` — Primary orientation and usage guide for packages/teptop config browser.
+- `packages/teptop-config-browser/src/` — Implementation source files for packages/teptop config browser.
+- `packages/teptop-config-browser/src/index.js` — Entry point for the packages/teptop config browser/src module or package.
+- `packages/teptop-config-browser/test/` — Automated tests and test support for packages/teptop config browser.
+- `packages/teptop-config-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop config browser/test.
+- `packages/teptop-config-core/` — Workspace package directory for @teptop/config core; its child entries document the files actually present.
+- `packages/teptop-config-core/package.json` — npm manifest for packages/teptop config core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-config-core/README.md` — Primary orientation and usage guide for packages/teptop config core.
+- `packages/teptop-config-core/src/` — Implementation source files for packages/teptop config core.
+- `packages/teptop-config-core/src/index.js` — Entry point for the packages/teptop config core/src module or package.
+- `packages/teptop-config-core/test/` — Automated tests and test support for packages/teptop config core.
+- `packages/teptop-config-core/test/index.test.js` — Automated behavior tests for index in packages/teptop config core/test.
+- `packages/teptop-config-server/` — Workspace package directory for @teptop/config server; its child entries document the files actually present.
+- `packages/teptop-config-server/package.json` — npm manifest for packages/teptop config server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-config-server/README.md` — Primary orientation and usage guide for packages/teptop config server.
+- `packages/teptop-config-server/src/` — Implementation source files for packages/teptop config server.
+- `packages/teptop-config-server/src/index.js` — Entry point for the packages/teptop config server/src module or package.
+- `packages/teptop-config-server/test/` — Automated tests and test support for packages/teptop config server.
+- `packages/teptop-config-server/test/index.test.js` — Automated behavior tests for index in packages/teptop config server/test.
+- `packages/teptop-context-adapter/` — Workspace package directory for @teptop/context adapter; its child entries document the files actually present.
+- `packages/teptop-context-adapter/package.json` — npm manifest for packages/teptop context adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-context-adapter/README.md` — Primary orientation and usage guide for packages/teptop context adapter.
+- `packages/teptop-context-adapter/src/` — Implementation source files for packages/teptop context adapter.
+- `packages/teptop-context-adapter/src/index.js` — Entry point for the packages/teptop context adapter/src module or package.
+- `packages/teptop-context-adapter/test/` — Automated tests and test support for packages/teptop context adapter.
+- `packages/teptop-context-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop context adapter/test.
+- `packages/teptop-context-browser/` — Workspace package directory for @teptop/context browser; its child entries document the files actually present.
+- `packages/teptop-context-browser/package.json` — npm manifest for packages/teptop context browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-context-browser/README.md` — Primary orientation and usage guide for packages/teptop context browser.
+- `packages/teptop-context-browser/src/` — Implementation source files for packages/teptop context browser.
+- `packages/teptop-context-browser/src/index.js` — Entry point for the packages/teptop context browser/src module or package.
+- `packages/teptop-context-browser/test/` — Automated tests and test support for packages/teptop context browser.
+- `packages/teptop-context-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop context browser/test.
+- `packages/teptop-context-core/` — Workspace package directory for @teptop/context core; its child entries document the files actually present.
+- `packages/teptop-context-core/package.json` — npm manifest for packages/teptop context core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-context-core/README.md` — Primary orientation and usage guide for packages/teptop context core.
+- `packages/teptop-context-core/src/` — Implementation source files for packages/teptop context core.
+- `packages/teptop-context-core/src/index.js` — Entry point for the packages/teptop context core/src module or package.
+- `packages/teptop-context-core/test/` — Automated tests and test support for packages/teptop context core.
+- `packages/teptop-context-core/test/index.test.js` — Automated behavior tests for index in packages/teptop context core/test.
+- `packages/teptop-context-server/` — Workspace package directory for @teptop/context server; its child entries document the files actually present.
+- `packages/teptop-context-server/package.json` — npm manifest for packages/teptop context server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-context-server/README.md` — Primary orientation and usage guide for packages/teptop context server.
+- `packages/teptop-context-server/src/` — Implementation source files for packages/teptop context server.
+- `packages/teptop-context-server/src/index.js` — Entry point for the packages/teptop context server/src module or package.
+- `packages/teptop-context-server/test/` — Automated tests and test support for packages/teptop context server.
+- `packages/teptop-context-server/test/index.test.js` — Automated behavior tests for index in packages/teptop context server/test.
+- `packages/teptop-data-adapter/` — Workspace package directory for @teptop/data adapter; its child entries document the files actually present.
+- `packages/teptop-data-adapter/package.json` — npm manifest for packages/teptop data adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-data-adapter/README.md` — Primary orientation and usage guide for packages/teptop data adapter.
+- `packages/teptop-data-adapter/src/` — Implementation source files for packages/teptop data adapter.
+- `packages/teptop-data-adapter/src/index.js` — Entry point for the packages/teptop data adapter/src module or package.
+- `packages/teptop-data-adapter/test/` — Automated tests and test support for packages/teptop data adapter.
+- `packages/teptop-data-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop data adapter/test.
+- `packages/teptop-data-browser/` — Workspace package directory for @teptop/data browser; its child entries document the files actually present.
+- `packages/teptop-data-browser/package.json` — npm manifest for packages/teptop data browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-data-browser/README.md` — Primary orientation and usage guide for packages/teptop data browser.
+- `packages/teptop-data-browser/src/` — Implementation source files for packages/teptop data browser.
+- `packages/teptop-data-browser/src/index.js` — Entry point for the packages/teptop data browser/src module or package.
+- `packages/teptop-data-browser/test/` — Automated tests and test support for packages/teptop data browser.
+- `packages/teptop-data-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop data browser/test.
+- `packages/teptop-data-core/` — Workspace package directory for @teptop/data core; its child entries document the files actually present.
+- `packages/teptop-data-core/package.json` — npm manifest for packages/teptop data core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-data-core/README.md` — Primary orientation and usage guide for packages/teptop data core.
+- `packages/teptop-data-core/src/` — Implementation source files for packages/teptop data core.
+- `packages/teptop-data-core/src/index.js` — Entry point for the packages/teptop data core/src module or package.
+- `packages/teptop-data-core/test/` — Automated tests and test support for packages/teptop data core.
+- `packages/teptop-data-core/test/index.test.js` — Automated behavior tests for index in packages/teptop data core/test.
+- `packages/teptop-data-server/` — Workspace package directory for @teptop/data server; its child entries document the files actually present.
+- `packages/teptop-data-server/package.json` — npm manifest for packages/teptop data server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-data-server/README.md` — Primary orientation and usage guide for packages/teptop data server.
+- `packages/teptop-data-server/src/` — Implementation source files for packages/teptop data server.
+- `packages/teptop-data-server/src/index.js` — Entry point for the packages/teptop data server/src module or package.
+- `packages/teptop-data-server/test/` — Automated tests and test support for packages/teptop data server.
+- `packages/teptop-data-server/test/index.test.js` — Automated behavior tests for index in packages/teptop data server/test.
+- `packages/teptop-debug-adapter/` — Workspace package directory for @teptop/debug adapter; its child entries document the files actually present.
+- `packages/teptop-debug-adapter/package.json` — npm manifest for packages/teptop debug adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-debug-adapter/README.md` — Primary orientation and usage guide for packages/teptop debug adapter.
+- `packages/teptop-debug-adapter/src/` — Implementation source files for packages/teptop debug adapter.
+- `packages/teptop-debug-adapter/src/index.js` — Entry point for the packages/teptop debug adapter/src module or package.
+- `packages/teptop-debug-adapter/test/` — Automated tests and test support for packages/teptop debug adapter.
+- `packages/teptop-debug-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop debug adapter/test.
+- `packages/teptop-debug-browser/` — Workspace package directory for @teptop/debug browser; its child entries document the files actually present.
+- `packages/teptop-debug-browser/package.json` — npm manifest for packages/teptop debug browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-debug-browser/README.md` — Primary orientation and usage guide for packages/teptop debug browser.
+- `packages/teptop-debug-browser/src/` — Implementation source files for packages/teptop debug browser.
+- `packages/teptop-debug-browser/src/index.js` — Entry point for the packages/teptop debug browser/src module or package.
+- `packages/teptop-debug-browser/test/` — Automated tests and test support for packages/teptop debug browser.
+- `packages/teptop-debug-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop debug browser/test.
+- `packages/teptop-debug-core/` — Workspace package directory for @teptop/debug core; its child entries document the files actually present.
+- `packages/teptop-debug-core/package.json` — npm manifest for packages/teptop debug core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-debug-core/README.md` — Primary orientation and usage guide for packages/teptop debug core.
+- `packages/teptop-debug-core/src/` — Implementation source files for packages/teptop debug core.
+- `packages/teptop-debug-core/src/index.js` — Entry point for the packages/teptop debug core/src module or package.
+- `packages/teptop-debug-core/test/` — Automated tests and test support for packages/teptop debug core.
+- `packages/teptop-debug-core/test/index.test.js` — Automated behavior tests for index in packages/teptop debug core/test.
+- `packages/teptop-debug-server/` — Workspace package directory for @teptop/debug server; its child entries document the files actually present.
+- `packages/teptop-debug-server/package.json` — npm manifest for packages/teptop debug server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-debug-server/README.md` — Primary orientation and usage guide for packages/teptop debug server.
+- `packages/teptop-debug-server/src/` — Implementation source files for packages/teptop debug server.
+- `packages/teptop-debug-server/src/index.js` — Entry point for the packages/teptop debug server/src module or package.
+- `packages/teptop-debug-server/test/` — Automated tests and test support for packages/teptop debug server.
+- `packages/teptop-debug-server/test/index.test.js` — Automated behavior tests for index in packages/teptop debug server/test.
+- `packages/teptop-devtools/` — Workspace package directory for @teptop/devtools; its child entries document the files actually present.
+- `packages/teptop-devtools-adapter/` — Workspace package directory for @teptop/devtools adapter; its child entries document the files actually present.
+- `packages/teptop-devtools-adapter/package.json` — npm manifest for packages/teptop devtools adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-devtools-adapter/README.md` — Primary orientation and usage guide for packages/teptop devtools adapter.
+- `packages/teptop-devtools-adapter/src/` — Implementation source files for packages/teptop devtools adapter.
+- `packages/teptop-devtools-adapter/src/index.js` — Entry point for the packages/teptop devtools adapter/src module or package.
+- `packages/teptop-devtools-adapter/test/` — Automated tests and test support for packages/teptop devtools adapter.
+- `packages/teptop-devtools-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop devtools adapter/test.
+- `packages/teptop-devtools-browser/` — Workspace package directory for @teptop/devtools browser; its child entries document the files actually present.
+- `packages/teptop-devtools-browser/package.json` — npm manifest for packages/teptop devtools browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-devtools-browser/README.md` — Primary orientation and usage guide for packages/teptop devtools browser.
+- `packages/teptop-devtools-browser/src/` — Implementation source files for packages/teptop devtools browser.
+- `packages/teptop-devtools-browser/src/index.js` — Entry point for the packages/teptop devtools browser/src module or package.
+- `packages/teptop-devtools-browser/test/` — Automated tests and test support for packages/teptop devtools browser.
+- `packages/teptop-devtools-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop devtools browser/test.
+- `packages/teptop-devtools-core/` — Workspace package directory for @teptop/devtools core; its child entries document the files actually present.
+- `packages/teptop-devtools-core/package.json` — npm manifest for packages/teptop devtools core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-devtools-core/README.md` — Primary orientation and usage guide for packages/teptop devtools core.
+- `packages/teptop-devtools-core/src/` — Implementation source files for packages/teptop devtools core.
+- `packages/teptop-devtools-core/src/index.js` — Entry point for the packages/teptop devtools core/src module or package.
+- `packages/teptop-devtools-core/test/` — Automated tests and test support for packages/teptop devtools core.
+- `packages/teptop-devtools-core/test/index.test.js` — Automated behavior tests for index in packages/teptop devtools core/test.
+- `packages/teptop-devtools-server/` — Workspace package directory for @teptop/devtools server; its child entries document the files actually present.
+- `packages/teptop-devtools-server/package.json` — npm manifest for packages/teptop devtools server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-devtools-server/README.md` — Primary orientation and usage guide for packages/teptop devtools server.
+- `packages/teptop-devtools-server/src/` — Implementation source files for packages/teptop devtools server.
+- `packages/teptop-devtools-server/src/index.js` — Entry point for the packages/teptop devtools server/src module or package.
+- `packages/teptop-devtools-server/test/` — Automated tests and test support for packages/teptop devtools server.
+- `packages/teptop-devtools-server/test/index.test.js` — Automated behavior tests for index in packages/teptop devtools server/test.
+- `packages/teptop-devtools/package.json` — npm manifest for packages/teptop devtools: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-devtools/src/` — Implementation source files for packages/teptop devtools.
+- `packages/teptop-devtools/src/index.js` — Entry point for the packages/teptop devtools/src module or package.
+- `packages/teptop-devtools/test/` — Automated tests and test support for packages/teptop devtools.
+- `packages/teptop-devtools/test/devtools.test.js` — Automated behavior tests for devtools in packages/teptop devtools/test.
+- `packages/teptop-dom/` — Workspace package directory for @teptop/dom; its child entries document the files actually present.
+- `packages/teptop-dom-adapter/` — Workspace package directory for @teptop/dom adapter; its child entries document the files actually present.
+- `packages/teptop-dom-adapter/package.json` — npm manifest for packages/teptop dom adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-dom-adapter/README.md` — Primary orientation and usage guide for packages/teptop dom adapter.
+- `packages/teptop-dom-adapter/src/` — Implementation source files for packages/teptop dom adapter.
+- `packages/teptop-dom-adapter/src/index.js` — Entry point for the packages/teptop dom adapter/src module or package.
+- `packages/teptop-dom-adapter/test/` — Automated tests and test support for packages/teptop dom adapter.
+- `packages/teptop-dom-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop dom adapter/test.
+- `packages/teptop-dom-browser/` — Workspace package directory for @teptop/dom browser; its child entries document the files actually present.
+- `packages/teptop-dom-browser/package.json` — npm manifest for packages/teptop dom browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-dom-browser/README.md` — Primary orientation and usage guide for packages/teptop dom browser.
+- `packages/teptop-dom-browser/src/` — Implementation source files for packages/teptop dom browser.
+- `packages/teptop-dom-browser/src/index.js` — Entry point for the packages/teptop dom browser/src module or package.
+- `packages/teptop-dom-browser/test/` — Automated tests and test support for packages/teptop dom browser.
+- `packages/teptop-dom-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop dom browser/test.
+- `packages/teptop-dom-core/` — Workspace package directory for @teptop/dom core; its child entries document the files actually present.
+- `packages/teptop-dom-core/package.json` — npm manifest for packages/teptop dom core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-dom-core/README.md` — Primary orientation and usage guide for packages/teptop dom core.
+- `packages/teptop-dom-core/src/` — Implementation source files for packages/teptop dom core.
+- `packages/teptop-dom-core/src/index.js` — Entry point for the packages/teptop dom core/src module or package.
+- `packages/teptop-dom-core/test/` — Automated tests and test support for packages/teptop dom core.
+- `packages/teptop-dom-core/test/index.test.js` — Automated behavior tests for index in packages/teptop dom core/test.
+- `packages/teptop-dom-server/` — Workspace package directory for @teptop/dom server; its child entries document the files actually present.
+- `packages/teptop-dom-server/package.json` — npm manifest for packages/teptop dom server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-dom-server/README.md` — Primary orientation and usage guide for packages/teptop dom server.
+- `packages/teptop-dom-server/src/` — Implementation source files for packages/teptop dom server.
+- `packages/teptop-dom-server/src/index.js` — Entry point for the packages/teptop dom server/src module or package.
+- `packages/teptop-dom-server/test/` — Automated tests and test support for packages/teptop dom server.
+- `packages/teptop-dom-server/test/index.test.js` — Automated behavior tests for index in packages/teptop dom server/test.
+- `packages/teptop-dom/package.json` — npm manifest for packages/teptop dom: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-dom/src/` — Implementation source files for packages/teptop dom.
+- `packages/teptop-dom/src/index.js` — Entry point for the packages/teptop dom/src module or package.
+- `packages/teptop-dom/test/` — Automated tests and test support for packages/teptop dom.
+- `packages/teptop-dom/test/dom.test.js` — Automated behavior tests for dom in packages/teptop dom/test.
+- `packages/teptop-events-adapter/` — Workspace package directory for @teptop/events adapter; its child entries document the files actually present.
+- `packages/teptop-events-adapter/package.json` — npm manifest for packages/teptop events adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-events-adapter/README.md` — Primary orientation and usage guide for packages/teptop events adapter.
+- `packages/teptop-events-adapter/src/` — Implementation source files for packages/teptop events adapter.
+- `packages/teptop-events-adapter/src/index.js` — Entry point for the packages/teptop events adapter/src module or package.
+- `packages/teptop-events-adapter/test/` — Automated tests and test support for packages/teptop events adapter.
+- `packages/teptop-events-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop events adapter/test.
+- `packages/teptop-events-browser/` — Workspace package directory for @teptop/events browser; its child entries document the files actually present.
+- `packages/teptop-events-browser/package.json` — npm manifest for packages/teptop events browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-events-browser/README.md` — Primary orientation and usage guide for packages/teptop events browser.
+- `packages/teptop-events-browser/src/` — Implementation source files for packages/teptop events browser.
+- `packages/teptop-events-browser/src/index.js` — Entry point for the packages/teptop events browser/src module or package.
+- `packages/teptop-events-browser/test/` — Automated tests and test support for packages/teptop events browser.
+- `packages/teptop-events-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop events browser/test.
+- `packages/teptop-events-core/` — Workspace package directory for @teptop/events core; its child entries document the files actually present.
+- `packages/teptop-events-core/package.json` — npm manifest for packages/teptop events core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-events-core/README.md` — Primary orientation and usage guide for packages/teptop events core.
+- `packages/teptop-events-core/src/` — Implementation source files for packages/teptop events core.
+- `packages/teptop-events-core/src/index.js` — Entry point for the packages/teptop events core/src module or package.
+- `packages/teptop-events-core/test/` — Automated tests and test support for packages/teptop events core.
+- `packages/teptop-events-core/test/index.test.js` — Automated behavior tests for index in packages/teptop events core/test.
+- `packages/teptop-events-server/` — Workspace package directory for @teptop/events server; its child entries document the files actually present.
+- `packages/teptop-events-server/package.json` — npm manifest for packages/teptop events server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-events-server/README.md` — Primary orientation and usage guide for packages/teptop events server.
+- `packages/teptop-events-server/src/` — Implementation source files for packages/teptop events server.
+- `packages/teptop-events-server/src/index.js` — Entry point for the packages/teptop events server/src module or package.
+- `packages/teptop-events-server/test/` — Automated tests and test support for packages/teptop events server.
+- `packages/teptop-events-server/test/index.test.js` — Automated behavior tests for index in packages/teptop events server/test.
+- `packages/teptop-forms-adapter/` — Workspace package directory for @teptop/forms adapter; its child entries document the files actually present.
+- `packages/teptop-forms-adapter/package.json` — npm manifest for packages/teptop forms adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-forms-adapter/README.md` — Primary orientation and usage guide for packages/teptop forms adapter.
+- `packages/teptop-forms-adapter/src/` — Implementation source files for packages/teptop forms adapter.
+- `packages/teptop-forms-adapter/src/index.js` — Entry point for the packages/teptop forms adapter/src module or package.
+- `packages/teptop-forms-adapter/test/` — Automated tests and test support for packages/teptop forms adapter.
+- `packages/teptop-forms-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop forms adapter/test.
+- `packages/teptop-forms-browser/` — Workspace package directory for @teptop/forms browser; its child entries document the files actually present.
+- `packages/teptop-forms-browser/package.json` — npm manifest for packages/teptop forms browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-forms-browser/README.md` — Primary orientation and usage guide for packages/teptop forms browser.
+- `packages/teptop-forms-browser/src/` — Implementation source files for packages/teptop forms browser.
+- `packages/teptop-forms-browser/src/index.js` — Entry point for the packages/teptop forms browser/src module or package.
+- `packages/teptop-forms-browser/test/` — Automated tests and test support for packages/teptop forms browser.
+- `packages/teptop-forms-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop forms browser/test.
+- `packages/teptop-forms-core/` — Workspace package directory for @teptop/forms core; its child entries document the files actually present.
+- `packages/teptop-forms-core/package.json` — npm manifest for packages/teptop forms core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-forms-core/README.md` — Primary orientation and usage guide for packages/teptop forms core.
+- `packages/teptop-forms-core/src/` — Implementation source files for packages/teptop forms core.
+- `packages/teptop-forms-core/src/index.js` — Entry point for the packages/teptop forms core/src module or package.
+- `packages/teptop-forms-core/test/` — Automated tests and test support for packages/teptop forms core.
+- `packages/teptop-forms-core/test/index.test.js` — Automated behavior tests for index in packages/teptop forms core/test.
+- `packages/teptop-forms-server/` — Workspace package directory for @teptop/forms server; its child entries document the files actually present.
+- `packages/teptop-forms-server/package.json` — npm manifest for packages/teptop forms server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-forms-server/README.md` — Primary orientation and usage guide for packages/teptop forms server.
+- `packages/teptop-forms-server/src/` — Implementation source files for packages/teptop forms server.
+- `packages/teptop-forms-server/src/index.js` — Entry point for the packages/teptop forms server/src module or package.
+- `packages/teptop-forms-server/test/` — Automated tests and test support for packages/teptop forms server.
+- `packages/teptop-forms-server/test/index.test.js` — Automated behavior tests for index in packages/teptop forms server/test.
+- `packages/teptop-graphql-adapter/` — Workspace package directory for @teptop/graphql adapter; its child entries document the files actually present.
+- `packages/teptop-graphql-adapter/package.json` — npm manifest for packages/teptop graphql adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-graphql-adapter/README.md` — Primary orientation and usage guide for packages/teptop graphql adapter.
+- `packages/teptop-graphql-adapter/src/` — Implementation source files for packages/teptop graphql adapter.
+- `packages/teptop-graphql-adapter/src/index.js` — Entry point for the packages/teptop graphql adapter/src module or package.
+- `packages/teptop-graphql-adapter/test/` — Automated tests and test support for packages/teptop graphql adapter.
+- `packages/teptop-graphql-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop graphql adapter/test.
+- `packages/teptop-graphql-browser/` — Workspace package directory for @teptop/graphql browser; its child entries document the files actually present.
+- `packages/teptop-graphql-browser/package.json` — npm manifest for packages/teptop graphql browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-graphql-browser/README.md` — Primary orientation and usage guide for packages/teptop graphql browser.
+- `packages/teptop-graphql-browser/src/` — Implementation source files for packages/teptop graphql browser.
+- `packages/teptop-graphql-browser/src/index.js` — Entry point for the packages/teptop graphql browser/src module or package.
+- `packages/teptop-graphql-browser/test/` — Automated tests and test support for packages/teptop graphql browser.
+- `packages/teptop-graphql-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop graphql browser/test.
+- `packages/teptop-graphql-core/` — Workspace package directory for @teptop/graphql core; its child entries document the files actually present.
+- `packages/teptop-graphql-core/package.json` — npm manifest for packages/teptop graphql core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-graphql-core/README.md` — Primary orientation and usage guide for packages/teptop graphql core.
+- `packages/teptop-graphql-core/src/` — Implementation source files for packages/teptop graphql core.
+- `packages/teptop-graphql-core/src/index.js` — Entry point for the packages/teptop graphql core/src module or package.
+- `packages/teptop-graphql-core/test/` — Automated tests and test support for packages/teptop graphql core.
+- `packages/teptop-graphql-core/test/index.test.js` — Automated behavior tests for index in packages/teptop graphql core/test.
+- `packages/teptop-graphql-server/` — Workspace package directory for @teptop/graphql server; its child entries document the files actually present.
+- `packages/teptop-graphql-server/package.json` — npm manifest for packages/teptop graphql server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-graphql-server/README.md` — Primary orientation and usage guide for packages/teptop graphql server.
+- `packages/teptop-graphql-server/src/` — Implementation source files for packages/teptop graphql server.
+- `packages/teptop-graphql-server/src/index.js` — Entry point for the packages/teptop graphql server/src module or package.
+- `packages/teptop-graphql-server/test/` — Automated tests and test support for packages/teptop graphql server.
+- `packages/teptop-graphql-server/test/index.test.js` — Automated behavior tests for index in packages/teptop graphql server/test.
+- `packages/teptop-http-adapter/` — Workspace package directory for @teptop/http adapter; its child entries document the files actually present.
+- `packages/teptop-http-adapter/package.json` — npm manifest for packages/teptop http adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-http-adapter/README.md` — Primary orientation and usage guide for packages/teptop http adapter.
+- `packages/teptop-http-adapter/src/` — Implementation source files for packages/teptop http adapter.
+- `packages/teptop-http-adapter/src/index.js` — Entry point for the packages/teptop http adapter/src module or package.
+- `packages/teptop-http-adapter/test/` — Automated tests and test support for packages/teptop http adapter.
+- `packages/teptop-http-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop http adapter/test.
+- `packages/teptop-http-browser/` — Workspace package directory for @teptop/http browser; its child entries document the files actually present.
+- `packages/teptop-http-browser/package.json` — npm manifest for packages/teptop http browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-http-browser/README.md` — Primary orientation and usage guide for packages/teptop http browser.
+- `packages/teptop-http-browser/src/` — Implementation source files for packages/teptop http browser.
+- `packages/teptop-http-browser/src/index.js` — Entry point for the packages/teptop http browser/src module or package.
+- `packages/teptop-http-browser/test/` — Automated tests and test support for packages/teptop http browser.
+- `packages/teptop-http-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop http browser/test.
+- `packages/teptop-http-core/` — Workspace package directory for @teptop/http core; its child entries document the files actually present.
+- `packages/teptop-http-core/package.json` — npm manifest for packages/teptop http core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-http-core/README.md` — Primary orientation and usage guide for packages/teptop http core.
+- `packages/teptop-http-core/src/` — Implementation source files for packages/teptop http core.
+- `packages/teptop-http-core/src/index.js` — Entry point for the packages/teptop http core/src module or package.
+- `packages/teptop-http-core/test/` — Automated tests and test support for packages/teptop http core.
+- `packages/teptop-http-core/test/index.test.js` — Automated behavior tests for index in packages/teptop http core/test.
+- `packages/teptop-http-server/` — Workspace package directory for @teptop/http server; its child entries document the files actually present.
+- `packages/teptop-http-server/package.json` — npm manifest for packages/teptop http server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-http-server/README.md` — Primary orientation and usage guide for packages/teptop http server.
+- `packages/teptop-http-server/src/` — Implementation source files for packages/teptop http server.
+- `packages/teptop-http-server/src/index.js` — Entry point for the packages/teptop http server/src module or package.
+- `packages/teptop-http-server/test/` — Automated tests and test support for packages/teptop http server.
+- `packages/teptop-http-server/test/index.test.js` — Automated behavior tests for index in packages/teptop http server/test.
+- `packages/teptop-i18n-adapter/` — Workspace package directory for @teptop/i18n adapter; its child entries document the files actually present.
+- `packages/teptop-i18n-adapter/package.json` — npm manifest for packages/teptop i18n adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-i18n-adapter/README.md` — Primary orientation and usage guide for packages/teptop i18n adapter.
+- `packages/teptop-i18n-adapter/src/` — Implementation source files for packages/teptop i18n adapter.
+- `packages/teptop-i18n-adapter/src/index.js` — Entry point for the packages/teptop i18n adapter/src module or package.
+- `packages/teptop-i18n-adapter/test/` — Automated tests and test support for packages/teptop i18n adapter.
+- `packages/teptop-i18n-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop i18n adapter/test.
+- `packages/teptop-i18n-browser/` — Workspace package directory for @teptop/i18n browser; its child entries document the files actually present.
+- `packages/teptop-i18n-browser/package.json` — npm manifest for packages/teptop i18n browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-i18n-browser/README.md` — Primary orientation and usage guide for packages/teptop i18n browser.
+- `packages/teptop-i18n-browser/src/` — Implementation source files for packages/teptop i18n browser.
+- `packages/teptop-i18n-browser/src/index.js` — Entry point for the packages/teptop i18n browser/src module or package.
+- `packages/teptop-i18n-browser/test/` — Automated tests and test support for packages/teptop i18n browser.
+- `packages/teptop-i18n-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop i18n browser/test.
+- `packages/teptop-i18n-core/` — Workspace package directory for @teptop/i18n core; its child entries document the files actually present.
+- `packages/teptop-i18n-core/package.json` — npm manifest for packages/teptop i18n core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-i18n-core/README.md` — Primary orientation and usage guide for packages/teptop i18n core.
+- `packages/teptop-i18n-core/src/` — Implementation source files for packages/teptop i18n core.
+- `packages/teptop-i18n-core/src/index.js` — Entry point for the packages/teptop i18n core/src module or package.
+- `packages/teptop-i18n-core/test/` — Automated tests and test support for packages/teptop i18n core.
+- `packages/teptop-i18n-core/test/index.test.js` — Automated behavior tests for index in packages/teptop i18n core/test.
+- `packages/teptop-i18n-server/` — Workspace package directory for @teptop/i18n server; its child entries document the files actually present.
+- `packages/teptop-i18n-server/package.json` — npm manifest for packages/teptop i18n server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-i18n-server/README.md` — Primary orientation and usage guide for packages/teptop i18n server.
+- `packages/teptop-i18n-server/src/` — Implementation source files for packages/teptop i18n server.
+- `packages/teptop-i18n-server/src/index.js` — Entry point for the packages/teptop i18n server/src module or package.
+- `packages/teptop-i18n-server/test/` — Automated tests and test support for packages/teptop i18n server.
+- `packages/teptop-i18n-server/test/index.test.js` — Automated behavior tests for index in packages/teptop i18n server/test.
+- `packages/teptop-identity-adapter/` — Workspace package directory for @teptop/identity adapter; its child entries document the files actually present.
+- `packages/teptop-identity-adapter/package.json` — npm manifest for packages/teptop identity adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-identity-adapter/README.md` — Primary orientation and usage guide for packages/teptop identity adapter.
+- `packages/teptop-identity-adapter/src/` — Implementation source files for packages/teptop identity adapter.
+- `packages/teptop-identity-adapter/src/index.js` — Entry point for the packages/teptop identity adapter/src module or package.
+- `packages/teptop-identity-adapter/test/` — Automated tests and test support for packages/teptop identity adapter.
+- `packages/teptop-identity-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop identity adapter/test.
+- `packages/teptop-identity-browser/` — Workspace package directory for @teptop/identity browser; its child entries document the files actually present.
+- `packages/teptop-identity-browser/package.json` — npm manifest for packages/teptop identity browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-identity-browser/README.md` — Primary orientation and usage guide for packages/teptop identity browser.
+- `packages/teptop-identity-browser/src/` — Implementation source files for packages/teptop identity browser.
+- `packages/teptop-identity-browser/src/index.js` — Entry point for the packages/teptop identity browser/src module or package.
+- `packages/teptop-identity-browser/test/` — Automated tests and test support for packages/teptop identity browser.
+- `packages/teptop-identity-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop identity browser/test.
+- `packages/teptop-identity-core/` — Workspace package directory for @teptop/identity core; its child entries document the files actually present.
+- `packages/teptop-identity-core/package.json` — npm manifest for packages/teptop identity core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-identity-core/README.md` — Primary orientation and usage guide for packages/teptop identity core.
+- `packages/teptop-identity-core/src/` — Implementation source files for packages/teptop identity core.
+- `packages/teptop-identity-core/src/index.js` — Entry point for the packages/teptop identity core/src module or package.
+- `packages/teptop-identity-core/test/` — Automated tests and test support for packages/teptop identity core.
+- `packages/teptop-identity-core/test/index.test.js` — Automated behavior tests for index in packages/teptop identity core/test.
+- `packages/teptop-identity-server/` — Workspace package directory for @teptop/identity server; its child entries document the files actually present.
+- `packages/teptop-identity-server/package.json` — npm manifest for packages/teptop identity server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-identity-server/README.md` — Primary orientation and usage guide for packages/teptop identity server.
+- `packages/teptop-identity-server/src/` — Implementation source files for packages/teptop identity server.
+- `packages/teptop-identity-server/src/index.js` — Entry point for the packages/teptop identity server/src module or package.
+- `packages/teptop-identity-server/test/` — Automated tests and test support for packages/teptop identity server.
+- `packages/teptop-identity-server/test/index.test.js` — Automated behavior tests for index in packages/teptop identity server/test.
+- `packages/teptop-input-adapter/` — Workspace package directory for @teptop/input adapter; its child entries document the files actually present.
+- `packages/teptop-input-adapter/package.json` — npm manifest for packages/teptop input adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-input-adapter/README.md` — Primary orientation and usage guide for packages/teptop input adapter.
+- `packages/teptop-input-adapter/src/` — Implementation source files for packages/teptop input adapter.
+- `packages/teptop-input-adapter/src/index.js` — Entry point for the packages/teptop input adapter/src module or package.
+- `packages/teptop-input-adapter/test/` — Automated tests and test support for packages/teptop input adapter.
+- `packages/teptop-input-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop input adapter/test.
+- `packages/teptop-input-browser/` — Workspace package directory for @teptop/input browser; its child entries document the files actually present.
+- `packages/teptop-input-browser/package.json` — npm manifest for packages/teptop input browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-input-browser/README.md` — Primary orientation and usage guide for packages/teptop input browser.
+- `packages/teptop-input-browser/src/` — Implementation source files for packages/teptop input browser.
+- `packages/teptop-input-browser/src/index.js` — Entry point for the packages/teptop input browser/src module or package.
+- `packages/teptop-input-browser/test/` — Automated tests and test support for packages/teptop input browser.
+- `packages/teptop-input-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop input browser/test.
+- `packages/teptop-input-core/` — Workspace package directory for @teptop/input core; its child entries document the files actually present.
+- `packages/teptop-input-core/package.json` — npm manifest for packages/teptop input core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-input-core/README.md` — Primary orientation and usage guide for packages/teptop input core.
+- `packages/teptop-input-core/src/` — Implementation source files for packages/teptop input core.
+- `packages/teptop-input-core/src/index.js` — Entry point for the packages/teptop input core/src module or package.
+- `packages/teptop-input-core/test/` — Automated tests and test support for packages/teptop input core.
+- `packages/teptop-input-core/test/index.test.js` — Automated behavior tests for index in packages/teptop input core/test.
+- `packages/teptop-input-server/` — Workspace package directory for @teptop/input server; its child entries document the files actually present.
+- `packages/teptop-input-server/package.json` — npm manifest for packages/teptop input server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-input-server/README.md` — Primary orientation and usage guide for packages/teptop input server.
+- `packages/teptop-input-server/src/` — Implementation source files for packages/teptop input server.
+- `packages/teptop-input-server/src/index.js` — Entry point for the packages/teptop input server/src module or package.
+- `packages/teptop-input-server/test/` — Automated tests and test support for packages/teptop input server.
+- `packages/teptop-input-server/test/index.test.js` — Automated behavior tests for index in packages/teptop input server/test.
+- `packages/teptop-layout-adapter/` — Workspace package directory for @teptop/layout adapter; its child entries document the files actually present.
+- `packages/teptop-layout-adapter/package.json` — npm manifest for packages/teptop layout adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-layout-adapter/README.md` — Primary orientation and usage guide for packages/teptop layout adapter.
+- `packages/teptop-layout-adapter/src/` — Implementation source files for packages/teptop layout adapter.
+- `packages/teptop-layout-adapter/src/index.js` — Entry point for the packages/teptop layout adapter/src module or package.
+- `packages/teptop-layout-adapter/test/` — Automated tests and test support for packages/teptop layout adapter.
+- `packages/teptop-layout-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop layout adapter/test.
+- `packages/teptop-layout-browser/` — Workspace package directory for @teptop/layout browser; its child entries document the files actually present.
+- `packages/teptop-layout-browser/package.json` — npm manifest for packages/teptop layout browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-layout-browser/README.md` — Primary orientation and usage guide for packages/teptop layout browser.
+- `packages/teptop-layout-browser/src/` — Implementation source files for packages/teptop layout browser.
+- `packages/teptop-layout-browser/src/index.js` — Entry point for the packages/teptop layout browser/src module or package.
+- `packages/teptop-layout-browser/test/` — Automated tests and test support for packages/teptop layout browser.
+- `packages/teptop-layout-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop layout browser/test.
+- `packages/teptop-layout-core/` — Workspace package directory for @teptop/layout core; its child entries document the files actually present.
+- `packages/teptop-layout-core/package.json` — npm manifest for packages/teptop layout core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-layout-core/README.md` — Primary orientation and usage guide for packages/teptop layout core.
+- `packages/teptop-layout-core/src/` — Implementation source files for packages/teptop layout core.
+- `packages/teptop-layout-core/src/index.js` — Entry point for the packages/teptop layout core/src module or package.
+- `packages/teptop-layout-core/test/` — Automated tests and test support for packages/teptop layout core.
+- `packages/teptop-layout-core/test/index.test.js` — Automated behavior tests for index in packages/teptop layout core/test.
+- `packages/teptop-layout-server/` — Workspace package directory for @teptop/layout server; its child entries document the files actually present.
+- `packages/teptop-layout-server/package.json` — npm manifest for packages/teptop layout server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-layout-server/README.md` — Primary orientation and usage guide for packages/teptop layout server.
+- `packages/teptop-layout-server/src/` — Implementation source files for packages/teptop layout server.
+- `packages/teptop-layout-server/src/index.js` — Entry point for the packages/teptop layout server/src module or package.
+- `packages/teptop-layout-server/test/` — Automated tests and test support for packages/teptop layout server.
+- `packages/teptop-layout-server/test/index.test.js` — Automated behavior tests for index in packages/teptop layout server/test.
+- `packages/teptop-logging-adapter/` — Workspace package directory for @teptop/logging adapter; its child entries document the files actually present.
+- `packages/teptop-logging-adapter/package.json` — npm manifest for packages/teptop logging adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-logging-adapter/README.md` — Primary orientation and usage guide for packages/teptop logging adapter.
+- `packages/teptop-logging-adapter/src/` — Implementation source files for packages/teptop logging adapter.
+- `packages/teptop-logging-adapter/src/index.js` — Entry point for the packages/teptop logging adapter/src module or package.
+- `packages/teptop-logging-adapter/test/` — Automated tests and test support for packages/teptop logging adapter.
+- `packages/teptop-logging-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop logging adapter/test.
+- `packages/teptop-logging-browser/` — Workspace package directory for @teptop/logging browser; its child entries document the files actually present.
+- `packages/teptop-logging-browser/package.json` — npm manifest for packages/teptop logging browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-logging-browser/README.md` — Primary orientation and usage guide for packages/teptop logging browser.
+- `packages/teptop-logging-browser/src/` — Implementation source files for packages/teptop logging browser.
+- `packages/teptop-logging-browser/src/index.js` — Entry point for the packages/teptop logging browser/src module or package.
+- `packages/teptop-logging-browser/test/` — Automated tests and test support for packages/teptop logging browser.
+- `packages/teptop-logging-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop logging browser/test.
+- `packages/teptop-logging-core/` — Workspace package directory for @teptop/logging core; its child entries document the files actually present.
+- `packages/teptop-logging-core/package.json` — npm manifest for packages/teptop logging core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-logging-core/README.md` — Primary orientation and usage guide for packages/teptop logging core.
+- `packages/teptop-logging-core/src/` — Implementation source files for packages/teptop logging core.
+- `packages/teptop-logging-core/src/index.js` — Entry point for the packages/teptop logging core/src module or package.
+- `packages/teptop-logging-core/test/` — Automated tests and test support for packages/teptop logging core.
+- `packages/teptop-logging-core/test/index.test.js` — Automated behavior tests for index in packages/teptop logging core/test.
+- `packages/teptop-logging-server/` — Workspace package directory for @teptop/logging server; its child entries document the files actually present.
+- `packages/teptop-logging-server/package.json` — npm manifest for packages/teptop logging server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-logging-server/README.md` — Primary orientation and usage guide for packages/teptop logging server.
+- `packages/teptop-logging-server/src/` — Implementation source files for packages/teptop logging server.
+- `packages/teptop-logging-server/src/index.js` — Entry point for the packages/teptop logging server/src module or package.
+- `packages/teptop-logging-server/test/` — Automated tests and test support for packages/teptop logging server.
+- `packages/teptop-logging-server/test/index.test.js` — Automated behavior tests for index in packages/teptop logging server/test.
+- `packages/teptop-middleware-adapter/` — Workspace package directory for @teptop/middleware adapter; its child entries document the files actually present.
+- `packages/teptop-middleware-adapter/package.json` — npm manifest for packages/teptop middleware adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-middleware-adapter/README.md` — Primary orientation and usage guide for packages/teptop middleware adapter.
+- `packages/teptop-middleware-adapter/src/` — Implementation source files for packages/teptop middleware adapter.
+- `packages/teptop-middleware-adapter/src/index.js` — Entry point for the packages/teptop middleware adapter/src module or package.
+- `packages/teptop-middleware-adapter/test/` — Automated tests and test support for packages/teptop middleware adapter.
+- `packages/teptop-middleware-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop middleware adapter/test.
+- `packages/teptop-middleware-browser/` — Workspace package directory for @teptop/middleware browser; its child entries document the files actually present.
+- `packages/teptop-middleware-browser/package.json` — npm manifest for packages/teptop middleware browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-middleware-browser/README.md` — Primary orientation and usage guide for packages/teptop middleware browser.
+- `packages/teptop-middleware-browser/src/` — Implementation source files for packages/teptop middleware browser.
+- `packages/teptop-middleware-browser/src/index.js` — Entry point for the packages/teptop middleware browser/src module or package.
+- `packages/teptop-middleware-browser/test/` — Automated tests and test support for packages/teptop middleware browser.
+- `packages/teptop-middleware-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop middleware browser/test.
+- `packages/teptop-middleware-core/` — Workspace package directory for @teptop/middleware core; its child entries document the files actually present.
+- `packages/teptop-middleware-core/package.json` — npm manifest for packages/teptop middleware core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-middleware-core/README.md` — Primary orientation and usage guide for packages/teptop middleware core.
+- `packages/teptop-middleware-core/src/` — Implementation source files for packages/teptop middleware core.
+- `packages/teptop-middleware-core/src/index.js` — Entry point for the packages/teptop middleware core/src module or package.
+- `packages/teptop-middleware-core/test/` — Automated tests and test support for packages/teptop middleware core.
+- `packages/teptop-middleware-core/test/index.test.js` — Automated behavior tests for index in packages/teptop middleware core/test.
+- `packages/teptop-middleware-server/` — Workspace package directory for @teptop/middleware server; its child entries document the files actually present.
+- `packages/teptop-middleware-server/package.json` — npm manifest for packages/teptop middleware server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-middleware-server/README.md` — Primary orientation and usage guide for packages/teptop middleware server.
+- `packages/teptop-middleware-server/src/` — Implementation source files for packages/teptop middleware server.
+- `packages/teptop-middleware-server/src/index.js` — Entry point for the packages/teptop middleware server/src module or package.
+- `packages/teptop-middleware-server/test/` — Automated tests and test support for packages/teptop middleware server.
+- `packages/teptop-middleware-server/test/index.test.js` — Automated behavior tests for index in packages/teptop middleware server/test.
+- `packages/teptop-navigation-adapter/` — Workspace package directory for @teptop/navigation adapter; its child entries document the files actually present.
+- `packages/teptop-navigation-adapter/package.json` — npm manifest for packages/teptop navigation adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-navigation-adapter/README.md` — Primary orientation and usage guide for packages/teptop navigation adapter.
+- `packages/teptop-navigation-adapter/src/` — Implementation source files for packages/teptop navigation adapter.
+- `packages/teptop-navigation-adapter/src/index.js` — Entry point for the packages/teptop navigation adapter/src module or package.
+- `packages/teptop-navigation-adapter/test/` — Automated tests and test support for packages/teptop navigation adapter.
+- `packages/teptop-navigation-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop navigation adapter/test.
+- `packages/teptop-navigation-browser/` — Workspace package directory for @teptop/navigation browser; its child entries document the files actually present.
+- `packages/teptop-navigation-browser/package.json` — npm manifest for packages/teptop navigation browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-navigation-browser/README.md` — Primary orientation and usage guide for packages/teptop navigation browser.
+- `packages/teptop-navigation-browser/src/` — Implementation source files for packages/teptop navigation browser.
+- `packages/teptop-navigation-browser/src/index.js` — Entry point for the packages/teptop navigation browser/src module or package.
+- `packages/teptop-navigation-browser/test/` — Automated tests and test support for packages/teptop navigation browser.
+- `packages/teptop-navigation-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop navigation browser/test.
+- `packages/teptop-navigation-core/` — Workspace package directory for @teptop/navigation core; its child entries document the files actually present.
+- `packages/teptop-navigation-core/package.json` — npm manifest for packages/teptop navigation core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-navigation-core/README.md` — Primary orientation and usage guide for packages/teptop navigation core.
+- `packages/teptop-navigation-core/src/` — Implementation source files for packages/teptop navigation core.
+- `packages/teptop-navigation-core/src/index.js` — Entry point for the packages/teptop navigation core/src module or package.
+- `packages/teptop-navigation-core/test/` — Automated tests and test support for packages/teptop navigation core.
+- `packages/teptop-navigation-core/test/index.test.js` — Automated behavior tests for index in packages/teptop navigation core/test.
+- `packages/teptop-navigation-server/` — Workspace package directory for @teptop/navigation server; its child entries document the files actually present.
+- `packages/teptop-navigation-server/package.json` — npm manifest for packages/teptop navigation server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-navigation-server/README.md` — Primary orientation and usage guide for packages/teptop navigation server.
+- `packages/teptop-navigation-server/src/` — Implementation source files for packages/teptop navigation server.
+- `packages/teptop-navigation-server/src/index.js` — Entry point for the packages/teptop navigation server/src module or package.
+- `packages/teptop-navigation-server/test/` — Automated tests and test support for packages/teptop navigation server.
+- `packages/teptop-navigation-server/test/index.test.js` — Automated behavior tests for index in packages/teptop navigation server/test.
+- `packages/teptop-network-adapter/` — Workspace package directory for @teptop/network adapter; its child entries document the files actually present.
+- `packages/teptop-network-adapter/package.json` — npm manifest for packages/teptop network adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-network-adapter/README.md` — Primary orientation and usage guide for packages/teptop network adapter.
+- `packages/teptop-network-adapter/src/` — Implementation source files for packages/teptop network adapter.
+- `packages/teptop-network-adapter/src/index.js` — Entry point for the packages/teptop network adapter/src module or package.
+- `packages/teptop-network-adapter/test/` — Automated tests and test support for packages/teptop network adapter.
+- `packages/teptop-network-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop network adapter/test.
+- `packages/teptop-network-browser/` — Workspace package directory for @teptop/network browser; its child entries document the files actually present.
+- `packages/teptop-network-browser/package.json` — npm manifest for packages/teptop network browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-network-browser/README.md` — Primary orientation and usage guide for packages/teptop network browser.
+- `packages/teptop-network-browser/src/` — Implementation source files for packages/teptop network browser.
+- `packages/teptop-network-browser/src/index.js` — Entry point for the packages/teptop network browser/src module or package.
+- `packages/teptop-network-browser/test/` — Automated tests and test support for packages/teptop network browser.
+- `packages/teptop-network-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop network browser/test.
+- `packages/teptop-network-core/` — Workspace package directory for @teptop/network core; its child entries document the files actually present.
+- `packages/teptop-network-core/package.json` — npm manifest for packages/teptop network core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-network-core/README.md` — Primary orientation and usage guide for packages/teptop network core.
+- `packages/teptop-network-core/src/` — Implementation source files for packages/teptop network core.
+- `packages/teptop-network-core/src/index.js` — Entry point for the packages/teptop network core/src module or package.
+- `packages/teptop-network-core/test/` — Automated tests and test support for packages/teptop network core.
+- `packages/teptop-network-core/test/index.test.js` — Automated behavior tests for index in packages/teptop network core/test.
+- `packages/teptop-network-server/` — Workspace package directory for @teptop/network server; its child entries document the files actually present.
+- `packages/teptop-network-server/package.json` — npm manifest for packages/teptop network server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-network-server/README.md` — Primary orientation and usage guide for packages/teptop network server.
+- `packages/teptop-network-server/src/` — Implementation source files for packages/teptop network server.
+- `packages/teptop-network-server/src/index.js` — Entry point for the packages/teptop network server/src module or package.
+- `packages/teptop-network-server/test/` — Automated tests and test support for packages/teptop network server.
+- `packages/teptop-network-server/test/index.test.js` — Automated behavior tests for index in packages/teptop network server/test.
+- `packages/teptop-observability-adapter/` — Workspace package directory for @teptop/observability adapter; its child entries document the files actually present.
+- `packages/teptop-observability-adapter/package.json` — npm manifest for packages/teptop observability adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-observability-adapter/README.md` — Primary orientation and usage guide for packages/teptop observability adapter.
+- `packages/teptop-observability-adapter/src/` — Implementation source files for packages/teptop observability adapter.
+- `packages/teptop-observability-adapter/src/index.js` — Entry point for the packages/teptop observability adapter/src module or package.
+- `packages/teptop-observability-adapter/test/` — Automated tests and test support for packages/teptop observability adapter.
+- `packages/teptop-observability-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop observability adapter/test.
+- `packages/teptop-observability-browser/` — Workspace package directory for @teptop/observability browser; its child entries document the files actually present.
+- `packages/teptop-observability-browser/package.json` — npm manifest for packages/teptop observability browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-observability-browser/README.md` — Primary orientation and usage guide for packages/teptop observability browser.
+- `packages/teptop-observability-browser/src/` — Implementation source files for packages/teptop observability browser.
+- `packages/teptop-observability-browser/src/index.js` — Entry point for the packages/teptop observability browser/src module or package.
+- `packages/teptop-observability-browser/test/` — Automated tests and test support for packages/teptop observability browser.
+- `packages/teptop-observability-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop observability browser/test.
+- `packages/teptop-observability-core/` — Workspace package directory for @teptop/observability core; its child entries document the files actually present.
+- `packages/teptop-observability-core/package.json` — npm manifest for packages/teptop observability core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-observability-core/README.md` — Primary orientation and usage guide for packages/teptop observability core.
+- `packages/teptop-observability-core/src/` — Implementation source files for packages/teptop observability core.
+- `packages/teptop-observability-core/src/index.js` — Entry point for the packages/teptop observability core/src module or package.
+- `packages/teptop-observability-core/test/` — Automated tests and test support for packages/teptop observability core.
+- `packages/teptop-observability-core/test/index.test.js` — Automated behavior tests for index in packages/teptop observability core/test.
+- `packages/teptop-observability-server/` — Workspace package directory for @teptop/observability server; its child entries document the files actually present.
+- `packages/teptop-observability-server/package.json` — npm manifest for packages/teptop observability server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-observability-server/README.md` — Primary orientation and usage guide for packages/teptop observability server.
+- `packages/teptop-observability-server/src/` — Implementation source files for packages/teptop observability server.
+- `packages/teptop-observability-server/src/index.js` — Entry point for the packages/teptop observability server/src module or package.
+- `packages/teptop-observability-server/test/` — Automated tests and test support for packages/teptop observability server.
+- `packages/teptop-observability-server/test/index.test.js` — Automated behavior tests for index in packages/teptop observability server/test.
+- `packages/teptop-plugins-adapter/` — Workspace package directory for @teptop/plugins adapter; its child entries document the files actually present.
+- `packages/teptop-plugins-adapter/package.json` — npm manifest for packages/teptop plugins adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-plugins-adapter/README.md` — Primary orientation and usage guide for packages/teptop plugins adapter.
+- `packages/teptop-plugins-adapter/src/` — Implementation source files for packages/teptop plugins adapter.
+- `packages/teptop-plugins-adapter/src/index.js` — Entry point for the packages/teptop plugins adapter/src module or package.
+- `packages/teptop-plugins-adapter/test/` — Automated tests and test support for packages/teptop plugins adapter.
+- `packages/teptop-plugins-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop plugins adapter/test.
+- `packages/teptop-plugins-browser/` — Workspace package directory for @teptop/plugins browser; its child entries document the files actually present.
+- `packages/teptop-plugins-browser/package.json` — npm manifest for packages/teptop plugins browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-plugins-browser/README.md` — Primary orientation and usage guide for packages/teptop plugins browser.
+- `packages/teptop-plugins-browser/src/` — Implementation source files for packages/teptop plugins browser.
+- `packages/teptop-plugins-browser/src/index.js` — Entry point for the packages/teptop plugins browser/src module or package.
+- `packages/teptop-plugins-browser/test/` — Automated tests and test support for packages/teptop plugins browser.
+- `packages/teptop-plugins-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop plugins browser/test.
+- `packages/teptop-plugins-core/` — Workspace package directory for @teptop/plugins core; its child entries document the files actually present.
+- `packages/teptop-plugins-core/package.json` — npm manifest for packages/teptop plugins core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-plugins-core/README.md` — Primary orientation and usage guide for packages/teptop plugins core.
+- `packages/teptop-plugins-core/src/` — Implementation source files for packages/teptop plugins core.
+- `packages/teptop-plugins-core/src/index.js` — Entry point for the packages/teptop plugins core/src module or package.
+- `packages/teptop-plugins-core/test/` — Automated tests and test support for packages/teptop plugins core.
+- `packages/teptop-plugins-core/test/index.test.js` — Automated behavior tests for index in packages/teptop plugins core/test.
+- `packages/teptop-plugins-server/` — Workspace package directory for @teptop/plugins server; its child entries document the files actually present.
+- `packages/teptop-plugins-server/package.json` — npm manifest for packages/teptop plugins server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-plugins-server/README.md` — Primary orientation and usage guide for packages/teptop plugins server.
+- `packages/teptop-plugins-server/src/` — Implementation source files for packages/teptop plugins server.
+- `packages/teptop-plugins-server/src/index.js` — Entry point for the packages/teptop plugins server/src module or package.
+- `packages/teptop-plugins-server/test/` — Automated tests and test support for packages/teptop plugins server.
+- `packages/teptop-plugins-server/test/index.test.js` — Automated behavior tests for index in packages/teptop plugins server/test.
+- `packages/teptop-query-adapter/` — Workspace package directory for @teptop/query adapter; its child entries document the files actually present.
+- `packages/teptop-query-adapter/package.json` — npm manifest for packages/teptop query adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-query-adapter/README.md` — Primary orientation and usage guide for packages/teptop query adapter.
+- `packages/teptop-query-adapter/src/` — Implementation source files for packages/teptop query adapter.
+- `packages/teptop-query-adapter/src/index.js` — Entry point for the packages/teptop query adapter/src module or package.
+- `packages/teptop-query-adapter/test/` — Automated tests and test support for packages/teptop query adapter.
+- `packages/teptop-query-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop query adapter/test.
+- `packages/teptop-query-browser/` — Workspace package directory for @teptop/query browser; its child entries document the files actually present.
+- `packages/teptop-query-browser/package.json` — npm manifest for packages/teptop query browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-query-browser/README.md` — Primary orientation and usage guide for packages/teptop query browser.
+- `packages/teptop-query-browser/src/` — Implementation source files for packages/teptop query browser.
+- `packages/teptop-query-browser/src/index.js` — Entry point for the packages/teptop query browser/src module or package.
+- `packages/teptop-query-browser/test/` — Automated tests and test support for packages/teptop query browser.
+- `packages/teptop-query-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop query browser/test.
+- `packages/teptop-query-core/` — Workspace package directory for @teptop/query core; its child entries document the files actually present.
+- `packages/teptop-query-core/package.json` — npm manifest for packages/teptop query core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-query-core/README.md` — Primary orientation and usage guide for packages/teptop query core.
+- `packages/teptop-query-core/src/` — Implementation source files for packages/teptop query core.
+- `packages/teptop-query-core/src/index.js` — Entry point for the packages/teptop query core/src module or package.
+- `packages/teptop-query-core/test/` — Automated tests and test support for packages/teptop query core.
+- `packages/teptop-query-core/test/index.test.js` — Automated behavior tests for index in packages/teptop query core/test.
+- `packages/teptop-query-server/` — Workspace package directory for @teptop/query server; its child entries document the files actually present.
+- `packages/teptop-query-server/package.json` — npm manifest for packages/teptop query server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-query-server/README.md` — Primary orientation and usage guide for packages/teptop query server.
+- `packages/teptop-query-server/src/` — Implementation source files for packages/teptop query server.
+- `packages/teptop-query-server/src/index.js` — Entry point for the packages/teptop query server/src module or package.
+- `packages/teptop-query-server/test/` — Automated tests and test support for packages/teptop query server.
+- `packages/teptop-query-server/test/index.test.js` — Automated behavior tests for index in packages/teptop query server/test.
+- `packages/teptop-resources-adapter/` — Workspace package directory for @teptop/resources adapter; its child entries document the files actually present.
+- `packages/teptop-resources-adapter/package.json` — npm manifest for packages/teptop resources adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-resources-adapter/README.md` — Primary orientation and usage guide for packages/teptop resources adapter.
+- `packages/teptop-resources-adapter/src/` — Implementation source files for packages/teptop resources adapter.
+- `packages/teptop-resources-adapter/src/index.js` — Entry point for the packages/teptop resources adapter/src module or package.
+- `packages/teptop-resources-adapter/test/` — Automated tests and test support for packages/teptop resources adapter.
+- `packages/teptop-resources-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop resources adapter/test.
+- `packages/teptop-resources-browser/` — Workspace package directory for @teptop/resources browser; its child entries document the files actually present.
+- `packages/teptop-resources-browser/package.json` — npm manifest for packages/teptop resources browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-resources-browser/README.md` — Primary orientation and usage guide for packages/teptop resources browser.
+- `packages/teptop-resources-browser/src/` — Implementation source files for packages/teptop resources browser.
+- `packages/teptop-resources-browser/src/index.js` — Entry point for the packages/teptop resources browser/src module or package.
+- `packages/teptop-resources-browser/test/` — Automated tests and test support for packages/teptop resources browser.
+- `packages/teptop-resources-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop resources browser/test.
+- `packages/teptop-resources-core/` — Workspace package directory for @teptop/resources core; its child entries document the files actually present.
+- `packages/teptop-resources-core/package.json` — npm manifest for packages/teptop resources core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-resources-core/README.md` — Primary orientation and usage guide for packages/teptop resources core.
+- `packages/teptop-resources-core/src/` — Implementation source files for packages/teptop resources core.
+- `packages/teptop-resources-core/src/index.js` — Entry point for the packages/teptop resources core/src module or package.
+- `packages/teptop-resources-core/test/` — Automated tests and test support for packages/teptop resources core.
+- `packages/teptop-resources-core/test/index.test.js` — Automated behavior tests for index in packages/teptop resources core/test.
+- `packages/teptop-resources-server/` — Workspace package directory for @teptop/resources server; its child entries document the files actually present.
+- `packages/teptop-resources-server/package.json` — npm manifest for packages/teptop resources server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-resources-server/README.md` — Primary orientation and usage guide for packages/teptop resources server.
+- `packages/teptop-resources-server/src/` — Implementation source files for packages/teptop resources server.
+- `packages/teptop-resources-server/src/index.js` — Entry point for the packages/teptop resources server/src module or package.
+- `packages/teptop-resources-server/test/` — Automated tests and test support for packages/teptop resources server.
+- `packages/teptop-resources-server/test/index.test.js` — Automated behavior tests for index in packages/teptop resources server/test.
+- `packages/teptop-router-adapter/` — Workspace package directory for @teptop/router adapter; its child entries document the files actually present.
+- `packages/teptop-router-adapter/package.json` — npm manifest for packages/teptop router adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-router-adapter/README.md` — Primary orientation and usage guide for packages/teptop router adapter.
+- `packages/teptop-router-adapter/src/` — Implementation source files for packages/teptop router adapter.
+- `packages/teptop-router-adapter/src/index.js` — Entry point for the packages/teptop router adapter/src module or package.
+- `packages/teptop-router-adapter/test/` — Automated tests and test support for packages/teptop router adapter.
+- `packages/teptop-router-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop router adapter/test.
+- `packages/teptop-router-browser/` — Workspace package directory for @teptop/router browser; its child entries document the files actually present.
+- `packages/teptop-router-browser/package.json` — npm manifest for packages/teptop router browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-router-browser/README.md` — Primary orientation and usage guide for packages/teptop router browser.
+- `packages/teptop-router-browser/src/` — Implementation source files for packages/teptop router browser.
+- `packages/teptop-router-browser/src/index.js` — Entry point for the packages/teptop router browser/src module or package.
+- `packages/teptop-router-browser/test/` — Automated tests and test support for packages/teptop router browser.
+- `packages/teptop-router-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop router browser/test.
+- `packages/teptop-router-core/` — Workspace package directory for @teptop/router core; its child entries document the files actually present.
+- `packages/teptop-router-core/package.json` — npm manifest for packages/teptop router core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-router-core/README.md` — Primary orientation and usage guide for packages/teptop router core.
+- `packages/teptop-router-core/src/` — Implementation source files for packages/teptop router core.
+- `packages/teptop-router-core/src/index.js` — Entry point for the packages/teptop router core/src module or package.
+- `packages/teptop-router-core/test/` — Automated tests and test support for packages/teptop router core.
+- `packages/teptop-router-core/test/index.test.js` — Automated behavior tests for index in packages/teptop router core/test.
+- `packages/teptop-router-server/` — Workspace package directory for @teptop/router server; its child entries document the files actually present.
+- `packages/teptop-router-server/package.json` — npm manifest for packages/teptop router server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-router-server/README.md` — Primary orientation and usage guide for packages/teptop router server.
+- `packages/teptop-router-server/src/` — Implementation source files for packages/teptop router server.
+- `packages/teptop-router-server/src/index.js` — Entry point for the packages/teptop router server/src module or package.
+- `packages/teptop-router-server/test/` — Automated tests and test support for packages/teptop router server.
+- `packages/teptop-router-server/test/index.test.js` — Automated behavior tests for index in packages/teptop router server/test.
+- `packages/teptop-runtime-adapter/` — Workspace package directory for @teptop/runtime adapter; its child entries document the files actually present.
+- `packages/teptop-runtime-adapter/package.json` — npm manifest for packages/teptop runtime adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-runtime-adapter/README.md` — Primary orientation and usage guide for packages/teptop runtime adapter.
+- `packages/teptop-runtime-adapter/src/` — Implementation source files for packages/teptop runtime adapter.
+- `packages/teptop-runtime-adapter/src/index.js` — Entry point for the packages/teptop runtime adapter/src module or package.
+- `packages/teptop-runtime-adapter/test/` — Automated tests and test support for packages/teptop runtime adapter.
+- `packages/teptop-runtime-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop runtime adapter/test.
+- `packages/teptop-runtime-browser/` — Workspace package directory for @teptop/runtime browser; its child entries document the files actually present.
+- `packages/teptop-runtime-browser/package.json` — npm manifest for packages/teptop runtime browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-runtime-browser/README.md` — Primary orientation and usage guide for packages/teptop runtime browser.
+- `packages/teptop-runtime-browser/src/` — Implementation source files for packages/teptop runtime browser.
+- `packages/teptop-runtime-browser/src/index.js` — Entry point for the packages/teptop runtime browser/src module or package.
+- `packages/teptop-runtime-browser/test/` — Automated tests and test support for packages/teptop runtime browser.
+- `packages/teptop-runtime-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop runtime browser/test.
+- `packages/teptop-runtime-core/` — Workspace package directory for @teptop/runtime core; its child entries document the files actually present.
+- `packages/teptop-runtime-core/package.json` — npm manifest for packages/teptop runtime core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-runtime-core/README.md` — Primary orientation and usage guide for packages/teptop runtime core.
+- `packages/teptop-runtime-core/src/` — Implementation source files for packages/teptop runtime core.
+- `packages/teptop-runtime-core/src/index.js` — Entry point for the packages/teptop runtime core/src module or package.
+- `packages/teptop-runtime-core/test/` — Automated tests and test support for packages/teptop runtime core.
+- `packages/teptop-runtime-core/test/index.test.js` — Automated behavior tests for index in packages/teptop runtime core/test.
+- `packages/teptop-runtime-server/` — Workspace package directory for @teptop/runtime server; its child entries document the files actually present.
+- `packages/teptop-runtime-server/package.json` — npm manifest for packages/teptop runtime server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-runtime-server/README.md` — Primary orientation and usage guide for packages/teptop runtime server.
+- `packages/teptop-runtime-server/src/` — Implementation source files for packages/teptop runtime server.
+- `packages/teptop-runtime-server/src/index.js` — Entry point for the packages/teptop runtime server/src module or package.
+- `packages/teptop-runtime-server/test/` — Automated tests and test support for packages/teptop runtime server.
+- `packages/teptop-runtime-server/test/index.test.js` — Automated behavior tests for index in packages/teptop runtime server/test.
+- `packages/teptop-security-adapter/` — Workspace package directory for @teptop/security adapter; its child entries document the files actually present.
+- `packages/teptop-security-adapter/package.json` — npm manifest for packages/teptop security adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-security-adapter/README.md` — Primary orientation and usage guide for packages/teptop security adapter.
+- `packages/teptop-security-adapter/src/` — Implementation source files for packages/teptop security adapter.
+- `packages/teptop-security-adapter/src/index.js` — Entry point for the packages/teptop security adapter/src module or package.
+- `packages/teptop-security-adapter/test/` — Automated tests and test support for packages/teptop security adapter.
+- `packages/teptop-security-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop security adapter/test.
+- `packages/teptop-security-browser/` — Workspace package directory for @teptop/security browser; its child entries document the files actually present.
+- `packages/teptop-security-browser/package.json` — npm manifest for packages/teptop security browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-security-browser/README.md` — Primary orientation and usage guide for packages/teptop security browser.
+- `packages/teptop-security-browser/src/` — Implementation source files for packages/teptop security browser.
+- `packages/teptop-security-browser/src/index.js` — Entry point for the packages/teptop security browser/src module or package.
+- `packages/teptop-security-browser/test/` — Automated tests and test support for packages/teptop security browser.
+- `packages/teptop-security-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop security browser/test.
+- `packages/teptop-security-core/` — Workspace package directory for @teptop/security core; its child entries document the files actually present.
+- `packages/teptop-security-core/package.json` — npm manifest for packages/teptop security core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-security-core/README.md` — Primary orientation and usage guide for packages/teptop security core.
+- `packages/teptop-security-core/src/` — Implementation source files for packages/teptop security core.
+- `packages/teptop-security-core/src/index.js` — Entry point for the packages/teptop security core/src module or package.
+- `packages/teptop-security-core/test/` — Automated tests and test support for packages/teptop security core.
+- `packages/teptop-security-core/test/index.test.js` — Automated behavior tests for index in packages/teptop security core/test.
+- `packages/teptop-security-server/` — Workspace package directory for @teptop/security server; its child entries document the files actually present.
+- `packages/teptop-security-server/package.json` — npm manifest for packages/teptop security server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-security-server/README.md` — Primary orientation and usage guide for packages/teptop security server.
+- `packages/teptop-security-server/src/` — Implementation source files for packages/teptop security server.
+- `packages/teptop-security-server/src/index.js` — Entry point for the packages/teptop security server/src module or package.
+- `packages/teptop-security-server/test/` — Automated tests and test support for packages/teptop security server.
+- `packages/teptop-security-server/test/index.test.js` — Automated behavior tests for index in packages/teptop security server/test.
+- `packages/teptop-serialization-adapter/` — Workspace package directory for @teptop/serialization adapter; its child entries document the files actually present.
+- `packages/teptop-serialization-adapter/package.json` — npm manifest for packages/teptop serialization adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-serialization-adapter/README.md` — Primary orientation and usage guide for packages/teptop serialization adapter.
+- `packages/teptop-serialization-adapter/src/` — Implementation source files for packages/teptop serialization adapter.
+- `packages/teptop-serialization-adapter/src/index.js` — Entry point for the packages/teptop serialization adapter/src module or package.
+- `packages/teptop-serialization-adapter/test/` — Automated tests and test support for packages/teptop serialization adapter.
+- `packages/teptop-serialization-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop serialization adapter/test.
+- `packages/teptop-serialization-browser/` — Workspace package directory for @teptop/serialization browser; its child entries document the files actually present.
+- `packages/teptop-serialization-browser/package.json` — npm manifest for packages/teptop serialization browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-serialization-browser/README.md` — Primary orientation and usage guide for packages/teptop serialization browser.
+- `packages/teptop-serialization-browser/src/` — Implementation source files for packages/teptop serialization browser.
+- `packages/teptop-serialization-browser/src/index.js` — Entry point for the packages/teptop serialization browser/src module or package.
+- `packages/teptop-serialization-browser/test/` — Automated tests and test support for packages/teptop serialization browser.
+- `packages/teptop-serialization-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop serialization browser/test.
+- `packages/teptop-serialization-core/` — Workspace package directory for @teptop/serialization core; its child entries document the files actually present.
+- `packages/teptop-serialization-core/package.json` — npm manifest for packages/teptop serialization core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-serialization-core/README.md` — Primary orientation and usage guide for packages/teptop serialization core.
+- `packages/teptop-serialization-core/src/` — Implementation source files for packages/teptop serialization core.
+- `packages/teptop-serialization-core/src/index.js` — Entry point for the packages/teptop serialization core/src module or package.
+- `packages/teptop-serialization-core/test/` — Automated tests and test support for packages/teptop serialization core.
+- `packages/teptop-serialization-core/test/index.test.js` — Automated behavior tests for index in packages/teptop serialization core/test.
+- `packages/teptop-serialization-server/` — Workspace package directory for @teptop/serialization server; its child entries document the files actually present.
+- `packages/teptop-serialization-server/package.json` — npm manifest for packages/teptop serialization server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-serialization-server/README.md` — Primary orientation and usage guide for packages/teptop serialization server.
+- `packages/teptop-serialization-server/src/` — Implementation source files for packages/teptop serialization server.
+- `packages/teptop-serialization-server/src/index.js` — Entry point for the packages/teptop serialization server/src module or package.
+- `packages/teptop-serialization-server/test/` — Automated tests and test support for packages/teptop serialization server.
+- `packages/teptop-serialization-server/test/index.test.js` — Automated behavior tests for index in packages/teptop serialization server/test.
+- `packages/teptop-server/` — Workspace package directory for @teptop/server; its child entries document the files actually present.
+- `packages/teptop-server-adapter/` — Workspace package directory for @teptop/server adapter; its child entries document the files actually present.
+- `packages/teptop-server-adapter/package.json` — npm manifest for packages/teptop server adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-server-adapter/README.md` — Primary orientation and usage guide for packages/teptop server adapter.
+- `packages/teptop-server-adapter/src/` — Implementation source files for packages/teptop server adapter.
+- `packages/teptop-server-adapter/src/index.js` — Entry point for the packages/teptop server adapter/src module or package.
+- `packages/teptop-server-adapter/test/` — Automated tests and test support for packages/teptop server adapter.
+- `packages/teptop-server-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop server adapter/test.
+- `packages/teptop-server-browser/` — Workspace package directory for @teptop/server browser; its child entries document the files actually present.
+- `packages/teptop-server-browser/package.json` — npm manifest for packages/teptop server browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-server-browser/README.md` — Primary orientation and usage guide for packages/teptop server browser.
+- `packages/teptop-server-browser/src/` — Implementation source files for packages/teptop server browser.
+- `packages/teptop-server-browser/src/index.js` — Entry point for the packages/teptop server browser/src module or package.
+- `packages/teptop-server-browser/test/` — Automated tests and test support for packages/teptop server browser.
+- `packages/teptop-server-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop server browser/test.
+- `packages/teptop-server-core/` — Workspace package directory for @teptop/server core; its child entries document the files actually present.
+- `packages/teptop-server-core/package.json` — npm manifest for packages/teptop server core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-server-core/README.md` — Primary orientation and usage guide for packages/teptop server core.
+- `packages/teptop-server-core/src/` — Implementation source files for packages/teptop server core.
+- `packages/teptop-server-core/src/index.js` — Entry point for the packages/teptop server core/src module or package.
+- `packages/teptop-server-core/test/` — Automated tests and test support for packages/teptop server core.
+- `packages/teptop-server-core/test/index.test.js` — Automated behavior tests for index in packages/teptop server core/test.
+- `packages/teptop-server-server/` — Workspace package directory for @teptop/server server; its child entries document the files actually present.
+- `packages/teptop-server-server/package.json` — npm manifest for packages/teptop server server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-server-server/README.md` — Primary orientation and usage guide for packages/teptop server server.
+- `packages/teptop-server-server/src/` — Implementation source files for packages/teptop server server.
+- `packages/teptop-server-server/src/index.js` — Entry point for the packages/teptop server server/src module or package.
+- `packages/teptop-server-server/test/` — Automated tests and test support for packages/teptop server server.
+- `packages/teptop-server-server/test/index.test.js` — Automated behavior tests for index in packages/teptop server server/test.
+- `packages/teptop-server/package.json` — npm manifest for packages/teptop server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-server/src/` — Implementation source files for packages/teptop server.
+- `packages/teptop-server/src/index.d.ts` — TypeScript declarations for index in packages/teptop server/src.
+- `packages/teptop-server/src/index.js` — Entry point for the packages/teptop server/src module or package.
+- `packages/teptop-server/src/security.js` — Implementation or automation module for security in packages/teptop server/src.
+- `packages/teptop-server/test/` — Automated tests and test support for packages/teptop server.
+- `packages/teptop-server/test/server.test.js` — Automated behavior tests for server in packages/teptop server/test.
+- `packages/teptop-signals-adapter/` — Workspace package directory for @teptop/signals adapter; its child entries document the files actually present.
+- `packages/teptop-signals-adapter/package.json` — npm manifest for packages/teptop signals adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-signals-adapter/README.md` — Primary orientation and usage guide for packages/teptop signals adapter.
+- `packages/teptop-signals-adapter/src/` — Implementation source files for packages/teptop signals adapter.
+- `packages/teptop-signals-adapter/src/index.js` — Entry point for the packages/teptop signals adapter/src module or package.
+- `packages/teptop-signals-adapter/test/` — Automated tests and test support for packages/teptop signals adapter.
+- `packages/teptop-signals-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop signals adapter/test.
+- `packages/teptop-signals-browser/` — Workspace package directory for @teptop/signals browser; its child entries document the files actually present.
+- `packages/teptop-signals-browser/package.json` — npm manifest for packages/teptop signals browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-signals-browser/README.md` — Primary orientation and usage guide for packages/teptop signals browser.
+- `packages/teptop-signals-browser/src/` — Implementation source files for packages/teptop signals browser.
+- `packages/teptop-signals-browser/src/index.js` — Entry point for the packages/teptop signals browser/src module or package.
+- `packages/teptop-signals-browser/test/` — Automated tests and test support for packages/teptop signals browser.
+- `packages/teptop-signals-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop signals browser/test.
+- `packages/teptop-signals-core/` — Workspace package directory for @teptop/signals core; its child entries document the files actually present.
+- `packages/teptop-signals-core/package.json` — npm manifest for packages/teptop signals core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-signals-core/README.md` — Primary orientation and usage guide for packages/teptop signals core.
+- `packages/teptop-signals-core/src/` — Implementation source files for packages/teptop signals core.
+- `packages/teptop-signals-core/src/index.js` — Entry point for the packages/teptop signals core/src module or package.
+- `packages/teptop-signals-core/test/` — Automated tests and test support for packages/teptop signals core.
+- `packages/teptop-signals-core/test/index.test.js` — Automated behavior tests for index in packages/teptop signals core/test.
+- `packages/teptop-signals-server/` — Workspace package directory for @teptop/signals server; its child entries document the files actually present.
+- `packages/teptop-signals-server/package.json` — npm manifest for packages/teptop signals server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-signals-server/README.md` — Primary orientation and usage guide for packages/teptop signals server.
+- `packages/teptop-signals-server/src/` — Implementation source files for packages/teptop signals server.
+- `packages/teptop-signals-server/src/index.js` — Entry point for the packages/teptop signals server/src module or package.
+- `packages/teptop-signals-server/test/` — Automated tests and test support for packages/teptop signals server.
+- `packages/teptop-signals-server/test/index.test.js` — Automated behavior tests for index in packages/teptop signals server/test.
+- `packages/teptop-storage-adapter/` — Workspace package directory for @teptop/storage adapter; its child entries document the files actually present.
+- `packages/teptop-storage-adapter/package.json` — npm manifest for packages/teptop storage adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-storage-adapter/README.md` — Primary orientation and usage guide for packages/teptop storage adapter.
+- `packages/teptop-storage-adapter/src/` — Implementation source files for packages/teptop storage adapter.
+- `packages/teptop-storage-adapter/src/index.js` — Entry point for the packages/teptop storage adapter/src module or package.
+- `packages/teptop-storage-adapter/test/` — Automated tests and test support for packages/teptop storage adapter.
+- `packages/teptop-storage-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop storage adapter/test.
+- `packages/teptop-storage-browser/` — Workspace package directory for @teptop/storage browser; its child entries document the files actually present.
+- `packages/teptop-storage-browser/package.json` — npm manifest for packages/teptop storage browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-storage-browser/README.md` — Primary orientation and usage guide for packages/teptop storage browser.
+- `packages/teptop-storage-browser/src/` — Implementation source files for packages/teptop storage browser.
+- `packages/teptop-storage-browser/src/index.js` — Entry point for the packages/teptop storage browser/src module or package.
+- `packages/teptop-storage-browser/test/` — Automated tests and test support for packages/teptop storage browser.
+- `packages/teptop-storage-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop storage browser/test.
+- `packages/teptop-storage-core/` — Workspace package directory for @teptop/storage core; its child entries document the files actually present.
+- `packages/teptop-storage-core/package.json` — npm manifest for packages/teptop storage core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-storage-core/README.md` — Primary orientation and usage guide for packages/teptop storage core.
+- `packages/teptop-storage-core/src/` — Implementation source files for packages/teptop storage core.
+- `packages/teptop-storage-core/src/index.js` — Entry point for the packages/teptop storage core/src module or package.
+- `packages/teptop-storage-core/test/` — Automated tests and test support for packages/teptop storage core.
+- `packages/teptop-storage-core/test/index.test.js` — Automated behavior tests for index in packages/teptop storage core/test.
+- `packages/teptop-storage-server/` — Workspace package directory for @teptop/storage server; its child entries document the files actually present.
+- `packages/teptop-storage-server/package.json` — npm manifest for packages/teptop storage server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-storage-server/README.md` — Primary orientation and usage guide for packages/teptop storage server.
+- `packages/teptop-storage-server/src/` — Implementation source files for packages/teptop storage server.
+- `packages/teptop-storage-server/src/index.js` — Entry point for the packages/teptop storage server/src module or package.
+- `packages/teptop-storage-server/test/` — Automated tests and test support for packages/teptop storage server.
+- `packages/teptop-storage-server/test/index.test.js` — Automated behavior tests for index in packages/teptop storage server/test.
+- `packages/teptop-streams-adapter/` — Workspace package directory for @teptop/streams adapter; its child entries document the files actually present.
+- `packages/teptop-streams-adapter/package.json` — npm manifest for packages/teptop streams adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-streams-adapter/README.md` — Primary orientation and usage guide for packages/teptop streams adapter.
+- `packages/teptop-streams-adapter/src/` — Implementation source files for packages/teptop streams adapter.
+- `packages/teptop-streams-adapter/src/index.js` — Entry point for the packages/teptop streams adapter/src module or package.
+- `packages/teptop-streams-adapter/test/` — Automated tests and test support for packages/teptop streams adapter.
+- `packages/teptop-streams-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop streams adapter/test.
+- `packages/teptop-streams-browser/` — Workspace package directory for @teptop/streams browser; its child entries document the files actually present.
+- `packages/teptop-streams-browser/package.json` — npm manifest for packages/teptop streams browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-streams-browser/README.md` — Primary orientation and usage guide for packages/teptop streams browser.
+- `packages/teptop-streams-browser/src/` — Implementation source files for packages/teptop streams browser.
+- `packages/teptop-streams-browser/src/index.js` — Entry point for the packages/teptop streams browser/src module or package.
+- `packages/teptop-streams-browser/test/` — Automated tests and test support for packages/teptop streams browser.
+- `packages/teptop-streams-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop streams browser/test.
+- `packages/teptop-streams-core/` — Workspace package directory for @teptop/streams core; its child entries document the files actually present.
+- `packages/teptop-streams-core/package.json` — npm manifest for packages/teptop streams core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-streams-core/README.md` — Primary orientation and usage guide for packages/teptop streams core.
+- `packages/teptop-streams-core/src/` — Implementation source files for packages/teptop streams core.
+- `packages/teptop-streams-core/src/index.js` — Entry point for the packages/teptop streams core/src module or package.
+- `packages/teptop-streams-core/test/` — Automated tests and test support for packages/teptop streams core.
+- `packages/teptop-streams-core/test/index.test.js` — Automated behavior tests for index in packages/teptop streams core/test.
+- `packages/teptop-streams-server/` — Workspace package directory for @teptop/streams server; its child entries document the files actually present.
+- `packages/teptop-streams-server/package.json` — npm manifest for packages/teptop streams server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-streams-server/README.md` — Primary orientation and usage guide for packages/teptop streams server.
+- `packages/teptop-streams-server/src/` — Implementation source files for packages/teptop streams server.
+- `packages/teptop-streams-server/src/index.js` — Entry point for the packages/teptop streams server/src module or package.
+- `packages/teptop-streams-server/test/` — Automated tests and test support for packages/teptop streams server.
+- `packages/teptop-streams-server/test/index.test.js` — Automated behavior tests for index in packages/teptop streams server/test.
+- `packages/teptop-test-utils/` — Workspace package directory for @teptop/test utils; its child entries document the files actually present.
+- `packages/teptop-test-utils/package.json` — npm manifest for packages/teptop test utils: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-test-utils/src/` — Implementation source files for packages/teptop test utils.
+- `packages/teptop-test-utils/src/index.js` — Entry point for the packages/teptop test utils/src module or package.
+- `packages/teptop-test-utils/test/` — Automated tests and test support for packages/teptop test utils.
+- `packages/teptop-test-utils/test/index.js` — Entry point for the packages/teptop test utils/test module or package.
+- `packages/teptop-test-utils/test/utils.test.js` — Automated behavior tests for utils in packages/teptop test utils/test.
+- `packages/teptop-testing-adapter/` — Workspace package directory for @teptop/testing adapter; its child entries document the files actually present.
+- `packages/teptop-testing-adapter/package.json` — npm manifest for packages/teptop testing adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-testing-adapter/README.md` — Primary orientation and usage guide for packages/teptop testing adapter.
+- `packages/teptop-testing-adapter/src/` — Implementation source files for packages/teptop testing adapter.
+- `packages/teptop-testing-adapter/src/index.js` — Entry point for the packages/teptop testing adapter/src module or package.
+- `packages/teptop-testing-adapter/test/` — Automated tests and test support for packages/teptop testing adapter.
+- `packages/teptop-testing-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop testing adapter/test.
+- `packages/teptop-testing-browser/` — Workspace package directory for @teptop/testing browser; its child entries document the files actually present.
+- `packages/teptop-testing-browser/package.json` — npm manifest for packages/teptop testing browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-testing-browser/README.md` — Primary orientation and usage guide for packages/teptop testing browser.
+- `packages/teptop-testing-browser/src/` — Implementation source files for packages/teptop testing browser.
+- `packages/teptop-testing-browser/src/index.js` — Entry point for the packages/teptop testing browser/src module or package.
+- `packages/teptop-testing-browser/test/` — Automated tests and test support for packages/teptop testing browser.
+- `packages/teptop-testing-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop testing browser/test.
+- `packages/teptop-testing-core/` — Workspace package directory for @teptop/testing core; its child entries document the files actually present.
+- `packages/teptop-testing-core/package.json` — npm manifest for packages/teptop testing core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-testing-core/README.md` — Primary orientation and usage guide for packages/teptop testing core.
+- `packages/teptop-testing-core/src/` — Implementation source files for packages/teptop testing core.
+- `packages/teptop-testing-core/src/index.js` — Entry point for the packages/teptop testing core/src module or package.
+- `packages/teptop-testing-core/test/` — Automated tests and test support for packages/teptop testing core.
+- `packages/teptop-testing-core/test/index.test.js` — Automated behavior tests for index in packages/teptop testing core/test.
+- `packages/teptop-testing-server/` — Workspace package directory for @teptop/testing server; its child entries document the files actually present.
+- `packages/teptop-testing-server/package.json` — npm manifest for packages/teptop testing server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-testing-server/README.md` — Primary orientation and usage guide for packages/teptop testing server.
+- `packages/teptop-testing-server/src/` — Implementation source files for packages/teptop testing server.
+- `packages/teptop-testing-server/src/index.js` — Entry point for the packages/teptop testing server/src module or package.
+- `packages/teptop-testing-server/test/` — Automated tests and test support for packages/teptop testing server.
+- `packages/teptop-testing-server/test/index.test.js` — Automated behavior tests for index in packages/teptop testing server/test.
+- `packages/teptop-themes-adapter/` — Workspace package directory for @teptop/themes adapter; its child entries document the files actually present.
+- `packages/teptop-themes-adapter/package.json` — npm manifest for packages/teptop themes adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-themes-adapter/README.md` — Primary orientation and usage guide for packages/teptop themes adapter.
+- `packages/teptop-themes-adapter/src/` — Implementation source files for packages/teptop themes adapter.
+- `packages/teptop-themes-adapter/src/index.js` — Entry point for the packages/teptop themes adapter/src module or package.
+- `packages/teptop-themes-adapter/test/` — Automated tests and test support for packages/teptop themes adapter.
+- `packages/teptop-themes-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop themes adapter/test.
+- `packages/teptop-themes-browser/` — Workspace package directory for @teptop/themes browser; its child entries document the files actually present.
+- `packages/teptop-themes-browser/package.json` — npm manifest for packages/teptop themes browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-themes-browser/README.md` — Primary orientation and usage guide for packages/teptop themes browser.
+- `packages/teptop-themes-browser/src/` — Implementation source files for packages/teptop themes browser.
+- `packages/teptop-themes-browser/src/index.js` — Entry point for the packages/teptop themes browser/src module or package.
+- `packages/teptop-themes-browser/test/` — Automated tests and test support for packages/teptop themes browser.
+- `packages/teptop-themes-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop themes browser/test.
+- `packages/teptop-themes-core/` — Workspace package directory for @teptop/themes core; its child entries document the files actually present.
+- `packages/teptop-themes-core/package.json` — npm manifest for packages/teptop themes core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-themes-core/README.md` — Primary orientation and usage guide for packages/teptop themes core.
+- `packages/teptop-themes-core/src/` — Implementation source files for packages/teptop themes core.
+- `packages/teptop-themes-core/src/index.js` — Entry point for the packages/teptop themes core/src module or package.
+- `packages/teptop-themes-core/test/` — Automated tests and test support for packages/teptop themes core.
+- `packages/teptop-themes-core/test/index.test.js` — Automated behavior tests for index in packages/teptop themes core/test.
+- `packages/teptop-themes-server/` — Workspace package directory for @teptop/themes server; its child entries document the files actually present.
+- `packages/teptop-themes-server/package.json` — npm manifest for packages/teptop themes server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-themes-server/README.md` — Primary orientation and usage guide for packages/teptop themes server.
+- `packages/teptop-themes-server/src/` — Implementation source files for packages/teptop themes server.
+- `packages/teptop-themes-server/src/index.js` — Entry point for the packages/teptop themes server/src module or package.
+- `packages/teptop-themes-server/test/` — Automated tests and test support for packages/teptop themes server.
+- `packages/teptop-themes-server/test/index.test.js` — Automated behavior tests for index in packages/teptop themes server/test.
+- `packages/teptop-timing-adapter/` — Workspace package directory for @teptop/timing adapter; its child entries document the files actually present.
+- `packages/teptop-timing-adapter/package.json` — npm manifest for packages/teptop timing adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-timing-adapter/README.md` — Primary orientation and usage guide for packages/teptop timing adapter.
+- `packages/teptop-timing-adapter/src/` — Implementation source files for packages/teptop timing adapter.
+- `packages/teptop-timing-adapter/src/index.js` — Entry point for the packages/teptop timing adapter/src module or package.
+- `packages/teptop-timing-adapter/test/` — Automated tests and test support for packages/teptop timing adapter.
+- `packages/teptop-timing-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop timing adapter/test.
+- `packages/teptop-timing-browser/` — Workspace package directory for @teptop/timing browser; its child entries document the files actually present.
+- `packages/teptop-timing-browser/package.json` — npm manifest for packages/teptop timing browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-timing-browser/README.md` — Primary orientation and usage guide for packages/teptop timing browser.
+- `packages/teptop-timing-browser/src/` — Implementation source files for packages/teptop timing browser.
+- `packages/teptop-timing-browser/src/index.js` — Entry point for the packages/teptop timing browser/src module or package.
+- `packages/teptop-timing-browser/test/` — Automated tests and test support for packages/teptop timing browser.
+- `packages/teptop-timing-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop timing browser/test.
+- `packages/teptop-timing-core/` — Workspace package directory for @teptop/timing core; its child entries document the files actually present.
+- `packages/teptop-timing-core/package.json` — npm manifest for packages/teptop timing core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-timing-core/README.md` — Primary orientation and usage guide for packages/teptop timing core.
+- `packages/teptop-timing-core/src/` — Implementation source files for packages/teptop timing core.
+- `packages/teptop-timing-core/src/index.js` — Entry point for the packages/teptop timing core/src module or package.
+- `packages/teptop-timing-core/test/` — Automated tests and test support for packages/teptop timing core.
+- `packages/teptop-timing-core/test/index.test.js` — Automated behavior tests for index in packages/teptop timing core/test.
+- `packages/teptop-timing-server/` — Workspace package directory for @teptop/timing server; its child entries document the files actually present.
+- `packages/teptop-timing-server/package.json` — npm manifest for packages/teptop timing server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-timing-server/README.md` — Primary orientation and usage guide for packages/teptop timing server.
+- `packages/teptop-timing-server/src/` — Implementation source files for packages/teptop timing server.
+- `packages/teptop-timing-server/src/index.js` — Entry point for the packages/teptop timing server/src module or package.
+- `packages/teptop-timing-server/test/` — Automated tests and test support for packages/teptop timing server.
+- `packages/teptop-timing-server/test/index.test.js` — Automated behavior tests for index in packages/teptop timing server/test.
+- `packages/teptop-transitions-adapter/` — Workspace package directory for @teptop/transitions adapter; its child entries document the files actually present.
+- `packages/teptop-transitions-adapter/package.json` — npm manifest for packages/teptop transitions adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-transitions-adapter/README.md` — Primary orientation and usage guide for packages/teptop transitions adapter.
+- `packages/teptop-transitions-adapter/src/` — Implementation source files for packages/teptop transitions adapter.
+- `packages/teptop-transitions-adapter/src/index.js` — Entry point for the packages/teptop transitions adapter/src module or package.
+- `packages/teptop-transitions-adapter/test/` — Automated tests and test support for packages/teptop transitions adapter.
+- `packages/teptop-transitions-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop transitions adapter/test.
+- `packages/teptop-transitions-browser/` — Workspace package directory for @teptop/transitions browser; its child entries document the files actually present.
+- `packages/teptop-transitions-browser/package.json` — npm manifest for packages/teptop transitions browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-transitions-browser/README.md` — Primary orientation and usage guide for packages/teptop transitions browser.
+- `packages/teptop-transitions-browser/src/` — Implementation source files for packages/teptop transitions browser.
+- `packages/teptop-transitions-browser/src/index.js` — Entry point for the packages/teptop transitions browser/src module or package.
+- `packages/teptop-transitions-browser/test/` — Automated tests and test support for packages/teptop transitions browser.
+- `packages/teptop-transitions-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop transitions browser/test.
+- `packages/teptop-transitions-core/` — Workspace package directory for @teptop/transitions core; its child entries document the files actually present.
+- `packages/teptop-transitions-core/package.json` — npm manifest for packages/teptop transitions core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-transitions-core/README.md` — Primary orientation and usage guide for packages/teptop transitions core.
+- `packages/teptop-transitions-core/src/` — Implementation source files for packages/teptop transitions core.
+- `packages/teptop-transitions-core/src/index.js` — Entry point for the packages/teptop transitions core/src module or package.
+- `packages/teptop-transitions-core/test/` — Automated tests and test support for packages/teptop transitions core.
+- `packages/teptop-transitions-core/test/index.test.js` — Automated behavior tests for index in packages/teptop transitions core/test.
+- `packages/teptop-transitions-server/` — Workspace package directory for @teptop/transitions server; its child entries document the files actually present.
+- `packages/teptop-transitions-server/package.json` — npm manifest for packages/teptop transitions server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-transitions-server/README.md` — Primary orientation and usage guide for packages/teptop transitions server.
+- `packages/teptop-transitions-server/src/` — Implementation source files for packages/teptop transitions server.
+- `packages/teptop-transitions-server/src/index.js` — Entry point for the packages/teptop transitions server/src module or package.
+- `packages/teptop-transitions-server/test/` — Automated tests and test support for packages/teptop transitions server.
+- `packages/teptop-transitions-server/test/index.test.js` — Automated behavior tests for index in packages/teptop transitions server/test.
+- `packages/teptop-validation-adapter/` — Workspace package directory for @teptop/validation adapter; its child entries document the files actually present.
+- `packages/teptop-validation-adapter/package.json` — npm manifest for packages/teptop validation adapter: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-validation-adapter/README.md` — Primary orientation and usage guide for packages/teptop validation adapter.
+- `packages/teptop-validation-adapter/src/` — Implementation source files for packages/teptop validation adapter.
+- `packages/teptop-validation-adapter/src/index.js` — Entry point for the packages/teptop validation adapter/src module or package.
+- `packages/teptop-validation-adapter/test/` — Automated tests and test support for packages/teptop validation adapter.
+- `packages/teptop-validation-adapter/test/index.test.js` — Automated behavior tests for index in packages/teptop validation adapter/test.
+- `packages/teptop-validation-browser/` — Workspace package directory for @teptop/validation browser; its child entries document the files actually present.
+- `packages/teptop-validation-browser/package.json` — npm manifest for packages/teptop validation browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-validation-browser/README.md` — Primary orientation and usage guide for packages/teptop validation browser.
+- `packages/teptop-validation-browser/src/` — Implementation source files for packages/teptop validation browser.
+- `packages/teptop-validation-browser/src/index.js` — Entry point for the packages/teptop validation browser/src module or package.
+- `packages/teptop-validation-browser/test/` — Automated tests and test support for packages/teptop validation browser.
+- `packages/teptop-validation-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop validation browser/test.
+- `packages/teptop-validation-core/` — Workspace package directory for @teptop/validation core; its child entries document the files actually present.
+- `packages/teptop-validation-core/package.json` — npm manifest for packages/teptop validation core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-validation-core/README.md` — Primary orientation and usage guide for packages/teptop validation core.
+- `packages/teptop-validation-core/src/` — Implementation source files for packages/teptop validation core.
+- `packages/teptop-validation-core/src/index.js` — Entry point for the packages/teptop validation core/src module or package.
+- `packages/teptop-validation-core/test/` — Automated tests and test support for packages/teptop validation core.
+- `packages/teptop-validation-core/test/index.test.js` — Automated behavior tests for index in packages/teptop validation core/test.
+- `packages/teptop-validation-server/` — Workspace package directory for @teptop/validation server; its child entries document the files actually present.
+- `packages/teptop-validation-server/package.json` — npm manifest for packages/teptop validation server: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-validation-server/README.md` — Primary orientation and usage guide for packages/teptop validation server.
+- `packages/teptop-validation-server/src/` — Implementation source files for packages/teptop validation server.
+- `packages/teptop-validation-server/src/index.js` — Entry point for the packages/teptop validation server/src module or package.
+- `packages/teptop-validation-server/test/` — Automated tests and test support for packages/teptop validation server.
+- `packages/teptop-validation-server/test/index.test.js` — Automated behavior tests for index in packages/teptop validation server/test.
+- `packages/teptop-web/` — Workspace package directory for @teptop/web; its child entries document the files actually present.
+- `packages/teptop-web/package.json` — npm manifest for packages/teptop web: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-web/README.md` — Primary orientation and usage guide for packages/teptop web.
+- `packages/teptop-web/src/` — Implementation source files for packages/teptop web.
+- `packages/teptop-web/src/browser.d.ts` — TypeScript declarations for browser in packages/teptop web/src.
+- `packages/teptop-web/src/browser.js` — Implementation or automation module for browser in packages/teptop web/src.
+- `packages/teptop-web/src/index.d.ts` — TypeScript declarations for index in packages/teptop web/src.
+- `packages/teptop-web/src/index.js` — Entry point for the packages/teptop web/src module or package.
+- `packages/teptop-web/test/` — Automated tests and test support for packages/teptop web.
+- `packages/teptop-web/test/web.test.js` — Automated behavior tests for web in packages/teptop web/test.
+- `packages/teptop-workers-browser/` — Workspace package directory for @teptop/workers browser; its child entries document the files actually present.
+- `packages/teptop-workers-browser/package.json` — npm manifest for packages/teptop workers browser: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-workers-browser/README.md` — Primary orientation and usage guide for packages/teptop workers browser.
+- `packages/teptop-workers-browser/src/` — Implementation source files for packages/teptop workers browser.
+- `packages/teptop-workers-browser/src/index.js` — Entry point for the packages/teptop workers browser/src module or package.
+- `packages/teptop-workers-browser/test/` — Automated tests and test support for packages/teptop workers browser.
+- `packages/teptop-workers-browser/test/index.test.js` — Automated behavior tests for index in packages/teptop workers browser/test.
+- `packages/teptop-workers-core/` — Workspace package directory for @teptop/workers core; its child entries document the files actually present.
+- `packages/teptop-workers-core/package.json` — npm manifest for packages/teptop workers core: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop-workers-core/README.md` — Primary orientation and usage guide for packages/teptop workers core.
+- `packages/teptop-workers-core/src/` — Implementation source files for packages/teptop workers core.
+- `packages/teptop-workers-core/src/index.js` — Entry point for the packages/teptop workers core/src module or package.
+- `packages/teptop-workers-core/test/` — Automated tests and test support for packages/teptop workers core.
+- `packages/teptop-workers-core/test/index.test.js` — Automated behavior tests for index in packages/teptop workers core/test.
+- `packages/teptop/package-lock.json` — Resolved npm dependency lockfile for packages/teptop.
+- `packages/teptop/package.json` — npm manifest for packages/teptop: package identity, exports, scripts, and dependency metadata.
+- `packages/teptop/README.md` — Primary orientation and usage guide for packages/teptop.
+- `packages/teptop/src/` — Implementation source files for packages/teptop.
+- `packages/teptop/src/accessibility/` — Groups accessibility resources belonging to packages/teptop/src.
+- `packages/teptop/src/accessibility/announcer.js` — Implementation or automation module for announcer in packages/teptop/src/accessibility.
+- `packages/teptop/src/accessibility/focus.js` — Implementation or automation module for focus in packages/teptop/src/accessibility.
+- `packages/teptop/src/adapters/` — Platform and integration adapters for packages/teptop/src.
+- `packages/teptop/src/adapters/clock.js` — Implementation or automation module for clock in packages/teptop/src/adapters.
+- `packages/teptop/src/adapters/environment.js` — Implementation or automation module for environment in packages/teptop/src/adapters.
+- `packages/teptop/src/adapters/index.js` — Entry point for the packages/teptop/src/adapters module or package.
+- `packages/teptop/src/adapters/README.md` — Primary orientation and usage guide for packages/teptop/src/adapters.
+- `packages/teptop/src/adapters/scheduler.js` — Implementation or automation module for scheduler in packages/teptop/src/adapters.
+- `packages/teptop/src/adapters/storage.js` — Implementation or automation module for storage in packages/teptop/src/adapters.
+- `packages/teptop/src/adapters/url.js` — Implementation or automation module for url in packages/teptop/src/adapters.
+- `packages/teptop/src/animation/` — Groups animation resources belonging to packages/teptop/src.
+- `packages/teptop/src/animation/easing.js` — Implementation or automation module for easing in packages/teptop/src/animation.
+- `packages/teptop/src/animation/transition.js` — Implementation or automation module for transition in packages/teptop/src/animation.
+- `packages/teptop/src/application/` — Groups application resources belonging to packages/teptop/src.
+- `packages/teptop/src/application/plugins.js` — Implementation or automation module for plugins in packages/teptop/src/application.
+- `packages/teptop/src/assertions/` — Groups assertions resources belonging to packages/teptop/src.
+- `packages/teptop/src/assertions/collections.js` — Implementation or automation module for collections in packages/teptop/src/assertions.
+- `packages/teptop/src/assertions/index.js` — Entry point for the packages/teptop/src/assertions module or package.
+- `packages/teptop/src/assertions/invariants.js` — Implementation or automation module for invariants in packages/teptop/src/assertions.
+- `packages/teptop/src/assertions/README.md` — Primary orientation and usage guide for packages/teptop/src/assertions.
+- `packages/teptop/src/assertions/strings.js` — Implementation or automation module for strings in packages/teptop/src/assertions.
+- `packages/teptop/src/assertions/types.js` — Implementation or automation module for types in packages/teptop/src/assertions.
+- `packages/teptop/src/async/` — Groups async resources belonging to packages/teptop/src.
+- `packages/teptop/src/async/cancel.js` — Implementation or automation module for cancel in packages/teptop/src/async.
+- `packages/teptop/src/async/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/async.
+- `packages/teptop/src/async/errors.js` — Implementation or automation module for errors in packages/teptop/src/async.
+- `packages/teptop/src/async/index.js` — Entry point for the packages/teptop/src/async module or package.
+- `packages/teptop/src/async/promise.js` — Implementation or automation module for promise in packages/teptop/src/async.
+- `packages/teptop/src/async/queue.js` — Implementation or automation module for queue in packages/teptop/src/async.
+- `packages/teptop/src/async/README.examples.md` — Documentation for README examples in packages/teptop/src/async.
+- `packages/teptop/src/async/README.md` — Primary orientation and usage guide for packages/teptop/src/async.
+- `packages/teptop/src/async/timeout.js` — Implementation or automation module for timeout in packages/teptop/src/async.
+- `packages/teptop/src/async/types.js` — Implementation or automation module for types in packages/teptop/src/async.
+- `packages/teptop/src/bindings/` — Groups bindings resources belonging to packages/teptop/src.
+- `packages/teptop/src/bindings/attributes.js` — Implementation or automation module for attributes in packages/teptop/src/bindings.
+- `packages/teptop/src/bindings/boolean.js` — Implementation or automation module for boolean in packages/teptop/src/bindings.
+- `packages/teptop/src/bindings/events.js` — Implementation or automation module for events in packages/teptop/src/bindings.
+- `packages/teptop/src/bindings/index.js` — Entry point for the packages/teptop/src/bindings module or package.
+- `packages/teptop/src/bindings/README.md` — Primary orientation and usage guide for packages/teptop/src/bindings.
+- `packages/teptop/src/bindings/styles.js` — Implementation or automation module for styles in packages/teptop/src/bindings.
+- `packages/teptop/src/browser/` — Browser-specific implementation for packages/teptop/src.
+- `packages/teptop/src/browser/history.js` — Implementation or automation module for history in packages/teptop/src/browser.
+- `packages/teptop/src/browser/index.js` — Entry point for the packages/teptop/src/browser module or package.
+- `packages/teptop/src/browser/media.js` — Implementation or automation module for media in packages/teptop/src/browser.
+- `packages/teptop/src/browser/online.js` — Implementation or automation module for online in packages/teptop/src/browser.
+- `packages/teptop/src/browser/README.md` — Primary orientation and usage guide for packages/teptop/src/browser.
+- `packages/teptop/src/browser/visibility.js` — Implementation or automation module for visibility in packages/teptop/src/browser.
+- `packages/teptop/src/cache/` — Groups cache resources belonging to packages/teptop/src.
+- `packages/teptop/src/cache/memory.js` — Implementation or automation module for memory in packages/teptop/src/cache.
+- `packages/teptop/src/cache/ttl.js` — Implementation or automation module for ttl in packages/teptop/src/cache.
+- `packages/teptop/src/codec/` — Groups codec resources belonging to packages/teptop/src.
+- `packages/teptop/src/codec/base64.js` — Implementation or automation module for base64 in packages/teptop/src/codec.
+- `packages/teptop/src/codec/binary.js` — Implementation or automation module for binary in packages/teptop/src/codec.
+- `packages/teptop/src/codec/contract.extra.test.js` — Automated behavior tests for contract extra in packages/teptop/src/codec.
+- `packages/teptop/src/codec/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/codec.
+- `packages/teptop/src/codec/hex.js` — Implementation or automation module for hex in packages/teptop/src/codec.
+- `packages/teptop/src/codec/index.js` — Entry point for the packages/teptop/src/codec module or package.
+- `packages/teptop/src/codec/normalize.js` — Implementation or automation module for normalize in packages/teptop/src/codec.
+- `packages/teptop/src/codec/README.md` — Primary orientation and usage guide for packages/teptop/src/codec.
+- `packages/teptop/src/codec/text.js` — Implementation or automation module for text in packages/teptop/src/codec.
+- `packages/teptop/src/codec/url.js` — Implementation or automation module for url in packages/teptop/src/codec.
+- `packages/teptop/src/collections/` — Groups collections resources belonging to packages/teptop/src.
+- `packages/teptop/src/collections/list.js` — Implementation or automation module for list in packages/teptop/src/collections.
+- `packages/teptop/src/collections/tree.js` — Implementation or automation module for tree in packages/teptop/src/collections.
+- `packages/teptop/src/compiler/` — Groups compiler resources belonging to packages/teptop/src.
+- `packages/teptop/src/compiler.js` — Implementation or automation module for compiler in packages/teptop/src.
+- `packages/teptop/src/compiler/comments.js` — Implementation or automation module for comments in packages/teptop/src/compiler.
+- `packages/teptop/src/compiler/expression.js` — Implementation or automation module for expression in packages/teptop/src/compiler.
+- `packages/teptop/src/compiler/index.js` — Entry point for the packages/teptop/src/compiler module or package.
+- `packages/teptop/src/compiler/README.md` — Primary orientation and usage guide for packages/teptop/src/compiler.
+- `packages/teptop/src/compiler/runtime.js` — Implementation or automation module for runtime in packages/teptop/src/compiler.
+- `packages/teptop/src/compiler/tokens.js` — Implementation or automation module for tokens in packages/teptop/src/compiler.
+- `packages/teptop/src/concurrency/` — Groups concurrency resources belonging to packages/teptop/src.
+- `packages/teptop/src/concurrency/mutex.js` — Implementation or automation module for mutex in packages/teptop/src/concurrency.
+- `packages/teptop/src/concurrency/queue.js` — Implementation or automation module for queue in packages/teptop/src/concurrency.
+- `packages/teptop/src/config/` — Groups config resources belonging to packages/teptop/src.
+- `packages/teptop/src/config/constants.js` — Implementation or automation module for constants in packages/teptop/src/config.
+- `packages/teptop/src/config/contract.extra.test.js` — Automated behavior tests for contract extra in packages/teptop/src/config.
+- `packages/teptop/src/config/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/config.
+- `packages/teptop/src/config/defaults.js` — Implementation or automation module for defaults in packages/teptop/src/config.
+- `packages/teptop/src/config/environment.js` — Implementation or automation module for environment in packages/teptop/src/config.
+- `packages/teptop/src/config/index.js` — Entry point for the packages/teptop/src/config module or package.
+- `packages/teptop/src/config/merge.js` — Implementation or automation module for merge in packages/teptop/src/config.
+- `packages/teptop/src/config/README.md` — Primary orientation and usage guide for packages/teptop/src/config.
+- `packages/teptop/src/config/schema.js` — Implementation or automation module for schema in packages/teptop/src/config.
+- `packages/teptop/src/config/validate.js` — Implementation or automation module for validate in packages/teptop/src/config.
+- `packages/teptop/src/context/` — Groups context resources belonging to packages/teptop/src.
+- `packages/teptop/src/context/contract.extra.test.js` — Automated behavior tests for contract extra in packages/teptop/src/context.
+- `packages/teptop/src/context/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/context.
+- `packages/teptop/src/context/errors.js` — Implementation or automation module for errors in packages/teptop/src/context.
+- `packages/teptop/src/context/index.js` — Entry point for the packages/teptop/src/context module or package.
+- `packages/teptop/src/context/lookup.js` — Implementation or automation module for lookup in packages/teptop/src/context.
+- `packages/teptop/src/context/provider.js` — Implementation or automation module for provider in packages/teptop/src/context.
+- `packages/teptop/src/context/README.md` — Primary orientation and usage guide for packages/teptop/src/context.
+- `packages/teptop/src/context/scope.js` — Implementation or automation module for scope in packages/teptop/src/context.
+- `packages/teptop/src/context/stack.js` — Implementation or automation module for stack in packages/teptop/src/context.
+- `packages/teptop/src/context/tokens.js` — Implementation or automation module for tokens in packages/teptop/src/context.
+- `packages/teptop/src/data/` — Data fixtures or data-layer implementation for packages/teptop/src.
+- `packages/teptop/src/data/collection.js` — Implementation or automation module for collection in packages/teptop/src/data.
+- `packages/teptop/src/debug/` — Groups debug resources belonging to packages/teptop/src.
+- `packages/teptop/src/debug/flags.js` — Implementation or automation module for flags in packages/teptop/src/debug.
+- `packages/teptop/src/debug/index.js` — Entry point for the packages/teptop/src/debug module or package.
+- `packages/teptop/src/debug/inspect.js` — Implementation or automation module for inspect in packages/teptop/src/debug.
+- `packages/teptop/src/debug/labels.js` — Implementation or automation module for labels in packages/teptop/src/debug.
+- `packages/teptop/src/debug/README.md` — Primary orientation and usage guide for packages/teptop/src/debug.
+- `packages/teptop/src/debug/timings.js` — Implementation or automation module for timings in packages/teptop/src/debug.
+- `packages/teptop/src/dev/` — Groups dev resources belonging to packages/teptop/src.
+- `packages/teptop/src/dev/env.js` — Implementation or automation module for env in packages/teptop/src/dev.
+- `packages/teptop/src/dev/flags.js` — Implementation or automation module for flags in packages/teptop/src/dev.
+- `packages/teptop/src/dev/index.js` — Entry point for the packages/teptop/src/dev module or package.
+- `packages/teptop/src/dev/README.md` — Primary orientation and usage guide for packages/teptop/src/dev.
+- `packages/teptop/src/dev/warnings.js` — Implementation or automation module for warnings in packages/teptop/src/dev.
+- `packages/teptop/src/devtools-core/` — Groups devtools core resources belonging to packages/teptop/src.
+- `packages/teptop/src/devtools-core/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/devtools core.
+- `packages/teptop/src/devtools-core/events.js` — Implementation or automation module for events in packages/teptop/src/devtools core.
+- `packages/teptop/src/devtools-core/index.js` — Entry point for the packages/teptop/src/devtools core module or package.
+- `packages/teptop/src/devtools-core/README.md` — Primary orientation and usage guide for packages/teptop/src/devtools core.
+- `packages/teptop/src/devtools-core/snapshots.js` — Implementation or automation module for snapshots in packages/teptop/src/devtools core.
+- `packages/teptop/src/devtools-core/timeline.js` — Implementation or automation module for timeline in packages/teptop/src/devtools core.
+- `packages/teptop/src/devtools.js` — Implementation or automation module for devtools in packages/teptop/src.
+- `packages/teptop/src/dom/` — Groups dom resources belonging to packages/teptop/src.
+- `packages/teptop/src/dom-events/` — Groups dom events resources belonging to packages/teptop/src.
+- `packages/teptop/src/dom-events/contract.extra.test.js` — Automated behavior tests for contract extra in packages/teptop/src/dom events.
+- `packages/teptop/src/dom-events/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/dom events.
+- `packages/teptop/src/dom-events/delegation.js` — Implementation or automation module for delegation in packages/teptop/src/dom events.
+- `packages/teptop/src/dom-events/focus.js` — Implementation or automation module for focus in packages/teptop/src/dom events.
+- `packages/teptop/src/dom-events/gesture.js` — Implementation or automation module for gesture in packages/teptop/src/dom events.
+- `packages/teptop/src/dom-events/index.js` — Entry point for the packages/teptop/src/dom events module or package.
+- `packages/teptop/src/dom-events/keyboard.js` — Implementation or automation module for keyboard in packages/teptop/src/dom events.
+- `packages/teptop/src/dom-events/pointer.js` — Implementation or automation module for pointer in packages/teptop/src/dom events.
+- `packages/teptop/src/dom-events/README.md` — Primary orientation and usage guide for packages/teptop/src/dom events.
+- `packages/teptop/src/dom-events/touch.js` — Implementation or automation module for touch in packages/teptop/src/dom events.
+- `packages/teptop/src/dom/attributes.js` — Implementation or automation module for attributes in packages/teptop/src/dom.
+- `packages/teptop/src/dom/events.js` — Implementation or automation module for events in packages/teptop/src/dom.
+- `packages/teptop/src/dom/index.js` — Entry point for the packages/teptop/src/dom module or package.
+- `packages/teptop/src/dom/nodes.js` — Implementation or automation module for nodes in packages/teptop/src/dom.
+- `packages/teptop/src/dom/README.md` — Primary orientation and usage guide for packages/teptop/src/dom.
+- `packages/teptop/src/errors/` — Groups errors resources belonging to packages/teptop/src.
+- `packages/teptop/src/errors/codes.js` — Implementation or automation module for codes in packages/teptop/src/errors.
+- `packages/teptop/src/errors/reporter.js` — Implementation or automation module for reporter in packages/teptop/src/errors.
+- `packages/teptop/src/events.js` — Implementation or automation module for events in packages/teptop/src.
+- `packages/teptop/src/forms-core/` — Groups forms core resources belonging to packages/teptop/src.
+- `packages/teptop/src/forms-core/contract.extra.test.js` — Automated behavior tests for contract extra in packages/teptop/src/forms core.
+- `packages/teptop/src/forms-core/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/forms core.
+- `packages/teptop/src/forms-core/dirty.js` — Implementation or automation module for dirty in packages/teptop/src/forms core.
+- `packages/teptop/src/forms-core/errors.js` — Implementation or automation module for errors in packages/teptop/src/forms core.
+- `packages/teptop/src/forms-core/fields.js` — Implementation or automation module for fields in packages/teptop/src/forms core.
+- `packages/teptop/src/forms-core/index.js` — Entry point for the packages/teptop/src/forms core module or package.
+- `packages/teptop/src/forms-core/normalize.js` — Implementation or automation module for normalize in packages/teptop/src/forms core.
+- `packages/teptop/src/forms-core/README.md` — Primary orientation and usage guide for packages/teptop/src/forms core.
+- `packages/teptop/src/forms-core/submission.js` — Implementation or automation module for submission in packages/teptop/src/forms core.
+- `packages/teptop/src/forms-core/touched.js` — Implementation or automation module for touched in packages/teptop/src/forms core.
+- `packages/teptop/src/forms.js` — Implementation or automation module for forms in packages/teptop/src.
+- `packages/teptop/src/http-core/` — Groups http core resources belonging to packages/teptop/src.
+- `packages/teptop/src/http-core/body.js` — Implementation or automation module for body in packages/teptop/src/http core.
+- `packages/teptop/src/http-core/contract.extra.test.js` — Automated behavior tests for contract extra in packages/teptop/src/http core.
+- `packages/teptop/src/http-core/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/http core.
+- `packages/teptop/src/http-core/headers.js` — Implementation or automation module for headers in packages/teptop/src/http core.
+- `packages/teptop/src/http-core/index.js` — Entry point for the packages/teptop/src/http core module or package.
+- `packages/teptop/src/http-core/method.js` — Implementation or automation module for method in packages/teptop/src/http core.
+- `packages/teptop/src/http-core/README.md` — Primary orientation and usage guide for packages/teptop/src/http core.
+- `packages/teptop/src/http-core/retry.js` — Implementation or automation module for retry in packages/teptop/src/http core.
+- `packages/teptop/src/http-core/status.js` — Implementation or automation module for status in packages/teptop/src/http core.
+- `packages/teptop/src/http-core/url.js` — Implementation or automation module for url in packages/teptop/src/http core.
+- `packages/teptop/src/http.js` — Implementation or automation module for http in packages/teptop/src.
+- `packages/teptop/src/hydration/` — Groups hydration resources belonging to packages/teptop/src.
+- `packages/teptop/src/hydration/checksum.js` — Implementation or automation module for checksum in packages/teptop/src/hydration.
+- `packages/teptop/src/hydration/index.js` — Entry point for the packages/teptop/src/hydration module or package.
+- `packages/teptop/src/hydration/markers.js` — Implementation or automation module for markers in packages/teptop/src/hydration.
+- `packages/teptop/src/hydration/README.md` — Primary orientation and usage guide for packages/teptop/src/hydration.
+- `packages/teptop/src/hydration/state.js` — Implementation or automation module for state in packages/teptop/src/hydration.
+- `packages/teptop/src/i18n/` — Groups i18n resources belonging to packages/teptop/src.
+- `packages/teptop/src/i18n/catalog.js` — Implementation or automation module for catalog in packages/teptop/src/i18n.
+- `packages/teptop/src/i18n/locale.js` — Implementation or automation module for locale in packages/teptop/src/i18n.
+- `packages/teptop/src/identity/` — Groups identity resources belonging to packages/teptop/src.
+- `packages/teptop/src/identity/contract.extra.test.js` — Automated behavior tests for contract extra in packages/teptop/src/identity.
+- `packages/teptop/src/identity/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/identity.
+- `packages/teptop/src/identity/equal.js` — Implementation or automation module for equal in packages/teptop/src/identity.
+- `packages/teptop/src/identity/hash.js` — Implementation or automation module for hash in packages/teptop/src/identity.
+- `packages/teptop/src/identity/ids.js` — Implementation or automation module for ids in packages/teptop/src/identity.
+- `packages/teptop/src/identity/index.js` — Entry point for the packages/teptop/src/identity module or package.
+- `packages/teptop/src/identity/keys.js` — Implementation or automation module for keys in packages/teptop/src/identity.
+- `packages/teptop/src/identity/normalize.js` — Implementation or automation module for normalize in packages/teptop/src/identity.
+- `packages/teptop/src/identity/README.md` — Primary orientation and usage guide for packages/teptop/src/identity.
+- `packages/teptop/src/identity/symbols.js` — Implementation or automation module for symbols in packages/teptop/src/identity.
+- `packages/teptop/src/index.d.ts` — TypeScript declarations for index in packages/teptop/src.
+- `packages/teptop/src/index.js` — Entry point for the packages/teptop/src module or package.
+- `packages/teptop/src/input/` — Groups input resources belonging to packages/teptop/src.
+- `packages/teptop/src/input/clipboard.js` — Implementation or automation module for clipboard in packages/teptop/src/input.
+- `packages/teptop/src/input/contract.extra.test.js` — Automated behavior tests for contract extra in packages/teptop/src/input.
+- `packages/teptop/src/input/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/input.
+- `packages/teptop/src/input/focus.js` — Implementation or automation module for focus in packages/teptop/src/input.
+- `packages/teptop/src/input/index.js` — Entry point for the packages/teptop/src/input module or package.
+- `packages/teptop/src/input/keyboard.js` — Implementation or automation module for keyboard in packages/teptop/src/input.
+- `packages/teptop/src/input/pointer.js` — Implementation or automation module for pointer in packages/teptop/src/input.
+- `packages/teptop/src/input/README.md` — Primary orientation and usage guide for packages/teptop/src/input.
+- `packages/teptop/src/input/scroll.js` — Implementation or automation module for scroll in packages/teptop/src/input.
+- `packages/teptop/src/input/wheel.js` — Implementation or automation module for wheel in packages/teptop/src/input.
+- `packages/teptop/src/lifecycle/` — Groups lifecycle resources belonging to packages/teptop/src.
+- `packages/teptop/src/lifecycle/effects.js` — Implementation or automation module for effects in packages/teptop/src/lifecycle.
+- `packages/teptop/src/lifecycle/hooks.js` — Implementation or automation module for hooks in packages/teptop/src/lifecycle.
+- `packages/teptop/src/lifecycle/index.js` — Entry point for the packages/teptop/src/lifecycle module or package.
+- `packages/teptop/src/lifecycle/README.md` — Primary orientation and usage guide for packages/teptop/src/lifecycle.
+- `packages/teptop/src/lifecycle/registry.js` — Implementation or automation module for registry in packages/teptop/src/lifecycle.
+- `packages/teptop/src/logging/` — Groups logging resources belonging to packages/teptop/src.
+- `packages/teptop/src/logging/buffer.js` — Implementation or automation module for buffer in packages/teptop/src/logging.
+- `packages/teptop/src/logging/logger.js` — Implementation or automation module for logger in packages/teptop/src/logging.
+- `packages/teptop/src/middleware-core/` — Groups middleware core resources belonging to packages/teptop/src.
+- `packages/teptop/src/middleware-core/compose.js` — Implementation or automation module for compose in packages/teptop/src/middleware core.
+- `packages/teptop/src/middleware-core/composeAsync.js` — Implementation or automation module for compose Async in packages/teptop/src/middleware core.
+- `packages/teptop/src/middleware-core/context.js` — Implementation or automation module for context in packages/teptop/src/middleware core.
+- `packages/teptop/src/middleware-core/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/middleware core.
+- `packages/teptop/src/middleware-core/errors.js` — Implementation or automation module for errors in packages/teptop/src/middleware core.
+- `packages/teptop/src/middleware-core/index.js` — Entry point for the packages/teptop/src/middleware core module or package.
+- `packages/teptop/src/middleware-core/README.md` — Primary orientation and usage guide for packages/teptop/src/middleware core.
+- `packages/teptop/src/observability/` — Groups observability resources belonging to packages/teptop/src.
+- `packages/teptop/src/observability/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/observability.
+- `packages/teptop/src/observability/events.js` — Implementation or automation module for events in packages/teptop/src/observability.
+- `packages/teptop/src/observability/index.js` — Entry point for the packages/teptop/src/observability module or package.
+- `packages/teptop/src/observability/metrics.js` — Implementation or automation module for metrics in packages/teptop/src/observability.
+- `packages/teptop/src/observability/README.md` — Primary orientation and usage guide for packages/teptop/src/observability.
+- `packages/teptop/src/observability/sampling.js` — Implementation or automation module for sampling in packages/teptop/src/observability.
+- `packages/teptop/src/observability/spans.js` — Implementation or automation module for spans in packages/teptop/src/observability.
+- `packages/teptop/src/pipeline/` — Groups pipeline resources belonging to packages/teptop/src.
+- `packages/teptop/src/pipeline/middleware.js` — Implementation or automation module for middleware in packages/teptop/src/pipeline.
+- `packages/teptop/src/plugins/` — Compiler or runtime plugins for packages/teptop/src.
+- `packages/teptop/src/plugins/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/plugins.
+- `packages/teptop/src/plugins/hooks.js` — Implementation or automation module for hooks in packages/teptop/src/plugins.
+- `packages/teptop/src/plugins/index.js` — Entry point for the packages/teptop/src/plugins module or package.
+- `packages/teptop/src/plugins/metadata.js` — Implementation or automation module for metadata in packages/teptop/src/plugins.
+- `packages/teptop/src/plugins/README.md` — Primary orientation and usage guide for packages/teptop/src/plugins.
+- `packages/teptop/src/plugins/registry.js` — Implementation or automation module for registry in packages/teptop/src/plugins.
+- `packages/teptop/src/query.js` — Implementation or automation module for query in packages/teptop/src.
+- `packages/teptop/src/resources/` — Groups resources resources belonging to packages/teptop/src.
+- `packages/teptop/src/resources/cache.js` — Implementation or automation module for cache in packages/teptop/src/resources.
+- `packages/teptop/src/resources/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/resources.
+- `packages/teptop/src/resources/index.js` — Entry point for the packages/teptop/src/resources module or package.
+- `packages/teptop/src/resources/README.md` — Primary orientation and usage guide for packages/teptop/src/resources.
+- `packages/teptop/src/resources/result.js` — Implementation or automation module for result in packages/teptop/src/resources.
+- `packages/teptop/src/resources/states.js` — Implementation or automation module for states in packages/teptop/src/resources.
+- `packages/teptop/src/resources/status.js` — Implementation or automation module for status in packages/teptop/src/resources.
+- `packages/teptop/src/router-core/` — Groups router core resources belonging to packages/teptop/src.
+- `packages/teptop/src/router-core/history.js` — Implementation or automation module for history in packages/teptop/src/router core.
+- `packages/teptop/src/router-core/index.js` — Entry point for the packages/teptop/src/router core module or package.
+- `packages/teptop/src/router-core/patterns.js` — Implementation or automation module for patterns in packages/teptop/src/router core.
+- `packages/teptop/src/router-core/query.js` — Implementation or automation module for query in packages/teptop/src/router core.
+- `packages/teptop/src/router-core/README.md` — Primary orientation and usage guide for packages/teptop/src/router core.
+- `packages/teptop/src/router.js` — Implementation or automation module for router in packages/teptop/src.
+- `packages/teptop/src/scheduler.js` — Implementation or automation module for scheduler in packages/teptop/src.
+- `packages/teptop/src/security/` — Groups security resources belonging to packages/teptop/src.
+- `packages/teptop/src/security/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/security.
+- `packages/teptop/src/security/index.js` — Entry point for the packages/teptop/src/security module or package.
+- `packages/teptop/src/security/permissions.js` — Implementation or automation module for permissions in packages/teptop/src/security.
+- `packages/teptop/src/security/README.md` — Primary orientation and usage guide for packages/teptop/src/security.
+- `packages/teptop/src/security/roles.js` — Implementation or automation module for roles in packages/teptop/src/security.
+- `packages/teptop/src/security/sanitize.js` — Implementation or automation module for sanitize in packages/teptop/src/security.
+- `packages/teptop/src/security/tokens.js` — Implementation or automation module for tokens in packages/teptop/src/security.
+- `packages/teptop/src/serialization/` — Groups serialization resources belonging to packages/teptop/src.
+- `packages/teptop/src/serialization/json.js` — Implementation or automation module for json in packages/teptop/src/serialization.
+- `packages/teptop/src/serialization/querystring.js` — Implementation or automation module for querystring in packages/teptop/src/serialization.
+- `packages/teptop/src/server-render/` — Groups server render resources belonging to packages/teptop/src.
+- `packages/teptop/src/server-render/doctype.js` — Implementation or automation module for doctype in packages/teptop/src/server render.
+- `packages/teptop/src/server-render/escape.js` — Implementation or automation module for escape in packages/teptop/src/server render.
+- `packages/teptop/src/server-render/index.js` — Entry point for the packages/teptop/src/server render module or package.
+- `packages/teptop/src/server-render/README.md` — Primary orientation and usage guide for packages/teptop/src/server render.
+- `packages/teptop/src/server-render/shell.js` — Implementation or automation module for shell in packages/teptop/src/server render.
+- `packages/teptop/src/server.js` — Implementation or automation module for server in packages/teptop/src.
+- `packages/teptop/src/signals/` — Groups signals resources belonging to packages/teptop/src.
+- `packages/teptop/src/signals/combinators.js` — Implementation or automation module for combinators in packages/teptop/src/signals.
+- `packages/teptop/src/signals/equality.js` — Implementation or automation module for equality in packages/teptop/src/signals.
+- `packages/teptop/src/signals/index.js` — Entry point for the packages/teptop/src/signals module or package.
+- `packages/teptop/src/signals/README.md` — Primary orientation and usage guide for packages/teptop/src/signals.
+- `packages/teptop/src/signals/selectors.js` — Implementation or automation module for selectors in packages/teptop/src/signals.
+- `packages/teptop/src/storage/` — Groups storage resources belonging to packages/teptop/src.
+- `packages/teptop/src/storage/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/storage.
+- `packages/teptop/src/storage/index.js` — Entry point for the packages/teptop/src/storage module or package.
+- `packages/teptop/src/storage/keys.js` — Implementation or automation module for keys in packages/teptop/src/storage.
+- `packages/teptop/src/storage/memory.js` — Implementation or automation module for memory in packages/teptop/src/storage.
+- `packages/teptop/src/storage/namespace.js` — Implementation or automation module for namespace in packages/teptop/src/storage.
+- `packages/teptop/src/storage/README.md` — Primary orientation and usage guide for packages/teptop/src/storage.
+- `packages/teptop/src/storage/serialize.js` — Implementation or automation module for serialize in packages/teptop/src/storage.
+- `packages/teptop/src/store.js` — Implementation or automation module for store in packages/teptop/src.
+- `packages/teptop/src/stores/` — Groups stores resources belonging to packages/teptop/src.
+- `packages/teptop/src/stores/history.js` — Implementation or automation module for history in packages/teptop/src/stores.
+- `packages/teptop/src/stores/index.js` — Entry point for the packages/teptop/src/stores module or package.
+- `packages/teptop/src/stores/README.md` — Primary orientation and usage guide for packages/teptop/src/stores.
+- `packages/teptop/src/stores/selectors.js` — Implementation or automation module for selectors in packages/teptop/src/stores.
+- `packages/teptop/src/stores/transactions.js` — Implementation or automation module for transactions in packages/teptop/src/stores.
+- `packages/teptop/src/testing/` — Groups testing resources belonging to packages/teptop/src.
+- `packages/teptop/src/testing.js` — Implementation or automation module for testing in packages/teptop/src.
+- `packages/teptop/src/testing/assertions.js` — Implementation or automation module for assertions in packages/teptop/src/testing.
+- `packages/teptop/src/testing/fixtures.js` — Implementation or automation module for fixtures in packages/teptop/src/testing.
+- `packages/teptop/src/timing/` — Groups timing resources belonging to packages/teptop/src.
+- `packages/teptop/src/timing/debounce.js` — Implementation or automation module for debounce in packages/teptop/src/timing.
+- `packages/teptop/src/timing/throttle.js` — Implementation or automation module for throttle in packages/teptop/src/timing.
+- `packages/teptop/src/transitions/` — Groups transitions resources belonging to packages/teptop/src.
+- `packages/teptop/src/transitions/classes.js` — Implementation or automation module for classes in packages/teptop/src/transitions.
+- `packages/teptop/src/transitions/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/transitions.
+- `packages/teptop/src/transitions/duration.js` — Implementation or automation module for duration in packages/teptop/src/transitions.
+- `packages/teptop/src/transitions/easing.js` — Implementation or automation module for easing in packages/teptop/src/transitions.
+- `packages/teptop/src/transitions/index.js` — Entry point for the packages/teptop/src/transitions module or package.
+- `packages/teptop/src/transitions/README.md` — Primary orientation and usage guide for packages/teptop/src/transitions.
+- `packages/teptop/src/transitions/states.js` — Implementation or automation module for states in packages/teptop/src/transitions.
+- `packages/teptop/src/url/` — Groups url resources belonging to packages/teptop/src.
+- `packages/teptop/src/url/path.js` — Implementation or automation module for path in packages/teptop/src/url.
+- `packages/teptop/src/url/query.js` — Implementation or automation module for query in packages/teptop/src/url.
+- `packages/teptop/src/validation.js` — Implementation or automation module for validation in packages/teptop/src.
+- `packages/teptop/src/wire/` — Groups wire resources belonging to packages/teptop/src.
+- `packages/teptop/src/wire/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/wire.
+- `packages/teptop/src/wire/index.js` — Entry point for the packages/teptop/src/wire module or package.
+- `packages/teptop/src/wire/protocol.js` — Implementation or automation module for protocol in packages/teptop/src/wire.
+- `packages/teptop/src/wire/README.md` — Primary orientation and usage guide for packages/teptop/src/wire.
+- `packages/teptop/src/wire/transport.js` — Implementation or automation module for transport in packages/teptop/src/wire.
+- `packages/teptop/src/wire/version.js` — Implementation or automation module for version in packages/teptop/src/wire.
+- `packages/teptop/src/workers/` — Groups workers resources belonging to packages/teptop/src.
+- `packages/teptop/src/workers/contract.test.js` — Automated behavior tests for contract in packages/teptop/src/workers.
+- `packages/teptop/src/workers/errors.js` — Implementation or automation module for errors in packages/teptop/src/workers.
+- `packages/teptop/src/workers/index.js` — Entry point for the packages/teptop/src/workers module or package.
+- `packages/teptop/src/workers/lifecycle.js` — Implementation or automation module for lifecycle in packages/teptop/src/workers.
+- `packages/teptop/src/workers/messages.js` — Implementation or automation module for messages in packages/teptop/src/workers.
+- `packages/teptop/src/workers/pool.js` — Implementation or automation module for pool in packages/teptop/src/workers.
+- `packages/teptop/src/workers/pool.test.js` — Automated behavior tests for pool in packages/teptop/src/workers.
+- `packages/teptop/src/workers/README.md` — Primary orientation and usage guide for packages/teptop/src/workers.
+- `packages/teptop/test/` — Automated tests and test support for packages/teptop.
+- `packages/teptop/test/framework.test.js` — Automated behavior tests for framework in packages/teptop/test.
+- `packages/teptop/test/index.test.js` — Automated behavior tests for index in packages/teptop/test.
+- `packages/teptop/test/platform.test.js` — Automated behavior tests for platform in packages/teptop/test.
+- `packages/teptop/test/subsystems.test.js` — Automated behavior tests for subsystems in packages/teptop/test.
+
+### Repository area: scripts
+
+Maintenance, release, generation, validation, and distribution automation.
+
+- `scripts/cdn/` — Groups cdn resources belonging to scripts.
+- `scripts/cdn/build.js` — Implementation or automation module for build in scripts/cdn.
+- `scripts/docs/` — Documentation-generation utilities, including this inventory generator.
+- `scripts/docs/generate-root-readme.js` — Implementation or automation module for generate root readme in scripts/docs.
+- `scripts/docs/verify-root-readme.js` — Implementation or automation module for verify root readme in scripts/docs.
+- `scripts/generate-packages.js` — Implementation or automation module for generate packages in scripts.
+- `scripts/README.md` — Primary orientation and usage guide for scripts.
+- `scripts/release/` — Groups release resources belonging to scripts.
+- `scripts/release/check.js` — Implementation or automation module for check in scripts/release.
+- `scripts/scripts.test.js` — Automated behavior tests for scripts in scripts.
+- `scripts/structure/` — Groups structure resources belonging to scripts.
+- `scripts/structure/packages.js` — Implementation or automation module for packages in scripts/structure.
+- `scripts/structure/playground.js` — Implementation or automation module for playground in scripts/structure.
+- `scripts/structure/report.js` — Implementation or automation module for report in scripts/structure.
+- `scripts/verify/` — Groups verify resources belonging to scripts.
+- `scripts/verify/root.js` — Implementation or automation module for root in scripts/verify.
+- `scripts/workspace/` — Groups workspace resources belonging to scripts.
+- `scripts/workspace/clean.js` — Implementation or automation module for clean in scripts/workspace.
+- `scripts/workspace/health.js` — Implementation or automation module for health in scripts/workspace.
+- `scripts/workspace/version.js` — Implementation or automation module for version in scripts/workspace.
+
+### Repository area: security
+
+Security-focused checks and test cases for repository behavior.
+
+- `security/index.d.ts` — TypeScript declarations for index in security.
+- `security/index.js` — Entry point for the security module or package.
+- `security/README.md` — Primary orientation and usage guide for security.
+- `security/security.test.js` — Automated behavior tests for security in security.
+
+## Keeping this guide current
+
+The file catalog is generated from the workspace filesystem rather than maintained as a hand-written list.
+
+Run `node scripts/docs/generate-root-readme.js` from any working directory to regenerate this README.
+
+Run `node scripts/docs/verify-root-readme.js` to compare the inventory against the current filesystem.
+
+The generator traverses directories recursively and skips `node_modules` and `.git` metadata directories.
+
+The generator does not follow symbolic links as directories.
+
+Review the generated diff after structural changes so descriptions remain useful and accurate.
+
+Add or update top-level descriptions in the generator when a new major workspace area is introduced.
+
+Keep user-facing feature documentation in the relevant package or guide as well as this inventory.

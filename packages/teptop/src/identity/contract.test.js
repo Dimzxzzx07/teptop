@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {shallowEqual} from './equal.js'; test('shallow equality compares keys', () => assert.equal(shallowEqual({a: 1}, {a: 1}), true));

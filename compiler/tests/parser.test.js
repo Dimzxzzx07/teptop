@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {parseSource} from '../parser.js'; test('compiler parser returns tokens', () => assert.equal(parseSource('{{name}}').tokens.length, 3));

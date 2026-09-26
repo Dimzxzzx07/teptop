@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {trimWhitespace} from '../transforms/whitespace.js'; test('compiler trims whitespace', () => assert.equal(trimWhitespace(' a  b '), 'a b'));

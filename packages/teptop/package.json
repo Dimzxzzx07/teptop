@@ -1,0 +1,50 @@
+{
+    "name": "teptop.js",
+    "version": "0.0.3",
+    "description": "A signal-first UI and application runtime for the browser.",
+    "type": "module",
+    "main": "src/index.js",
+    "types": "src/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./src/index.d.ts",
+            "import": "./src/index.js",
+            "default": "./src/index.js"
+        },
+        "./server": "./src/server.js",
+        "./scheduler": "./src/scheduler.js",
+        "./store": "./src/store.js",
+        "./router": "./src/router.js",
+        "./compiler": "./src/compiler.js",
+        "./forms": "./src/forms.js",
+        "./devtools": "./src/devtools.js",
+        "./testing": "./src/testing.js",
+        "./events": "./src/events.js",
+        "./http": "./src/http.js",
+        "./query": "./src/query.js",
+        "./validation": "./src/validation.js",
+        "./application": "./src/application/plugins.js",
+        "./pipeline": "./src/pipeline/middleware.js",
+        "./data": "./src/data/collection.js"
+    },
+    "scripts": {
+        "test": "node --test test/*.test.js"
+    },
+    "devDependencies": {
+        "@teptop/server": "0.1.1",
+        "@teptop/web": "0.1.1",
+        "teptop-cli": "0.0.1"
+    },
+    "keywords": [
+        "teptop",
+        "signals",
+        "ui",
+        "framework",
+        "runtime",
+        "router"
+    ],
+    "license": "MIT",
+    "engines": {
+        "node": ">=20"
+    }
+}

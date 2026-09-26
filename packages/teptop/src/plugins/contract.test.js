@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {createPluginRegistry} from './registry.js'; test('plugin registry lists plugins', () => { const registry = createPluginRegistry(); registry.add({name: 'x'}); assert.equal(registry.all().length, 1); });

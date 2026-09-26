@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {createStack} from './stack.js'; test('context stack reads latest value', () => { const stack = createStack('root'); stack.push('child'); assert.equal(stack.read(), 'child'); });

@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {normalizeValues} from './normalize.js'; test('form normalization removes nulls', () => assert.deepEqual(normalizeValues({x: null}), {x: ''}));

@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {DashboardLayout} from './DashboardLayout.js'; test('dashboard layout is a component', () => assert.equal(typeof DashboardLayout, 'function'));

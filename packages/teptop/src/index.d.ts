@@ -1,0 +1,80 @@
+export type Signal<T> = (() => T) & {set(value: T | ((current: T) => T)): T; update(updater: (current: T) => T): T; peek(): T; subscribe(listener: () => void): () => void};
+export declare function signal<T>(initial: T): Signal<T>;
+export declare function computed<T>(derive: () => T): Signal<T>;
+export declare function effect(work: () => void | (() => void)): () => void;
+export declare function batch<T>(work: () => T): T;
+export declare function watch<T>(source: Signal<T>, callback: (next: T, previous: T) => void, options?: {immediate?: boolean}): () => void;
+export declare function h(tag: string | Function, props?: Record<string, unknown> | null, ...children: unknown[]): unknown;
+export declare const Fragment: string;
+export declare const createElement: typeof h;
+export type Component<P = Record<string, unknown>> = (props: P & {children?: unknown[]}) => unknown;
+export declare function createComponent<P = Record<string, unknown>>(view: Component<P>): Component<P> & {dispose(): void};
+export declare function useState<T>(initial: T | (() => T)): [Signal<T>, (value: T | ((current: T) => T)) => T];
+export declare function useReducer<S, A>(reducer: (state: S, action: A) => S, initial: S): [Signal<S>, (action: A) => S];
+export declare function useRef<T>(initial?: T): {current: T};
+export declare function useMemo<T>(factory: () => T, dependencies?: unknown[]): T;
+export declare function useCallback<T extends Function>(callback: T, dependencies?: unknown[]): T;
+export declare function useEffect(work: () => void | (() => void), dependencies?: unknown[]): void;
+export declare function createEmitter(options?: {history?: boolean}): {
+	on(event: string, listener: (payload: unknown, record: unknown) => void): () => void;
+	off(event: string, listener: Function): boolean;
+	once(event: string, listener: Function): () => void;
+	emit(event: string, payload?: unknown): number;
+	clear(event?: string): void;
+	listenerCount(event: string): number;
+	events(): string[];
+	history?: () => unknown[];
+};
+export declare function createEventStore<T extends object>(initialState?: T): {getState(): T; update(updater: Partial<T> | ((state: T) => T), event?: string): T; reset(): T};
+export declare class HttpError extends Error {status?: number; data: unknown; response: unknown}
+export declare function createHttpClient(options?: Record<string, unknown>): Function & {get: Function; post: Function; put: Function; patch: Function; delete: Function; request: Function; use: Function};
+export declare function createQueryClient(options?: {staleTime?: number}): Record<string, Function>;
+export declare class ValidationError extends Error {issues: unknown[]}
+export declare const schema: Record<string, Function>;
+export declare function validate(value: unknown, definition: {safeParse(value: unknown): unknown}): unknown;
+export type TeptopPlugin = ((app: TeptopApp, options?: unknown) => void | (() => void)) | {install(app: TeptopApp, options?: unknown): void | (() => void)};
+export interface TeptopApp {
+	name: string;
+	config: Record<string, unknown>;
+	mounted: boolean;
+	use(plugin: TeptopPlugin, options?: unknown): TeptopApp;
+	provide(key: unknown, value: unknown): TeptopApp;
+	inject<T>(key: unknown, fallback?: T): T;
+	mount(target: unknown, view: unknown): unknown;
+	unmount(): boolean;
+	destroy(): void;
+}
+export declare function createApp(options?: {name?: string; config?: Record<string, unknown>; plugins?: TeptopPlugin[]}): TeptopApp;
+export declare function definePlugin(install: TeptopPlugin, metadata?: Record<string, unknown>): TeptopPlugin;
+export declare function createLoggerPlugin(options?: {level?: string; logger?: Console}): TeptopPlugin;
+export type Middleware<T = Record<string, unknown>> = (context: T, next: () => Promise<T>) => T | Promise<T>;
+export declare function compose<T = Record<string, unknown>>(middleware?: Middleware<T>[]): (context?: T, next?: Middleware<T>) => Promise<T>;
+export declare function createPipeline<T = Record<string, unknown>>(options?: {middleware?: Middleware<T>[]}): {
+	use(handler: Middleware<T>): () => void;
+	before(handler: (context: T) => T | Promise<T>): unknown;
+	after(handler: (context: T) => T | Promise<T>): unknown;
+	onError(handler: (error: unknown, context: T) => unknown): unknown;
+	size(): number;
+	run(input?: T, terminal?: Middleware<T>): Promise<T>;
+};
+export declare function createRequestPipeline(options?: Record<string, unknown>): ReturnType<typeof createPipeline>;
+export declare function createCollection<T>(initialItems?: T[], options?: {getId?: (item: T, index: number) => unknown}): {
+	state: Signal<Record<string, unknown>>;
+	items: Signal<T[]>;
+	visible: Signal<T[]>;
+	query: Signal<string>;
+	selected: Signal<unknown[]>;
+	status: Signal<string>;
+	setQuery(value: string): unknown;
+	sortBy(compare: (left: T, right: T) => number): unknown;
+	add(item: T): T;
+	update(id: unknown, changes: Partial<T> | ((item: T) => Partial<T>)): T | undefined;
+	remove(id: unknown): T | undefined;
+	select(id: unknown, selected?: boolean): unknown;
+	toggle(id: unknown): unknown;
+	clearSelection(): unknown;
+	replace(items: T[]): unknown;
+	load(loader: () => Promise<T[]>): Promise<T[]>;
+	reset(): unknown;
+};
+export declare const version: string;

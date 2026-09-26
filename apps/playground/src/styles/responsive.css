@@ -1,0 +1,1 @@
+@media (max-width: 760px) { .grid { grid-template-columns: repeat(2, 1fr); } .content { grid-template-columns: 1fr; } .shell { width: min(100% - 22px, 600px); padding-top: 18px; } }

@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {createTimeline} from './timeline.js'; test('timeline stores entries', () => { const timeline = createTimeline(); timeline.push('render'); assert.deepEqual(timeline.read(), ['render']); });

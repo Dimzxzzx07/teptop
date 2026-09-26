@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {createMemoryStorage} from './memory.js'; test('memory storage persists values', () => { const storage = createMemoryStorage(); storage.setItem('x', 'y'); assert.equal(storage.getItem('x'), 'y'); });

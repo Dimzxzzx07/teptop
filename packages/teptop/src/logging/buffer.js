@@ -1,0 +1,1 @@
+export function createLogBuffer(limit = 100) { const entries = []; return {push(entry) { entries.push({...entry, at: Date.now()}); while (entries.length > limit) entries.shift(); }, read: () => entries.slice(), clear: () => entries.splice(0)}; }

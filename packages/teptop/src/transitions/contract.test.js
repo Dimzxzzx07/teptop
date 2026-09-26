@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {transitionClass} from './classes.js'; test('transition class combines name and state', () => assert.equal(transitionClass('fade', 'enter'), 'fade-enter'));

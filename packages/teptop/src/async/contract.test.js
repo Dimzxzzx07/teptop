@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {toPromise} from './promise.js'; test('async promise helper resolves values', async () => assert.equal(await toPromise(1), 1));

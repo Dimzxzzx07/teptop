@@ -1,0 +1,1 @@
+export function debounce(work, delay = 0) { let timer; const wrapped = (...args) => { clearTimeout(timer); timer = setTimeout(() => work(...args), delay); }; wrapped.cancel = () => clearTimeout(timer); return wrapped; }

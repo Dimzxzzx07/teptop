@@ -1,0 +1,1 @@
+export function createErrorReporter(sink = console) { const errors = []; return {capture(error, context = {}) { errors.push({error, context, at: Date.now()}); sink.error?.(error); }, all: () => errors.slice(), clear: () => errors.splice(0)}; }

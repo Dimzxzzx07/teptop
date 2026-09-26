@@ -1,0 +1,25 @@
+{
+    "name":  "@teptop/server",
+    "version":  "0.0.1",
+    "description":  "Server rendering utilities for Teptop.js.",
+    "type":  "module",
+    "main":  "src/index.js",
+    "types":  "src/index.d.ts",
+    "exports":  {
+                    ".":  {
+                              "types":  "./src/index.d.ts",
+                              "import":  "./src/index.js",
+                              "default":  "./src/index.js"
+                          }
+                },
+    "scripts":  {
+                    "test":  "node --test test/*.test.js"
+                },
+    "dependencies":  {
+                         "teptop.js":  "0.0.1"
+                     },
+    "license":  "MIT",
+    "publishConfig":  {
+                          "access":  "public"
+                      }
+}

@@ -1,0 +1,1 @@
+export function parseURL(input, base = 'http://localhost') { const url = new URL(input, base); return {href: url.href, pathname: url.pathname, query: Object.fromEntries(url.searchParams), hash: url.hash}; }

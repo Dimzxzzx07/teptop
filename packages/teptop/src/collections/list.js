@@ -1,0 +1,1 @@
+export function createList(items = []) { let values = [...items]; return {all: () => values.slice(), append: item => (values = [...values, item]), prepend: item => (values = [item, ...values]), remove: predicate => (values = values.filter(item => !predicate(item))), map: mapper => values.map(mapper)}; }

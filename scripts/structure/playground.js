@@ -1,0 +1,1 @@
+import {readdir} from 'node:fs/promises'; const entries = await readdir('apps/playground/src', {withFileTypes: true}); console.log(`Playground domains: ${entries.filter(entry => entry.isDirectory()).map(entry => entry.name).join(', ')}`);

@@ -1,0 +1,1 @@
+export const delegate = (root, event, selector, work) => { const listener = value => { if (value.target.closest?.(selector)) work(value); }; root.addEventListener(event, listener); return () => root.removeEventListener(event, listener); };

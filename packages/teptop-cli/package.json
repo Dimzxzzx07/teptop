@@ -1,0 +1,17 @@
+{
+    "name":  "teptop-cli",
+    "version":  "0.0.1",
+    "description":  "Project utilities for Teptop.js applications.",
+    "type":  "module",
+    "bin":  {
+                "teptop":  "src/cli.js"
+            },
+    "exports":  {
+                    ".":  "./src/cli.js"
+                },
+    "dependencies":  {
+                         "chalk":  "^3.0.0",
+                         "ora":  "^5.4.1"
+                     },
+    "license":  "MIT"
+}

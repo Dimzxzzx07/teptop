@@ -1,0 +1,1 @@
+export const cancellable = work => { const controller = new AbortController(); return {signal: controller.signal, promise: Promise.resolve().then(() => work(controller.signal)), cancel: () => controller.abort()}; };

@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import {mergeConfig} from './merge.js'; test('config merges overrides', () => assert.deepEqual(mergeConfig({a: 1}, {b: 2}), {a: 1, b: 2}));
