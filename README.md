@@ -20,7 +20,23 @@ Run the Chromium browser integration suite with `npm run test:browser`.
 
 Run the Vite browser playground with `npm run dev` or `npm run demo`.
 
+Run the modern production-ready workflow with `npm run dev:modern`, `npm run build:prod`, and `npm run preview:prod`.
+
 Create the official Vite + TSX starter with `npm run cli -- create my-app`; plain `h()` projects do not need JSX or Vite.
+
+## Production-ready framework goals
+
+Teptop targets a mature full-stack framework profile that competes with the strongest shipping stacks in the market. The roadmap is centered on:
+
+- Fast modern bundler and dev server with Vite-based DX
+- Routing and data orchestration for app, dashboard, and content pages
+- SSR/SSG support for SEO and better first-render performance
+- App-router style conventions for nested routes and layouts
+- Deployment presets for Node, Docker, static hosting, and edge deployment
+- Plugin ecosystem for auth, analytics, CMS, payments, forms, and monitoring
+- Template catalog for SaaS, portfolio, e-commerce, internal tools, and launch-ready apps
+
+This makes Teptop suitable for production-facing projects that need speed, maintainability, and ecosystem maturity without heavy framework overhead.
 
 Use the project generator with `npm run cli -- create my-app`.
 

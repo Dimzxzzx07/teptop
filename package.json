@@ -11,7 +11,7 @@
                        "packages/teptop-server",
                        "packages/teptop-devtools",
                        "packages/teptop-test-utils",
-                       "template/dash-admin"
+                       "template/*"
                    ],
     "scripts":  {
                     "test":  "node --test packages/teptop/test/index.test.js",
@@ -29,9 +29,18 @@
                     "demo":  "npm run dev",
                     "cli":  "node packages/teptop-cli/src/cli.js",
                     "dev":  "vite --config vite.config.js --host 127.0.0.1",
+                    "dev:modern":  "vite --config vite.config.js --host 127.0.0.1 --port 4173",
                     "build":  "vite build --config vite.config.js",
+                    "build:prod":  "vite build --config vite.config.js --emptyOutDir",
+                    "preview:prod":  "vite preview --config vite.config.js --host 127.0.0.1 --port 4173",
+                    "templates:list":  "node -e \"console.log(['dash-admin','saas','portfolio','ecommerce','internal-tool','app-lite'].join('\\n'))\"",
                     "test:browser":  "playwright test",
                     "demo:admin":  "npm run dev --workspace @teptop/template-dash-admin",
+                    "demo:saas":  "npm run dev --workspace @teptop/template-saas",
+                    "demo:portfolio":  "npm run dev --workspace @teptop/template-portfolio",
+                    "demo:ecommerce":  "npm run dev --workspace @teptop/template-ecommerce",
+                    "demo:internal-tool":  "npm run dev --workspace @teptop/template-internal-tool",
+                    "demo:app-lite":  "npm run dev --workspace @teptop/template-app-lite",
                     "test:browser:admin":  "playwright test --config template/dash-admin/playwright.config.js"
                 },
     "engines":  {
