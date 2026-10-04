@@ -1,6 +1,6 @@
 {
     "name":  "@teptop/devtools",
-    "version":  "0.0.1",
+    "version":  "0.0.4",
     "description":  "Inspection and profiling helpers for Teptop.js applications.",
     "type":  "module",
     "main":  "src/index.js",
@@ -11,7 +11,7 @@
                     "test":  "node --test test/*.test.js"
                 },
     "dependencies":  {
-                         "teptop.js":  "0.0.1"
+                         "teptop.js":  "0.0.4"
                      },
     "license":  "MIT"
 }

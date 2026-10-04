@@ -1,4 +1,4 @@
-import {createRouter, h} from '/teptop.js';
+﻿import {createRouter, h} from 'teptop.js';
 import {Navigation} from './components/Navigation.js';
 import {ShellHeader} from './components/ShellHeader.js';
 import {Overview} from './views/Overview.js';

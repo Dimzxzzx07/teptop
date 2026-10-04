@@ -6,7 +6,7 @@ Teptop combines fine-grained reactive state, a small DOM renderer, and modular a
 
 The runtime is written as native ECMAScript modules.
 
-It does not require JSX, a compiler, or a virtual-DOM package.
+It does not require JSX, a compiler, or a virtual-DOM package. Plain `h()` stays a supported compiler-free path.
 
 Views are ordinary JavaScript values created with `h()`.
 
@@ -28,6 +28,7 @@ Examples target Node.js 20 or newer unless a section explicitly says browser.
 - [First browser view](#first-browser-view)
 - [First server render](#first-server-render)
 - [Package exports](#package-exports)
+- [Upgrade guide](#upgrade-guide)
 - [Reactivity model](#reactivity-model)
 - [Signals](#signals)
 - [Computed values](#computed-values)
@@ -89,9 +90,7 @@ Examples target Node.js 20 or newer unless a section explicitly says browser.
 - `fetch` for HTTP use unless a custom implementation is injected.
 - A DOM implementation when rendering or hydrating in a browser.
 
-Teptop does not bundle a browser, DOM implementation, or development server.
-
-A bundler such as Vite is optional and is only needed when your app uses bare npm imports in a browser.
+Teptop does not bundle a browser or DOM implementation. Vite is the documented development and build path for browser applications that use bare npm imports or TSX.
 
 You can also use a browser import map or a deployment process that resolves npm modules.
 
@@ -134,19 +133,9 @@ import {toHTML} from 'teptop.js/server';
 
 ### Optional companion packages
 
-`@teptop/server` is a separately published companion package.
+This repository also contains optional `@teptop/server`, `@teptop/dom`, `@teptop/devtools`, and `@teptop/test-utils` packages plus the `teptop-cli` starter generator. They are separate workspace packages and are not required to use the core runtime.
 
-`@teptop/web` is a separately published companion package.
-
-`teptop-cli` is a separately published command-line package.
-
-They are not required to use the core runtime.
-
-Choose a version that is actually published and compatible with your release plan.
-
-The core package's own development dependencies are used for repository development.
-
-They are not automatically installed as dependencies by downstream consumers.
+When publishing, use versions listed by the package registry and keep companion dependency ranges aligned with the release notes.
 
 ## First browser view
 
@@ -182,6 +171,21 @@ The returned root has an `element()` method.
 The returned root has a `destroy()` method.
 
 Call `destroy()` when the rendered region is no longer needed.
+
+### TSX with Vite
+
+The official TSX path uses TypeScript's automatic JSX transform and Teptop's own JSX runtime. It does not use React or require a React compatibility layer.
+
+```tsx
+import {createComponent, useState} from 'teptop.js';
+
+export const Counter = createComponent(() => {
+  const [count, setCount] = useState(0);
+  return <button onclick={() => setCount(value => value + 1)}>Count: {count()}</button>;
+});
+```
+
+Set `jsx` to `react-jsx` and `jsxImportSource` to `teptop.js` in `tsconfig.json`. Vite compiles TSX with the automatic runtime; `npm run cli -- create my-app` generates a configured starter. Plain `h()` remains supported without Vite or a compiler.
 
 ## First server render
 
@@ -243,6 +247,10 @@ The root export contains the primary runtime and re-exports the application subs
 
 `teptop.js/data` exposes reactive collections.
 
+`teptop.js/jsx-runtime` and `teptop.js/jsx-dev-runtime` expose Teptop's automatic JSX runtime for Vite and TypeScript TSX projects.
+
+`teptop.js/jsx-runtime` and `teptop.js/jsx-dev-runtime` expose Teptop's automatic JSX runtime for Vite and TypeScript TSX projects.
+
 Use root imports when an application already imports core runtime functions.
 
 Use subpath imports when you want a clear module boundary.
@@ -250,6 +258,10 @@ Use subpath imports when you want a clear module boundary.
 Import paths are case-sensitive on many deployment systems.
 
 Do not import private source paths that are not listed in `exports`.
+
+## Upgrade guide
+
+For renderer, hydration, JSX, and release migration notes, read [Upgrade to 0.0.4](../../docs/upgrade-0.0.4.md) and the workspace [changelog](../../CHANGELOG.md).
 
 ## Reactivity model
 
@@ -838,15 +850,13 @@ Do not call browser rendering from a server-only module.
 
 ### Hydration
 
-`hydrate(view, target)` creates a root and renders the supplied view.
+`hydrate(view, target)` adopts matching server-rendered nodes, attaches client event handlers, and returns a root handle. It does not duplicate existing markup.
 
-The target must exist.
+The target must exist. Structural differences throw `HydrationMismatchError` with the vnode path and expected/actual node descriptions; mismatched markup is left untouched.
 
-The current implementation is a small helper, not a complete streaming hydration system.
+Fragment and adjacent text boundaries are represented by Teptop comments in SSR output so browser parsing preserves hydration ranges.
 
-Verify server markup compatibility before relying on hydration for production content.
-
-Hydration behavior should be covered by an integration test for your exact markup.
+This is synchronous tree hydration, not a streaming or partial hydration system.
 
 ### Render ownership
 

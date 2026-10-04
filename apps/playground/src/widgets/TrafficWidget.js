@@ -1,1 +1,1 @@
-import {h} from '/teptop.js'; import {Sparkline} from '../components/Sparkline.js'; import {traffic} from '../data/charts.js'; export const TrafficWidget = () => h('div', {className: 'widget'}, h('span', null, 'Traffic'), h(Sparkline, {points: traffic}));
+﻿import {h} from 'teptop.js'; import {Sparkline} from '../components/Sparkline.js'; import {traffic} from '../data/charts.js'; export const TrafficWidget = () => h('div', {className: 'widget'}, h('span', null, 'Traffic'), h(Sparkline, {points: traffic}));

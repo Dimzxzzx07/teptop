@@ -3,10 +3,12 @@
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "jsx": "react-jsx",
+    "jsxImportSource": "teptop.js",
     "allowJs": false,
     "strict": true,
     "noEmit": true,
     "skipLibCheck": true
   },
-  "include": ["packages/teptop/src/index.d.ts"]
+  "include": ["packages/teptop/src/index.d.ts", "apps/playground/src/**/*.tsx"]
 }

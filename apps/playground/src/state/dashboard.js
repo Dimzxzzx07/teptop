@@ -1,4 +1,4 @@
-import {computed, signal} from '/teptop.js';
+﻿import {computed, signal} from 'teptop.js';
 
 export const visits = signal(12840);
 export const title = computed(() => `${visits().toLocaleString()} active sessions`);

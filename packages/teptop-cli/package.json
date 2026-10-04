@@ -1,6 +1,6 @@
 {
     "name":  "teptop-cli",
-    "version":  "0.0.1",
+    "version":  "0.0.4",
     "description":  "Project utilities for Teptop.js applications.",
     "type":  "module",
     "bin":  {
@@ -9,9 +9,22 @@
     "exports":  {
                     ".":  "./src/cli.js"
                 },
+    "scripts":  {
+                    "test":  "node --test test/*.test.js"
+                },
     "dependencies":  {
+                         "teptop.js":  "0.0.4",
                          "chalk":  "^3.0.0",
                          "ora":  "^5.4.1"
                      },
-    "license":  "MIT"
+    "license":  "MIT",
+    "engines":  {
+                    "node":  ">=20"
+                },
+    "keywords":  [
+                     "teptop",
+                     "cli",
+                     "scaffolding",
+                     "vite"
+                 ]
 }

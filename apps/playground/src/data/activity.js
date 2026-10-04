@@ -1,4 +1,4 @@
-import {resource} from '/teptop.js';
+﻿import {resource} from 'teptop.js';
 
 const activityRows = [
   ['Deploy completed', 'production', '2m ago'],

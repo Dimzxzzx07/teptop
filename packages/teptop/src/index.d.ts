@@ -5,6 +5,12 @@ export declare function effect(work: () => void | (() => void)): () => void;
 export declare function batch<T>(work: () => T): T;
 export declare function watch<T>(source: Signal<T>, callback: (next: T, previous: T) => void, options?: {immediate?: boolean}): () => void;
 export declare function h(tag: string | Function, props?: Record<string, unknown> | null, ...children: unknown[]): unknown;
+export interface TeptopRenderHandle {element(): Element | null; destroy(): void}
+export interface TeptopRoot {render(view: unknown): TeptopRenderHandle; unmount(): void}
+export declare function render(view: unknown, target: Element): TeptopRenderHandle;
+export declare function createRoot(target: Element): TeptopRoot;
+export declare function hydrate(view: unknown, target: Element): TeptopRenderHandle & {render(view: unknown): TeptopRenderHandle; unmount(): void};
+export declare class HydrationMismatchError extends Error {path: string; expected: string; actual: string}
 export declare const Fragment: string;
 export declare const createElement: typeof h;
 export type Component<P = Record<string, unknown>> = (props: P & {children?: unknown[]}) => unknown;

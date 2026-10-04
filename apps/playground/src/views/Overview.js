@@ -1,4 +1,4 @@
-import {h} from '/teptop.js';
+﻿import {h} from 'teptop.js';
 import {activity} from '../data/activity.js';
 import {metrics, title} from '../state/dashboard.js';
 import {ActivityPanel} from '../components/ActivityPanel.js';

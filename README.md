@@ -2,23 +2,7 @@
 
 Teptop.js is a signal-first JavaScript UI runtime and application toolkit.
 
-This root README combines setup guidance with a generated, path-by-path catalog of the workspace.
-
-The catalog names and describes every file and directory found beneath the repository root.
-
-Installed `node_modules` directories and Git metadata in `.git` are excluded from the project catalog.
-
-Hidden files and folders are included when the filesystem makes them visible to this generator.
-
-Generated build output, fixtures, package internals, tests, manifests, and scripts are included.
-
-The inventory is a snapshot; rerun the generator after adding, removing, or renaming workspace paths.
-
-Some package families use a shared generated layout; each path still has its own catalog entry.
-
-Descriptions are derived from the path, extension, and containing module to make the full tree scannable.
-
-Read the referenced source or test when implementation details are needed.
+This README covers workspace setup and the official signal-first application path. The full API reference lives in `packages/teptop/README.md`.
 
 ## Quick start
 
@@ -32,7 +16,11 @@ Run the wider test command with `npm run test:all`.
 
 Run TypeScript declaration checks with `npm run typecheck`.
 
-Run the browser playground with `npm run demo`.
+Run the Chromium browser integration suite with `npm run test:browser`.
+
+Run the Vite browser playground with `npm run dev` or `npm run demo`.
+
+Create the official Vite + TSX starter with `npm run cli -- create my-app`; plain `h()` projects do not need JSX or Vite.
 
 Use the project generator with `npm run cli -- create my-app`.
 

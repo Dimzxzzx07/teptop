@@ -1,6 +1,6 @@
 {
     "name":  "@teptop/dom",
-    "version":  "0.0.1",
+    "version":  "0.0.4",
     "description":  "DOM adapters and browser helpers for Teptop.js.",
     "type":  "module",
     "main":  "src/index.js",
@@ -11,7 +11,7 @@
                     "test":  "node --test test/*.test.js"
                 },
     "dependencies":  {
-                         "teptop.js":  "0.0.1"
+                         "teptop.js":  "0.0.4"
                      },
     "license":  "MIT"
 }

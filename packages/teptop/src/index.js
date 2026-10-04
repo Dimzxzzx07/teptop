@@ -284,6 +284,8 @@ export function createComponent(view) {
   component.dispose = () => {
     instance.disposers.forEach(dispose => dispose());
     instance.disposers.clear();
+    instance.hooks.length = 0;
+    instance.cursor = 0;
   };
   return component;
 }
@@ -331,6 +333,7 @@ export function useEffect(work, dependencies = []) {
   const previous = instance.hooks[index];
   if (!previous || !sameDependencies(previous.dependencies, dependencies)) {
     previous?.stop();
+    if (previous) instance.disposers.delete(previous.stop);
     const stop = effect(() => work());
     instance.hooks[index] = {dependencies: [...dependencies], stop};
     instance.disposers.add(stop);
@@ -341,107 +344,395 @@ export function ref(initialValue = null) {
   return {current: initialValue};
 }
 
+const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
+const FRAGMENT_TAG = 'teptop-fragment';
+const EMPTY = Symbol('teptop.empty');
+const booleanProperties = new Set(['checked', 'disabled', 'multiple', 'muted', 'readOnly', 'required', 'selected', 'autofocus', 'hidden', 'open']);
+const unitlessStyles = new Set(['animationIterationCount', 'borderImageOutset', 'borderImageSlice', 'borderImageWidth', 'columnCount', 'flex', 'flexGrow', 'flexShrink', 'fontWeight', 'gridArea', 'gridColumn', 'gridColumnEnd', 'gridColumnStart', 'gridRow', 'gridRowEnd', 'gridRowStart', 'lineHeight', 'opacity', 'order', 'scale', 'strokeDasharray', 'strokeDashoffset', 'strokeMiterlimit', 'strokeOpacity', 'strokeWidth', 'tabSize', 'WebkitLineClamp', 'zIndex', 'zoom']);
+const propertyNames = {className: 'class', htmlFor: 'for', tabIndex: 'tabindex', readOnly: 'readonly', autoFocus: 'autofocus'};
+
 const resolve = value => isFunction(value) && !value.__teptopHandler ? value() : value;
 
-function normalize(value) {
-  if (isFunction(value) && value.dispose) activeComponents?.add(value);
-  value = resolve(value);
-  if (value == null || value === false || value === true) return {tag: null, props: {}, children: []};
-  if (Array.isArray(value)) return h('teptop-fragment', null, ...value);
+export class HydrationMismatchError extends Error {
+  constructor(path, expected, actual) {
+    super(`Teptop hydration mismatch at ${path}: expected ${expected}, received ${actual}.`);
+    this.name = 'HydrationMismatchError';
+    this.path = path;
+    this.expected = expected;
+    this.actual = actual;
+  }
+}
+
+function normalize(value, components = activeComponents) {
+  if (isFunction(value)) {
+    if (value.dispose) components?.add(value);
+    value = value();
+  }
+  if (value == null || value === false || value === true) return EMPTY;
+  if (Array.isArray(value)) value = h(FRAGMENT_TAG, null, ...value);
   if (!isObject(value)) return String(value);
   if (isFunction(value.tag)) {
-    activeComponents?.add(value.tag);
-    return normalize(value.tag({...value.props, children: value.children}));
+    if (value.tag.dispose) components?.add(value.tag);
+    return normalize(value.tag({...value.props, children: value.children}), components);
   }
-  return {...value, children: value.children.map(normalize)};
+  return {...value, children: (value.children || []).map(child => normalize(child, components))};
 }
 
-function setProperty(element, name, value, previous) {
-  if (name === 'key' || name === 'ref') return;
-  const attribute = name === 'className' ? 'class' : name;
-  if (name === 'style' && isObject(value)) {
-    Object.assign(element.style, value);
+function isFragment(vnode) {
+  return vnode && typeof vnode === 'object' && (vnode.tag === Fragment || vnode.tag === FRAGMENT_TAG);
+}
+
+function instanceKind(vnode) {
+  if (vnode === EMPTY) return 'empty';
+  if (typeof vnode === 'string') return 'text';
+  return isFragment(vnode) ? 'fragment' : 'element';
+}
+
+function firstNode(instance) {
+  if (!instance || instance.kind === 'empty') return null;
+  return instance.kind === 'fragment' ? instance.start : instance.node;
+}
+
+function lastNode(instance) {
+  if (!instance || instance.kind === 'empty') return null;
+  return instance.kind === 'fragment' ? instance.end : instance.node;
+}
+
+function rangeNodes(instance) {
+  const first = firstNode(instance);
+  const last = lastNode(instance);
+  if (!first || !last) return [];
+  const nodes = [];
+  let current = first;
+  while (current) {
+    nodes.push(current);
+    if (current === last) break;
+    current = current.nextSibling;
+  }
+  return nodes;
+}
+
+function insertRange(parent, instance, before) {
+  for (const node of rangeNodes(instance)) parent.insertBefore(node, before || null);
+}
+
+function eventType(name) {
+  if (name.startsWith('on:')) return name.slice(3).toLowerCase();
+  return name.startsWith('on') ? name.slice(2).toLowerCase() : null;
+}
+
+function setStyle(element, next, previous = {}) {
+  for (const name of Object.keys(previous || {})) {
+    if (!(name in (next || {}))) {
+      if (name.startsWith('--')) element.style.removeProperty(name);
+      else element.style[name] = '';
+    }
+  }
+  for (const [name, value] of Object.entries(next || {})) {
+    if (value == null || value === false) {
+      if (name.startsWith('--')) element.style.removeProperty(name);
+      else element.style[name] = '';
+    } else if (name.startsWith('--')) element.style.setProperty(name, String(value));
+    else element.style[name] = typeof value === 'number' && value !== 0 && !unitlessStyles.has(name) && !name.startsWith('--') ? `${value}px` : String(value);
+  }
+}
+
+function setProperty(instance, name, value, previous) {
+  const element = instance.node;
+  if (name === 'key') return;
+  if (name === 'ref') {
+    if (previous && previous !== value && previous.current === element) previous.current = null;
+    if (value) value.current = element;
     return;
   }
-  if (name.startsWith('on')) {
-    const event = name.slice(2).toLowerCase();
-    if (previous) element.removeEventListener(event, previous);
-    if (isFunction(value)) element.addEventListener(event, value);
+  const event = eventType(name);
+  if (event) {
+    const oldHandler = instance.events.get(event);
+    if (oldHandler) element.removeEventListener(event, oldHandler);
+    instance.events.delete(event);
+    if (isFunction(value)) {
+      element.addEventListener(event, value);
+      instance.events.set(event, value);
+    }
     return;
   }
-  if (value === false || value == null) element.removeAttribute(attribute);
-  else if (value === true) element.setAttribute(attribute, '');
-  else if (value !== previous) element.setAttribute(attribute, value);
+  if (name === 'style') {
+    setStyle(element, value, previous);
+    return;
+  }
+  const attribute = propertyNames[name] || name;
+  if (name === 'value' || name === 'checked' || name === 'selected') {
+    if (name === 'value') element.value = value == null ? '' : String(value);
+    else element[name] = Boolean(value);
+    if (value == null || value === false) element.removeAttribute(attribute);
+    else element.setAttribute(attribute, value === true ? '' : String(value));
+    return;
+  }
+  if (booleanProperties.has(name)) {
+    element[name] = Boolean(value);
+    if (value) element.setAttribute(attribute, '');
+    else element.removeAttribute(attribute);
+    return;
+  }
+  if (value == null || value === false) {
+    element.removeAttribute(attribute);
+  } else if (value === true) {
+    element.setAttribute(attribute, '');
+  } else if (!Object.is(value, previous)) {
+    if (name === 'xlink:href') element.setAttributeNS('http://www.w3.org/1999/xlink', name, String(value));
+    else element.setAttribute(attribute, String(value));
+  }
 }
 
-function createNode(vnode) {
-  if (typeof vnode !== 'object') return document.createTextNode(vnode);
-  if (!vnode.tag) return document.createComment('teptop-empty');
-  const element = document.createElement(vnode.tag === 'teptop-fragment' ? 'span' : vnode.tag);
-  Object.entries(vnode.props).forEach(([name, property]) => {
-    if (name === 'ref' && property) property.current = element;
-    setProperty(element, name, name.startsWith('on') ? property : resolve(property));
-  });
-  vnode.children.forEach(child => element.appendChild(createNode(child)));
-  return element;
+function applyProps(instance, previous = {}, next = {}) {
+  const names = new Set([...Object.keys(previous), ...Object.keys(next)]);
+  for (const name of names) {
+    const oldValue = eventType(name) ? previous[name] : resolve(previous[name]);
+    const newValue = eventType(name) ? next[name] : resolve(next[name]);
+    if (!Object.is(oldValue, newValue) || name === 'ref' || name === 'style') setProperty(instance, name, newValue, oldValue);
+  }
+  instance.props = next;
 }
 
-function patch(parent, previous, next, node) {
-  if (!previous) {
-    const created = createNode(next);
-    parent.appendChild(created);
-    return created;
+function makeElement(document, parent, tag) {
+  const inSvg = parent.namespaceURI === SVG_NAMESPACE && parent.localName !== 'foreignObject';
+  return inSvg || tag === 'svg' ? document.createElementNS(SVG_NAMESPACE, tag) : document.createElement(tag);
+}
+
+function mountInstance(parent, vnode, before = null) {
+  const kind = instanceKind(vnode);
+  if (kind === 'empty') return {kind, vnode};
+  const document = parent.ownerDocument || globalThis.document;
+  if (kind === 'text') {
+    const node = document.createTextNode(vnode);
+    parent.insertBefore(node, before);
+    return {kind, node, vnode};
   }
-  if (!next) {
-    node.remove();
-    return null;
+  if (kind === 'fragment') {
+    const start = document.createComment('teptop:fragment:start');
+    const end = document.createComment('teptop:fragment:end');
+    parent.insertBefore(start, before);
+    parent.insertBefore(end, before);
+    const instance = {kind, start, end, children: [], vnode};
+    instance.children = reconcileChildren(parent, [], vnode.children, end);
+    return instance;
   }
-  if (typeof previous !== typeof next || (isObject(next) && previous.tag !== next.tag)) {
-    const created = createNode(next);
-    parent.replaceChild(created, node);
-    return created;
+  const node = makeElement(document, parent, vnode.tag);
+  parent.insertBefore(node, before);
+  const instance = {kind, node, events: new Map(), props: {}, children: [], vnode};
+  applyProps(instance, {}, vnode.props);
+  instance.children = reconcileChildren(node, [], vnode.children, null);
+  return instance;
+}
+
+function unmountInstance(instance) {
+  if (!instance || instance.kind === 'empty') return;
+  if (instance.kind === 'text') {
+    instance.node.remove();
+    return;
   }
-  if (!isObject(next)) {
-    if (previous !== next) node.nodeValue = next;
-    return node;
+  if (instance.kind === 'element') {
+    for (const child of instance.children) unmountInstance(child);
+    for (const [event, handler] of instance.events) instance.node.removeEventListener(event, handler);
+    const refValue = instance.props.ref;
+    if (refValue?.current === instance.node) refValue.current = null;
+    instance.node.remove();
+    return;
   }
-  const props = new Set([...Object.keys(previous.props), ...Object.keys(next.props)]);
-  props.forEach(name => {
-    const oldValue = name.startsWith('on') ? previous.props[name] : resolve(previous.props[name]);
-    const newValue = name.startsWith('on') ? next.props[name] : resolve(next.props[name]);
-    if (name === 'ref') {
-      if (previous.props[name]?.current === node) previous.props[name].current = null;
-      if (next.props[name]) next.props[name].current = node;
-    } else setProperty(node, name, newValue, oldValue);
+  for (const child of instance.children) unmountInstance(child);
+  instance.start.remove();
+  instance.end.remove();
+}
+
+function compatible(instance, vnode) {
+  const kind = instanceKind(vnode);
+  return instance?.kind === kind && (kind !== 'element' || instance.vnode.tag === vnode.tag);
+}
+
+function patchInstance(parent, instance, vnode, before = null) {
+  if (!instance) return mountInstance(parent, vnode, before);
+  if (!compatible(instance, vnode)) {
+    const nextNode = lastNode(instance)?.nextSibling || before;
+    unmountInstance(instance);
+    return mountInstance(parent, vnode, nextNode);
+  }
+  if (instance.kind === 'empty') {
+    instance.vnode = vnode;
+    return instance;
+  }
+  if (instance.kind === 'text') {
+    if (instance.node.nodeValue !== vnode) instance.node.nodeValue = vnode;
+    instance.vnode = vnode;
+    return instance;
+  }
+  if (instance.kind === 'fragment') {
+    instance.children = reconcileChildren(parent, instance.children, vnode.children, instance.end);
+    instance.vnode = vnode;
+    return instance;
+  }
+  applyProps(instance, instance.props, vnode.props);
+  instance.children = reconcileChildren(instance.node, instance.children, vnode.children, null);
+  instance.vnode = vnode;
+  return instance;
+}
+
+function childIdentity(vnode, index) {
+  const key = vnode && typeof vnode === 'object' ? vnode.key : undefined;
+  return key == null ? `index:${index}` : `key:${typeof key}:${String(key)}`;
+}
+
+function reconcileChildren(parent, previous, next, boundary) {
+  const available = new Map();
+  previous.forEach((instance, index) => {
+    const identity = childIdentity(instance.vnode, index);
+    if (available.has(identity)) throw new Error(`Duplicate Teptop child key: ${identity.slice(4)}`);
+    available.set(identity, instance);
   });
-  const oldChildren = previous.children;
-  const newChildren = next.children;
-  const pool = new Map(oldChildren.map((child, index) => [child.key ?? index, {child, node: node.childNodes[index]}]));
-  newChildren.forEach((child, index) => {
-    const entry = pool.get(child.key ?? index);
-    const updated = patch(node, entry?.child || oldChildren[index], child, entry?.node || node.childNodes[index]);
-    if (updated && updated !== node.childNodes[index]) node.insertBefore(updated, node.childNodes[index] || null);
-    pool.delete(child.key ?? index);
+  const seen = new Set();
+  const children = next.map((vnode, index) => {
+    const identity = childIdentity(vnode, index);
+    if (seen.has(identity)) throw new Error(`Duplicate Teptop child key: ${identity.slice(4)}`);
+    seen.add(identity);
+    const old = available.get(identity);
+    available.delete(identity);
+    return patchInstance(parent, old, vnode, boundary);
   });
-  pool.forEach(entry => entry.node?.remove());
-  return node;
+  available.forEach(unmountInstance);
+  let reference = boundary;
+  for (let index = children.length - 1; index >= 0; index--) {
+    const child = children[index];
+    const first = firstNode(child);
+    const last = lastNode(child);
+    if (!first) continue;
+    if (last.nextSibling !== reference) insertRange(parent, child, reference);
+    reference = first;
+  }
+  return children;
+}
+
+function mismatch(path, expected, node) {
+  const actual = !node ? 'end of children' : node.nodeType === 1 ? `<${node.localName}>` : node.nodeType === 3 ? 'text node' : `comment ${JSON.stringify(node.nodeValue)}`;
+  throw new HydrationMismatchError(path, expected, actual);
+}
+
+function verifyHydrationList(children, parent, first, stopAt, path) {
+  let node = first;
+  for (let index = 0; index < children.length; index++) {
+    const vnode = children[index];
+    const childPath = `${path}.${index}`;
+    if (vnode === EMPTY) continue;
+    if (isFragment(vnode)) {
+      if (node?.nodeType !== 8 || node.nodeValue !== 'teptop:fragment:start') mismatch(childPath, 'fragment start marker', node);
+      const end = findFragmentEnd(node.nextSibling, stopAt);
+      if (!end) mismatch(childPath, 'fragment end marker', null);
+      verifyHydrationList(vnode.children, parent, node.nextSibling, end, childPath);
+      node = end.nextSibling;
+      continue;
+    }
+    if (typeof vnode === 'string') {
+      if (node?.nodeType === 8 && node.nodeValue === 'teptop:text') {
+        if (node.nextSibling?.nodeType !== 3) mismatch(childPath, 'text node after text marker', node.nextSibling);
+        node = node.nextSibling.nextSibling;
+      } else {
+        if (node?.nodeType !== 3) mismatch(childPath, 'text node', node);
+        node = node.nextSibling;
+      }
+      continue;
+    }
+    if (node?.nodeType !== 1 || node.localName !== vnode.tag.toLowerCase()) mismatch(childPath, `<${vnode.tag}>`, node);
+    verifyHydrationList(vnode.children, node, node.firstChild, null, childPath);
+    node = node.nextSibling;
+  }
+  if (node !== stopAt) mismatch(path, 'no extra server nodes', node);
+}
+
+function findFragmentEnd(node, stopAt) {
+  let depth = 0;
+  while (node && node !== stopAt) {
+    if (node.nodeType === 8 && node.nodeValue === 'teptop:fragment:start') depth++;
+    if (node.nodeType === 8 && node.nodeValue === 'teptop:fragment:end') {
+      if (depth === 0) return node;
+      depth--;
+    }
+    node = node.nextSibling;
+  }
+  return null;
+}
+
+function adoptHydratedList(children, parent, first, stopAt, components) {
+  let node = first;
+  return children.map(vnode => {
+    if (vnode === EMPTY) return {kind: 'empty', vnode};
+    if (isFragment(vnode)) {
+      const start = node;
+      const end = findFragmentEnd(start.nextSibling, stopAt);
+      const instance = {kind: 'fragment', start, end, children: [], vnode};
+      instance.children = adoptHydratedList(vnode.children, parent, start.nextSibling, end, components);
+      node = end.nextSibling;
+      return instance;
+    }
+    if (typeof vnode === 'string') {
+      if (node?.nodeType === 8 && node.nodeValue === 'teptop:text') {
+        const textNode = node.nextSibling;
+        const instance = {kind: 'text', node: textNode, vnode};
+        textNode.nodeValue = vnode;
+        node = textNode.nextSibling;
+        return instance;
+      }
+      const instance = {kind: 'text', node, vnode};
+      node.nodeValue = vnode;
+      node = node.nextSibling;
+      return instance;
+    }
+    const element = node;
+    const instance = {kind: 'element', node: element, events: new Map(), props: {}, children: [], vnode};
+    applyProps(instance, {}, vnode.props);
+    instance.children = adoptHydratedList(vnode.children, element, element.firstChild, null, components);
+    node = node.nextSibling;
+    return instance;
+  });
+}
+
+function renderInto(view, target, hydrateExisting = false) {
+  if (!target) throw new Error('Teptop render target was not found.');
+  let current = null;
+  let components = new Set();
+  let destroyed = false;
+  const stop = effect(() => {
+    if (destroyed) return;
+    const previousActive = activeComponents;
+    const nextComponents = new Set();
+    activeComponents = nextComponents;
+    let next;
+    try { next = normalize(view); }
+    finally { activeComponents = previousActive; }
+    if (hydrateExisting) {
+      verifyHydrationList([next], target, target.firstChild, null, 'root');
+      const rootParent = target.ownerDocument.createDocumentFragment();
+      current = adoptHydratedList([next], rootParent, target.firstChild, null, nextComponents)[0];
+      hydrateExisting = false;
+    } else {
+      current = patchInstance(target, current, next, null);
+    }
+    components.forEach(component => { if (!nextComponents.has(component)) component.dispose(); });
+    components = nextComponents;
+  });
+  return {
+    element: () => firstNode(current),
+    destroy() {
+      if (destroyed) return;
+      destroyed = true;
+      stop();
+      unmountInstance(current);
+      components.forEach(component => component.dispose());
+      components.clear();
+      current = null;
+    },
+  };
 }
 
 export function render(view, target) {
-  if (!target) throw new Error('Teptop render target was not found.');
-  let current = null;
-  let node = null;
-  const components = new Set();
-  const stop = effect(() => {
-    const previousComponents = activeComponents;
-    activeComponents = components;
-    let next;
-    try { next = normalize(view); }
-    finally { activeComponents = previousComponents; }
-    node = patch(target, current, next, node);
-    current = next;
-  });
-  return {element: () => node, destroy: () => { stop(); components.forEach(component => component.dispose()); components.clear(); node?.remove(); }};
+  return renderInto(view, target);
 }
 
 export const mount = render;
@@ -463,13 +754,13 @@ export function createRoot(target) {
 
 export function hydrate(view, target) {
   if (!target) throw new Error('Teptop hydration target was not found.');
-  const application = createRoot(target);
-  if (target.firstChild) {
-    const marker = target.firstChild;
-    application.render(view);
-    if (target.firstChild?.nodeType === 8) target.replaceChild(marker, target.firstChild);
-  } else application.render(view);
-  return application;
+  let app = target.firstChild ? renderInto(view, target, true) : render(view, target);
+  return {
+    element: () => app.element(),
+    render(nextView) { app.destroy(); app = render(nextView, target); return app; },
+    unmount() { app.destroy(); },
+    destroy() { app.destroy(); },
+  };
 }
 
 export function createRouter(routes, target) {
@@ -478,16 +769,19 @@ export function createRouter(routes, target) {
     if (globalThis.history) globalThis.history.pushState({}, '', nextPath);
     path.set(nextPath);
   };
-  const matchRoute = currentPath => Object.entries(routes).find(([pattern]) => {
-    if (pattern === '*') return false;
-    const names = [];
-    const expression = new RegExp(`^${pattern.replace(/:[^/]+/g, name => { names.push(name.slice(1)); return '([^/]+)'; })}$`);
-    const match = currentPath.match(expression);
-    return match && {match, names};
-  });
+  const matchRoute = currentPath => {
+    for (const [pattern, route] of Object.entries(routes)) {
+      if (pattern === '*') continue;
+      const names = [];
+      const expression = new RegExp(`^${pattern.replace(/:[^/]+/g, name => { names.push(name.slice(1)); return '([^/]+)'; })}$`);
+      const match = currentPath.match(expression);
+      if (match) return {pattern, route, match, names};
+    }
+    return null;
+  };
   const view = () => {
     const result = matchRoute(path());
-    const route = result ? result[0] : routes[path()] ? path() : '*';
+    const route = result ? result.pattern : routes[path()] ? path() : '*';
     const params = result ? Object.fromEntries(result.names.map((name, index) => [name, result.match[index + 1]])) : {};
     return routes[route]({path: path(), params, navigate});
   };
@@ -497,7 +791,7 @@ export function createRouter(routes, target) {
   return {path, navigate, destroy: () => { globalThis.removeEventListener?.('popstate', onPopState); app.destroy(); }};
 }
 
-export const version = '1.3.0';
+export const version = '0.0.4';
 
 export {schedule, scheduleSync, cancelAll, pendingCount} from './scheduler.js';
 export {createAdvancedStore, persistStore} from './store.js';

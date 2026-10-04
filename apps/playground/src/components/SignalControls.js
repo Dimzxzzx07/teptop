@@ -1,4 +1,4 @@
-import {h} from '/teptop.js';
+﻿import {h} from 'teptop.js';
 import {incrementVisits} from '../state/dashboard.js';
 
 export function SignalControls() {
